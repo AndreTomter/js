@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Utvekslingsavtaler</title>
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         google.charts.load('current', {
@@ -17,33 +18,34 @@
            
         query.send(handleQueryResponseTR);
         }
-function handleQueryResponseTR(response) {
-  				if (response.isError()) {
-    				alert('Error in query: ' + response.getMessage() + ' ' + 			response.getDetailedMessage());
-    			return;
-  			}
+        function handleQueryResponseTR(response) {
+                        if (response.isError()) {
+                            alert('Error in query: ' + response.getMessage() + ' ' + 			response.getDetailedMessage());
+                        return;
+                    }
 
-        var options = {
-          
-        };
-        
-        var data = response.getDataTable();
-        
-        var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-        
-        var view = new google.visualization.DataView(data);
-        view.setRows(view.getFilteredRows([{column: 0, Value: getSelection()}]));
-        chart.draw(data, options);
-        table.draw(view, {
-        width: '100%', height: '100%'
-        
-    });
-    google.visualization.events.addListener(chart, 'select',
-            function() {
-            table.DataView.setRows(chart.getFilteredRows());})
-    
-}
+                var options = {
+
+                };
+
+                var data = response.getDataTable();
+
+                var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+
+                var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                var view = new google.visualization.DataView(data);
+                    view.setRows(view.getFilteredRows([{column: 0, Value: getSelection()}]));
+                    chart.draw(data, options);
+                    table.draw(view, {
+                    width: '100%', height: '100%'   
+
+            });
+
+            google.visualization.events.addListener(chart, 'select',
+                    function() {
+                    table.DataView.setRows(chart.getFilteredRows());})    
+        }
 
     </script>
 </head>
