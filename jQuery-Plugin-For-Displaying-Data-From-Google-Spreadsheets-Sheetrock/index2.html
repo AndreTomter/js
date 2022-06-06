@@ -2,23 +2,13 @@
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
 
-    <!-- Prism.js -->
-    <script src="https://unpkg.com/prismjs@0.0.1/prism.js" defer></script>
-    <link href="https://unpkg.com/prismjs@0.0.1/dist/prism-default/prism-default.css" rel="stylesheet" type="text/css">
-
-    <link href="https://unpkg.com/sheetrock@1.2.0/css/sheetrock.css" rel="stylesheet" type="text/css">
-	     <link href="./css/sheetrock.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" rel="stylesheet" type="text/css">
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   // Define spreadsheet URL.
 var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1vKJ1RzX1IZibZRo5CMqGr2gGdi0_bFZp4wh7t_sslxQ/#gid=0';
     
 
-// Load top ten switch hitters.
 $('#switch-hitters').sheetrock({
   url: mySpreadsheet,
   query: "select A, B, C, D, E, F, G, H, I where A = 'Institutt for økonomi'",
@@ -34,8 +24,9 @@ $('#switch-hitters').sheetrock({
   </head>
 
   <body>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-  <table id="switch-hitters" class="table table-condensed table-striped"></table>
+  <table id="switch-hitters"></table>
 
   </body>
 
