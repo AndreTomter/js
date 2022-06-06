@@ -5,36 +5,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.2.0/dist/sheetrock.min.js type="text/javascript"></script>
 	  
 <script>
-  // Define spreadsheet URL.
-var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1vKJ1RzX1IZibZRo5CMqGr2gGdi0_bFZp4wh7t_sslxQ/#gid=0';
-    
+	  // Define spreadsheet URL.
+	var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1vKJ1RzX1IZibZRo5CMqGr2gGdi0_bFZp4wh7t_sslxQ/#gid=0';
 
-$('#switch-hitters').sheetrock({
-  url: mySpreadsheet,
-  query: "select A, B, C, D, E, F, G, H, I where A = 'Institutt for økonomi'",
-  labels: [	  'AVTALE_EIER'
-		, 'UTVPROGRAMKODE'
-		, 'AVTALEID'
-		, 'INSTITUSJONSNAVN_BOKMAL'
-		, 'LANDNAVN_NORSK'
-		, 'LANDNAVN_ENGELSK'
-		, 'BYNAVN'
-		, 'FAGKODE'
-		, 'link'
-	   ],
-	
+	$('#switch-hitters').sheetrock	(
+		{
+		url:	mySpreadsheet,
+		query:	"select A, B, C, D, E, F, G, H, I where A = 'Institutt for økonomi'",
+		labels:	[	  'AVTALE_EIER'
+				, 'UTVPROGRAMKODE'
+				, 'AVTALEID'
+				, 'INSTITUSJONSNAVN_BOKMAL'
+				, 'LANDNAVN_NORSK'
+				, 'LANDNAVN_ENGELSK'
+				, 'BYNAVN'
+				, 'FAGKODE'
+				, 'link'
+			   ]
 
-}).on('sheetrock:loaded', function () {
-  $(this).DataTable();
-});
-    </script>
+
+		}
+					).on('sheetrock:loaded', function () {
+	  $(this).DataTable();
+	});
+</script>
     <title>Sheetrock</title>
 
   </head>
 
   <body>
-
-  <table id="switch-hitters"></table>
+	<p> Test av sheetrock import fra Google sheet </p>
+  	<table id="switch-hitters"></table>
 
   </body>
 
