@@ -5,6 +5,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.2.0/dist/sheetrock.min.js" type="text/javascript"></script>
 	  
 <script type="text/javascript">
+	$('#switch-hitters2').sheetrock({
+  url: mySpreadsheet,
+  sql: "select A,B",
+  chunkSize: 10
+});
+	
 	var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1vKJ1RzX1IZibZRo5CMqGr2gGdi0_bFZp4wh7t_sslxQ/#gid=0';
 
 	$('#switch-hitters').sheetrock	
@@ -30,6 +36,8 @@
   </head>
 
   <body>
+	    	<table id="switch-hitters2"></table>
+
 	<p> Test av sheetrock import fra Google sheet </p>
   	<table id="switch-hitters"></table>
 
