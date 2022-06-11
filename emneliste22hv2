@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+		
+    <script>
+// api url
+const api_url =
+	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"+"2022"+"H";
+
+// Defining async function
+async function getapi(url) {
+	
+	// Storing response
+	const response = await fetch(url);
+	
+	// Storing data in form of JSON
+	var data = await response.json();
+	console.log(data);
+	if (response) {
+		hideloader();
+	}
+	show(data);
+
+}
+
+
+// Calling that async function
+getapi(api_url);
+
+// Function to hide the loader
+function hideloader() {
+	document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+	let tab =
+		`<tr>
+		<th>Årstall</th>
+		<th>Termin</th>
+		<th>Fakultet</th>
+		<th>Institutt</th>
+		<th>Emnekode</th>
+		<th>Emnenavn</th>
+		<th>Studiepoeng</th>
+		</tr>`;
+	
+	// Loop to access all rows
+	for (let r of data.emne) {
+        tab += `<tr> 
+    <td>${r.arstall} </td>
+    <td>${r.terminkode}</td>
+    <td>${r.faknavn_bokmal}</td> 
+    <td>${r.instituttnavn_bokmal}</td> 
+    <td>${r.emnekode}</td>
+	<td>${r.emnenavn_bokmal}</td>   
+    <td>${r.studiepoeng}</td>   
+</tr>`;
+	}
+	// Setting innerHTML as tab variable
+	document.getElementById("emner").innerHTML = tab;
+}
+
+		</script>
+		<meta charset="UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	
+	
+	
+	
+	<body>
+		<!-- Here a loader is created which
+			loads till response comes -->
+		<div class="d-flex justify-content-center">
+			<div class="spinner-border"
+				role="status" id="loading">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<h1>Emner som overføres til Canvas</h1>
+		<!-- table for showing data -->
+		<table id="emner"></table>
+	</body>
+</html>
