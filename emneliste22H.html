@@ -11,21 +11,8 @@
 $(document).ready(function() {
    var table =  $('#emner').DataTable();
     
-     $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle steder")
-          {
-          table.columns(1).search('').draw();
-          }
-          else
-          {
-          table.columns(1).search( this.value ).draw();
-          }                   
-   } );
+</script>	
 
-});
-	
-	
-</script>		
 		<script>
 			
 // api url
@@ -113,7 +100,21 @@ function show(data) {
 });
 			
 	</script>
-		
+		<script>
+	
+     $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle steder")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
+
+});
+</script>
 		
 	</head>
 	
