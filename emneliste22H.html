@@ -52,6 +52,21 @@ function show(data) {
 }
 
 		</script>
+		
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script>
+		      $("#instituttDropdown").on("change", function(){
+			var opt = $(this).val();
+			$("tr").each(function(){
+			  var tr = $(this);
+			  tr.show();
+			  if (! tr.hasInstitutt(opt)){
+			    tr.hide();
+			  }
+			});
+		      });
+		    </script>
+		
 		<meta charset="UTF-8" />
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0" />
@@ -71,6 +86,14 @@ function show(data) {
 			</div>
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
+		
+		<select id="instituttDropdown" oninput="filterTable()">
+		  <option>All</option>
+		  <optioninstitutt="Institutt for informasjons- og medievitenskap" >Institutt for informasjons- og medievitenskap</option>
+		  <option institutt="Institutt for geografi">Institutt for geografi</option>
+		</select>
+		
+		
 		<!-- table for showing data -->
 		<table id="emner"></table>
 	</body>
