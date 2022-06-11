@@ -3,7 +3,11 @@
 	<head>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/> 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
-		
+<script>
+			$(document).ready(function () {
+			$('#emner').DataTable();
+			});
+			</script>		
 		<script>
 			$(document).ready(function () {
 			$('#emner').DataTable();
@@ -72,54 +76,7 @@ function show(data) {
 			});
 		      });
 	</script>
-	<script>
-	$(document).ready(function() {
-   var table =  $('#example').DataTable();
-
- $('#dropdown1').on('change', function () {
-     if(this.value=="Alle Sprachen")
-      {
-      table.columns(1).search('').draw();
-      }
-      else
-      {
-      table.columns(1).search( this.value ).draw();
-      }                   
-   } );
-
-});	
-	</script>
-				<script type="application/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script>
-		//populate options
-	$('#lang').append([...$('#mytable tr td:nth-of-type(2)')].sort().reduce((options, option) => options+=`<option value="${$(option).text()}">${$(option).text()}</option>`,'<option value="All" selected>All</option>'));
-	
-  //grab table data
-	const tableDataObj = {};
-	tableDataObj.data = [...$('#mytable tbody tr')].map(row => {
-		const rowObj = {};
-		[...$(row).children('td')].forEach((cell, index) => rowObj[$(`#mytable thead th:eq(${index})`).text()] = $(cell).text());
-		return rowObj;
-	});
-	tableDataObj.header = [];
-	tableDataObj.data.map(row => Object.keys(row)).flat().forEach(entry => {
-		if(tableDataObj.header.indexOf(entry) == -1) tableDataObj.header.push(entry);
-	});
-	
-  //draw table upon selection
-	$('#lang').on('change', function() {
-		const filteredData = JSON.parse(JSON.stringify(tableDataObj));
-		filteredData.data = filteredData.data.filter(entry => entry.Language == $(this).val() || $(this).val() == 'All');
-		$('#mytable').html('<table></table>');
-		$('#mytable').append('<thead><tr>'+filteredData.header.reduce((thead, th) => thead+=`<th>${th}</th>`,''));
-		$('#mytable').append(`<tbody>${Object.values(filteredData.data).reduce((rows, row) => rows+='<tr>'+Object.values(row).reduce((tds, td) => tds += '<td>'+td+'</td>','')+'</tr>','')}</tbody>`);
-	});
-			
-		</script>
-		<meta charset="UTF-8" />
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		
 		<script>
 			$(document).ready(function () {
 			$('#emner').DataTable();
