@@ -3,9 +3,11 @@
     <title>My Homepage</title>
     
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="js.min/datatable.bundle.min.js"></script>
-<link rel="stylesheet" href="css.min/datatable.bundle.min.css">
-                
+    
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
+    
   </head>
 
 
@@ -16,11 +18,11 @@
         ;)
     </h2>
 
-<table id="dynamic-table-1" class="table"
+
+<table class="table datatable"
        data-id-field="code"
        data-sort-name="value1"
        data-sort-order="desc"
-       data-show-chart="false"
        data-pagination="false"
        data-show-pagination-switch="false">
     <thead>
@@ -35,6 +37,16 @@
             <td>item 1</td>
             <td>40.4</td>
             <td>6.5344</td>
+        </tr>
+        <tr>
+            <td>item 2</td>
+            <td>60.2</td>
+            <td>3.232</td>
+        </tr>
+        <tr>
+            <td>item 3</td>
+            <td>20.6</td>
+            <td>9.32</td>
         </tr>
     </tbody>
 </table>
