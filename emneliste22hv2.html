@@ -2,8 +2,7 @@
 <html lang="en">
 	<head>
   <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> 
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-		
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">		
     <script>
 // api url
 const api_url =
@@ -66,6 +65,15 @@ function show(data) {
 		<meta charset="UTF-8" />
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0" />
+		
+		
+		
+		
+		<script type="text/javascript">
+        $( document ).ready(function() {
+            $('#emner').datatable({});
+        });
+</script>
 		<title>Document</title>
 	</head>
 	
@@ -83,6 +91,6 @@ function show(data) {
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
 		<!-- table for showing data -->
-		<table id="emner"></table>
+		<table id="emner" class="table"></table>
 	</body>
 </html>
