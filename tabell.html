@@ -10,8 +10,12 @@
 
    <script> 
     $(document).ready(function () {
-    $('#example').DataTable();
-    });   
+    $('#example').DataTable({
+        paging: false,
+        ordering: false,
+        info: false,
+       });
+    });
     </script>
   </head>
 
