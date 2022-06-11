@@ -7,7 +7,12 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
-    
+
+   <script> 
+    $(document).ready(function () {
+    $('#example').DataTable();
+    });   
+    </script>
   </head>
 
 
@@ -19,12 +24,8 @@
     </h2>
 
 
-<table class="table datatable"
-       data-id-field="code"
-       data-sort-name="value1"
-       data-sort-order="desc"
-       data-pagination="false"
-       data-show-pagination-switch="false">
+<table id="example" class="table datatable"
+       
     <thead>
         <tr>
             <th data-field="code" data-sortable="true">Name</th>
