@@ -114,6 +114,11 @@ function show(data) {
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<script>
+			$(document).ready(function () {
+			$('#emner').DataTable();
+			});
+			</script>
 	</head>
 	
 	
@@ -157,6 +162,6 @@ function show(data) {
 			</table>
 		
 		<!-- table for showing data -->
-		<table id="emner" class="display"></table>
+		<table id="emner" class="table table-striped table-bordered"></table>
 	</body>
 </html>
