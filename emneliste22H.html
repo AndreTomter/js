@@ -51,6 +51,7 @@ function show(data) {
 			<th>Emnekode</th>
 			<th>Emnenavn</th>
 			<th>Studiepoeng</th>
+			<th>link</th>
 		</tr>`;
 	
 	// Loop to access all rows
@@ -59,6 +60,7 @@ function show(data) {
     			<td>${r.emnekode}</td>
 			<td>${r.emnenavn_bokmal}</td>   
    			<td>${r.studiepoeng} sp</td>   
+			<td><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
