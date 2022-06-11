@@ -10,7 +10,6 @@
 <script>
 	$(document).ready(function () {
 	$('#emner').DataTable();
-		 fixedColumns: true
 		 searching: true
 	});
 </script>		
@@ -74,9 +73,10 @@ function show(data) {
 		      
 	$(document).ready(function() {
    	var table =  $('#emner').DataTable();
-     		fixedColumns: true
-		 searching: true
-
+		searching: true,
+    		processing: true,
+		scrollY: 300,
+    		paging: true
 			
 	</script>
 		
