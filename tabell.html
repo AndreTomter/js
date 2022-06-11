@@ -11,17 +11,17 @@
    <script> 
     $(document).ready(function () {
     $('#example').DataTable({
-        ajax: {
+        processing: true,
             url: 'https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H',
-            dataSrc: '',
         },
         columns: [
-            { data: 'emnekode' },
-            { data: 'emnenavn_bokmal' },
-            { data: 'studiepoeng' },
+            { data: 'emne.emnekode' },
+            { data: 'emne.emnenavn_bokmal' },
+            { data: 'emne.studiepoeng' },
         ],
     });
-});
+});    
+     
     </script>
   </head>
 
