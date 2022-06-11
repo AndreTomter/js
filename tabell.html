@@ -81,7 +81,29 @@ $('#emner').DataTable( {
     paging: true
 		});
 			
-			
+$(document).ready(function () {
+    $('#emner').DataTable({
+        columnDefs: [
+            {
+                target: 1,
+                visible: false,
+                searchable: false,
+            },
+		
+            {
+                target: 2,
+                visible: false,
+                searchable: false,
+            },
+		
+            {
+                target: 3,
+                visible: false,
+                searchable: false,
+            },
+        ],
+    });
+});			
 			
 		</script>
 		
