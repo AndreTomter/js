@@ -34,26 +34,18 @@ function hideloader() {
 function show(data) {
 	let tab =
 		`<tr>
-		<th>Årstall</th>
-		<th>Termin</th>
-		<th>Fakultet</th>
-		<th>Institutt</th>
-		<th>Emnekode</th>
-		<th>Emnenavn</th>
-		<th>Studiepoeng</th>
+			<th>Emnekode</th>
+			<th>Emnenavn</th>
+			<th>Studiepoeng</th>
 		</tr>`;
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr> 
-    <td>${r.arstall} </td>
-    <td>${r.terminkode}</td>
-    <td>${r.faknavn_bokmal}</td> 
-    <td>${r.instituttnavn_bokmal}</td> 
-    <td>${r.emnekode}</td>
-	<td>${r.emnenavn_bokmal}</td>   
-    <td>${r.studiepoeng}</td>   
-</tr>`;
+        tab += `<tr fakultet="${r.faknavn_bokmal}" institutt="${r.instituttnavn_bokmal}"> 
+    			<td>${r.emnekode}</td>
+			<td>${r.emnenavn_bokmal}</td>   
+   			<td>${r.studiepoeng} sp</td>   
+		</tr>`;
 	}
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
