@@ -65,7 +65,10 @@ function show(data) {
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
 }
-
+$('#emner').DataTable( {
+    scrollY: 50,
+    paging: true
+		});
 		</script>
 			<script>
 		$(document).ready(function () {
