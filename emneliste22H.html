@@ -83,7 +83,33 @@ function show(data) {
 
 });	
 	</script>
-		
+				<script type="application/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+		//populate options
+	$('#lang').append([...$('#mytable tr td:nth-of-type(2)')].sort().reduce((options, option) => options+=`<option value="${$(option).text()}">${$(option).text()}</option>`,'<option value="All" selected>All</option>'));
+	
+  //grab table data
+	const tableDataObj = {};
+	tableDataObj.data = [...$('#mytable tbody tr')].map(row => {
+		const rowObj = {};
+		[...$(row).children('td')].forEach((cell, index) => rowObj[$(`#mytable thead th:eq(${index})`).text()] = $(cell).text());
+		return rowObj;
+	});
+	tableDataObj.header = [];
+	tableDataObj.data.map(row => Object.keys(row)).flat().forEach(entry => {
+		if(tableDataObj.header.indexOf(entry) == -1) tableDataObj.header.push(entry);
+	});
+	
+  //draw table upon selection
+	$('#lang').on('change', function() {
+		const filteredData = JSON.parse(JSON.stringify(tableDataObj));
+		filteredData.data = filteredData.data.filter(entry => entry.Language == $(this).val() || $(this).val() == 'All');
+		$('#mytable').html('<table></table>');
+		$('#mytable').append('<thead><tr>'+filteredData.header.reduce((thead, th) => thead+=`<th>${th}</th>`,''));
+		$('#mytable').append(`<tbody>${Object.values(filteredData.data).reduce((rows, row) => rows+='<tr>'+Object.values(row).reduce((tds, td) => tds += '<td>'+td+'</td>','')+'</tr>','')}</tbody>`);
+	});
+			
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0" />
@@ -104,35 +130,31 @@ function show(data) {
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
 		
-		<select id="instituttDropdown" oninput="filterTable()">
-		  <option>All</option>
-			<option Value="Sosiologisk institutt">Sosiologisk institutt</option>
-			<option Value="Institutt for økonomim">Institutt for økonomi</option>
-		  	<option Value="Institutt for informasjons- og medievitenskap" >Institutt for informasjons- og medievitenskap</option>
-		  	<option Value="Institutt for geografi">Institutt for geografi</option>
-		</select>
-		<p></p>
-<select id="dropdown1" class="form-control filter-table" data-column="language">
-<option selected>Alle Sprachen</option>
-<option value="GER">Deutsch</option>
-<option value="ENG">Englisch</option>
-</select>
-<table id="example" class="display" cellspacing="0" width="100%">
-<thead>
-        <tr>
-            <th>Greeting</th>
-            <th>Language</th>
-        </tr>
-    </thead>
-<tr>
-<td>Hello</td>  <td data-language="ENG">Englisch</td>
-</tr>
-<tr>
-<td>Hello</td>  <td data-language="GER">German</td>
-</tr>
-</table>
-
-
+		<select id="lang"></select>
+			<table id="mytable">
+				<thead>
+					<tr>
+						<th>Greeting</th><th>Language</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Hello</td><td>English</td>
+					</tr>
+					<tr>
+						<td>Hallo</td><td>Deutsch</td>
+					</tr>
+					<tr>
+						<td>Selam</td><td>Turkce</td>
+					</tr>
+					<tr>
+						<td>Salut</td><td>Francais</td>
+					</tr>
+					<tr>
+						<td>Ciao</td><td>Italiano</td>
+					</tr>
+				</tbody>
+			</table>
 		
 		<!-- table for showing data -->
 		<table id="emner"></table>
