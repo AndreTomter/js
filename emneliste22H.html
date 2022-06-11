@@ -3,18 +3,17 @@
 	<head>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/> 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+
 <script>
-	
-$(document).ready(function() {
-   var table =  $('#emner').DataTable();
-    
-</script>	
-
-
+	$(document).ready(function () {
+	$('#emner').DataTable();
+	});
+</script>		
 		<script>
-			
+
 // api url
 const api_url =
 	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
@@ -66,20 +65,17 @@ function show(data) {
 
 		</script>
 		
-	
-		
-		
-		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script>
-		      	
-			
-			
+		      
 	$(document).ready(function() {
    	var table =  $('#emner').DataTable();
     
-   	 
+
 			
 	</script>
+		
+		
 	</head>
 	
 	
@@ -95,7 +91,11 @@ function show(data) {
 			</div>
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
-		
+		<select id="dropdown1" class="form-control filter-table" data-column="sted">
+		  <option selected>Alle steder</option>
+		  <option value="Sosiologisk institutt">Sosiologi</option>
+		  <option value="Institutt for økonomi">økonomi</option>
+		</select>
 		
 		<p> tekst </p>
 		<!-- table for showing data -->
