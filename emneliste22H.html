@@ -67,30 +67,22 @@ function show(data) {
 		      });
 	</script>
 	<script>
-		//populate options
-		$('#lang').append([...$('#emner tr td:nth-of-type(2)')].sort().reduce((options, option) => options+=`<option value="${$(option).text()}">${$(option).text()}</option>`,'<option value="All" selected>All</option>'));
-	
-  		//grab table data
-		const tableDataObj = {};
-		tableDataObj.data = [...$('#emner tbody tr')].map(row => {
-			const rowObj = {};
-			[...$(row).children('td')].forEach((cell, index) => rowObj[$(`#emner thead th:eq(${index})`).text()] = $(cell).text());
-			return rowObj;
-		});
-		tableDataObj.header = [];
-		tableDataObj.data.map(row => Object.keys(row)).flat().forEach(entry => {
-			if(tableDataObj.header.indexOf(entry) == -1) tableDataObj.header.push(entry);
-		});
-	
-  		//draw table upon selection
-		$('#lang').on('change', function() {
-		const filteredData = JSON.parse(JSON.stringify(tableDataObj));
-		filteredData.data = filteredData.data.filter(entry => entry.Language == $(this).val() || $(this).val() == 'All');
-		$('#emner').html('<table></table>');
-		$('#emner').append('<thead><tr>'+filteredData.header.reduce((thead, th) => thead+=`<th>${th}</th>`,''));
-		$('#emner').append(`<tbody>${Object.values(filteredData.data).reduce((rows, row) => rows+='<tr>'+Object.values(row).reduce((tds, td) => tds += '<td>'+td+'</td>','')+'</tr>','')}</tbody>`);
-	});
-		</script>
+	$(document).ready(function() {
+   var table =  $('#example').DataTable();
+
+ $('#dropdown1').on('change', function () {
+     if(this.value=="Alle Sprachen")
+      {
+      table.columns(1).search('').draw();
+      }
+      else
+      {
+      table.columns(1).search( this.value ).draw();
+      }                   
+   } );
+
+});	
+	</script>
 		
 		<meta charset="UTF-8" />
 		<meta name="viewport"
@@ -120,7 +112,27 @@ function show(data) {
 		  	<option Value="Institutt for geografi">Institutt for geografi</option>
 		</select>
 		<p></p>
-		<select id="lang"></select>
+<select id="dropdown1" class="form-control filter-table" data-column="language">
+<option selected>Alle Sprachen</option>
+<option value="GER">Deutsch</option>
+<option value="ENG">Englisch</option>
+</select>
+<table id="example" class="display" cellspacing="0" width="100%">
+<thead>
+        <tr>
+            <th>Greeting</th>
+            <th>Language</th>
+        </tr>
+    </thead>
+<tr>
+<td>Hello</td>  <td data-language="ENG">Englisch</td>
+</tr>
+<tr>
+<td>Hello</td>  <td data-language="GER">German</td>
+</tr>
+</table>
+
+
 		
 		<!-- table for showing data -->
 		<table id="emner"></table>
