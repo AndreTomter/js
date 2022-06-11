@@ -41,7 +41,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr fakultet="${r.faknavn_bokmal}" institutt="${r.instituttnavn_bokmal}"> 
+        tab += `<tr id="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"> 
     			<td>${r.emnekode}</td>
 			<td>${r.emnenavn_bokmal}</td>   
    			<td>${r.studiepoeng} sp</td>   
@@ -60,12 +60,12 @@ function show(data) {
 			$("tr").each(function(){
 			  var tr = $(this);
 			  tr.show();
-			  if (! tr.hasInstitutt(opt)){
+			  if (! tr.hasId(opt)){
 			    tr.hide();
 			  }
 			});
 		      });
-		    </script>
+	</script>
 		
 		<meta charset="UTF-8" />
 		<meta name="viewport"
@@ -89,8 +89,8 @@ function show(data) {
 		
 		<select id="instituttDropdown" oninput="filterTable()">
 		  <option>All</option>
-		  <optioninstitutt="Institutt for informasjons- og medievitenskap" >Institutt for informasjons- og medievitenskap</option>
-		  <option institutt="Institutt for geografi">Institutt for geografi</option>
+		  <option id="Institutt for informasjons- og medievitenskap" >Institutt for informasjons- og medievitenskap</option>
+		  <option id="Institutt for geografi">Institutt for geografi</option>
 		</select>
 		
 		
