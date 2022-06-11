@@ -44,21 +44,21 @@ function hideloader() {
 // Function to define innerHTML for HTML table
 function show(data) {
 	let tab =
-		`<tr>
+		`<thead><tr>
 			<th>Emnekode</th>
 			<th>Emnenavn</th>
 			<th>Studiepoeng</th>
 			<th>link</th>
-		</tr>`;
+		</tr></thead>`;
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"> 
+        tab += `<tbody><tr data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"> 
     			<td>${r.emnekode}</td>
 			<td>${r.emnenavn_bokmal}</td>   
    			<td>${r.studiepoeng} sp</td>   
 			<td><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
-		</tr>`;
+		</tr></tbody>`;
 	}
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
