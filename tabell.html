@@ -64,41 +64,37 @@ function show(data) {
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
 }
-$('#emner').DataTable( {
-    scrollY: 50,
-    paging: true
-		});
-		</script>
-			<script>
-		$(document).ready(function () {
-		$('#emner').DataTable( {
-    scrollY: 50,
-    paging: true
-		});
-			
-$(document).ready(function () {
-    $('#emner').DataTable({
-        columnDefs: [
-            {
-                target: 1,
-                visible: false,
-                searchable: false,
-            },
-		
-            {
-                target: 2,
-                visible: false,
-                searchable: false,
-            },
-		
-            {
-                target: 3,
-                visible: false,
-                searchable: false,
-            },
-        ],
-    });
-});			
+</script>
+<script>
+	$(document).ready(function () {
+	$('#emner').DataTable( {
+	    scrollY: 50,
+	    paging: true
+			});
+
+	$(document).ready(function () {
+	    $('#emner').DataTable({
+		columnDefs: [
+		    {
+			target: 1,
+			visible: false,
+			searchable: false,
+		    },
+
+		    {
+			target: 2,
+			visible: false,
+			searchable: false,
+		    },
+
+		    {
+			target: 3,
+			visible: false,
+			searchable: false,
+		    },
+		],
+	    });
+	});			
 			
 		</script>
 		
@@ -122,6 +118,6 @@ $(document).ready(function () {
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
 		<!-- table for showing data -->
-		<table id="emner" class="display"></table>
+		<table id="emner" class="display DataTable"></table>
 	</body>
 </html>
