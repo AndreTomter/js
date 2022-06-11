@@ -7,8 +7,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
 
 		<script>
-		$(document).ready(function () {
-		$('#emner').DataTable();
+		
 				
 // api url
 const api_url =
@@ -67,8 +66,11 @@ function show(data) {
 	document.getElementById("emner").innerHTML = tab;
 }
 
+	
+		$(document).ready(function () {
+		$('#emner').DataTable();
+		});
 		</script>
-		
 		
 		<meta charset="UTF-8" />
 		<meta name="viewport"
