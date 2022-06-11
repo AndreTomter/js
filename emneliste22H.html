@@ -67,54 +67,13 @@ function show(data) {
 		</script>
 		
 	
+		
+		
 		<script>
-	
-     $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle steder")
-          {
-          table.columns(0).search('').draw();
-          }
-          else
-          {
-          table.columns(0).search( this.value ).draw();
-          }                   
-   } );
-
-});
-</script>
-		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-		<script>
-		      $("#dropdown1").on("change", function(){
-			var opt = $(this).val();
-			$("tr").each(function(){
-			  var tr = $(this);
-			  tr.show();
-			  if (! tr.hasValue(opt)){
-			    tr.hide();
-			  }
-			});
-		      });
-			
-			
-			
-			
-			
+		
 	$(document).ready(function() {
    	var table =  $('#emner').DataTable();
     
-   	  $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle steder")
-          {
-          table.columns(0).search('').draw();
-          }
-          else
-          {
-          table.columns(0).search( this.value ).draw();
-          }                   
-   } );
-
-});
-			
 	</script>
 	</head>
 	
