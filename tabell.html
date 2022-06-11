@@ -9,18 +9,14 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/ju/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
 
    <script> 
-    $(document).ready(function () {
-    $('#example').DataTable({
-        processing: true,
-            url: 'https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H',
-        },
-        columns: [
-            { data: 'emne.emnekode' },
-            { data: 'emne.emnenavn_bokmal' },
-            { data: 'emne.studiepoeng' },
-        ],
-    });
-});    
+     $(document).ready(function () {
+     
+   $('#example').dataTable( {
+  "ajax": {
+    "url": "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H",
+    "type": "POST"
+  }
+} ); 
      
     </script>
   </head>
