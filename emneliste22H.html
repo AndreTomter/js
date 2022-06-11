@@ -9,22 +9,7 @@
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 <script>
-	
-$(document).ready(function() {
-   var table =  $('#emner').DataTable();
-    
-     $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle steder")
-          {
-          table.columns(1).search('').draw();
-          }
-          else
-          {
-          table.columns(1).search( this.value ).draw();
-          }                   
-   } );
 
-});
 	
 	$(document).ready(function () {
 	$('#emner').DataTable();
@@ -54,6 +39,25 @@ async function getapi(url) {
 
 }
 
+			
+	
+$(document).ready(function() {
+   var table =  $('#emner').DataTable();
+    
+     $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle steder")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
+
+});			
+			
+			
 
 // Calling that async function
 getapi(api_url);
