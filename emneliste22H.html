@@ -7,14 +7,35 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 <script>
+	
+$(document).ready(function() {
+   var table =  $('#emner').DataTable();
+    
+     $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle steder")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
 
+});
 	
 	$(document).ready(function () {
 	$('#emner').DataTable();
 	});
-</script>
-<script>
+</script>		
+		<script>
+			$(document).ready(function () {
+			$('#emner').DataTable();
+			});
 // api url
 const api_url =
 	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
@@ -35,25 +56,6 @@ async function getapi(url) {
 
 }
 
-			
-	
-$(document).ready(function() {
-   var table =  $('#emner').DataTable();
-    
-     $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle steder")
-          {
-          table.columns(1).search('').draw();
-          }
-          else
-          {
-          table.columns(1).search( this.value ).draw();
-          }                   
-   } );
-
-});			
-			
-			
 
 // Calling that async function
 getapi(api_url);
@@ -102,6 +104,21 @@ function show(data) {
 			
 			
 			
+	$(document).ready(function() {
+   	var table =  $('#emner').DataTable();
+    
+   	  $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle steder")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
+
+});
 			
 	</script>
 		
