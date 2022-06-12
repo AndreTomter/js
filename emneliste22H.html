@@ -10,6 +10,21 @@
 	$(document).ready(function() {
    	var table =  $('#emner').DataTable();
 	});
+	$(document).ready(function() {
+   var table =  $('#emner').DataTable();
+    
+     $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle Sprachen")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
+
+});	
 </script>		
 		<script>
 
@@ -71,7 +86,21 @@ function show(data) {
 		      
 	$(document).ready(function() {
    	var table =  $('#emner').DataTable();
-		
+	$(document).ready(function() {
+   var table =  $('#emner').DataTable();
+    
+     $('#dropdown1').on('change', function () {
+     			if(this.value=="Alle Sprachen")
+          {
+          table.columns(1).search('').draw();
+          }
+          else
+          {
+          table.columns(1).search( this.value ).draw();
+          }                   
+   } );
+
+});	
 			
 	</script>
 		
