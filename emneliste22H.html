@@ -89,7 +89,7 @@ function show(data) {
 	$(document).ready(function() {
    var table =  $('#emner').DataTable();
     
-     $('#dropdown1').on('change', function () {
+     $('#dropdown1').on('change', function myFunction() {
      			if(this.value=="Alle Sprachen")
           {
           table.columns(1).search('').draw();
@@ -120,7 +120,7 @@ function show(data) {
 			</div>
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
-		<select id="dropdown1" class="form-control filter-table" data-column="sted">
+		<select id="dropdown1" onclick="myFunction()" class="form-control filter-table" data-column="sted">
 		  <option selected>Alle steder</option>
 		  <option value="Sosiologisk institutt">Sosiologi</option>
 		  <option value="Institutt for økonomi">økonomi</option>
