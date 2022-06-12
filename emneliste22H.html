@@ -53,11 +53,11 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tbody><tr data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"> 
-    			<td>${r.emnekode}</td>
-			<td>${r.emnenavn_bokmal}</td>   
-   			<td>${r.studiepoeng} sp</td>   
-			<td><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
+        tab += `<tbody><tr> 
+    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnekode}</td>
+			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnenavn_bokmal}</td>   
+   			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.studiepoeng} sp</td>   
+			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
 		</tr></tbody>`;
 	}
 	// Setting innerHTML as tab variable
