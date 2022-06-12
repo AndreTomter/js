@@ -84,11 +84,11 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement} clickable-row" data-href="http://www.uib.no/emne/${r.emnekode}"> 
-			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</td>   
-			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnenavn_bokmal}</td>   
-   			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.studiepoeng} sp</td>   
-			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
+        tab += `<tr class="fnr-${r.faknr_reglement} clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"> 
+			<td class="fnr-${r.faknr_reglement} clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'">${r.emnekode}</td>   
+			<td class="fnr-${r.faknr_reglement} clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'">${r.emnenavn_bokmal}</td>   
+   			<td class="fnr-${r.faknr_reglement} clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'">${r.studiepoeng} sp</td>   
+			<td class="fnr-${r.faknr_reglement} clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
@@ -124,5 +124,10 @@ function show(data) {
 		<p> tekst </p>
 		<!-- table for showing data -->
 		<table id="emner" class="stripe hover"></table>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+    <script src=
+     "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>
 	</body>
 </html>
