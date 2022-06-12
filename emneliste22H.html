@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 <style>
-tr.11 {
+tr.fnr-11 {
   visibility: collapse;
 }
-tr.15 {
+tr.fnr-15 {
   visibility: collapse;
 }
 </style>		
@@ -69,7 +69,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="${r.faknr_reglement}"> 
+        tab += `<tr class="fnr-${r.faknr_reglement}"> 
     			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnekode}</td>
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnenavn_bokmal}</td>   
    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.studiepoeng} sp</td>   
