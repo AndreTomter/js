@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+<style>
+tr.11 {
+  visibility: collapse;
+}
+tr.15 {
+  visibility: collapse;
+}
+</style>		
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/> 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
@@ -61,12 +69,12 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tbody><tr> 
+        tab += `<tr class="${r.faknr_reglement}"> 
     			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnekode}</td>
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnenavn_bokmal}</td>   
    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.studiepoeng} sp</td>   
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
-		</tr></tbody>`;
+		</tr>`;
 	}
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
