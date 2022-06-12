@@ -77,7 +77,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement} clickable-row" data-href="URL:http://www.uib.no/emne/${r.emnekode}"> 
+        tab += `<tr class="fnr-${r.faknr_reglement} clickable-row" data-href="http://www.uib.no/emne/${r.emnekode}"> 
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</td>   
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnenavn_bokmal}</td>   
    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.studiepoeng} sp</td>   
@@ -98,17 +98,11 @@ function show(data) {
 		
 		
 <script>
-
-
-jQuery(document).ready(function() {
-    $(".clickable-row").click(function() {
-
-        thisdata = $(this).attr('data-href');
-        console.log(thisdata);
-
-        window.location.href = thisdata;
-    });
-});
+    $(function(){
+        $('*[data-href]').on('click', function() {
+             window.location = $(this).data("href");
+        });
+    })
 </script>
 		
 	</head>
