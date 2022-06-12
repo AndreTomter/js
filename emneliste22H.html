@@ -32,25 +32,9 @@ tr.fnr-18 {  visibility: collapse; }
   color: white;
 }
 </style>		
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.css"/> 
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fh-3.2.3/sl-1.4.0/datatables.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
-		
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
 
 <script>
-	
-	$(document).ready(function () {
-   	$('#example').DataTable({
-      	  	paging: true,
-        	ordering: false,
-        	info: true
-   		 });
-	});
-	
-
-</script>		
-		<script>
 	
 // api url
 const api_url =
@@ -109,18 +93,18 @@ function show(data) {
 		
 		
 		
-		</script>
+</script>
 		
-	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 		
-	<script>
+<script>
 
 jQuery(document).ready(function() {
-    $(".clickable-row").click(function() {
-        window.location.href = $(this).data('href');
+$(".clickable-row").click(function() {
+window.location.href = $(this).data('href');
     });
 });
-	</script>
+</script>
 		
 	</head>
 	
@@ -137,12 +121,7 @@ jQuery(document).ready(function() {
 			</div>
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
-		<select id="dropdown1" onclick="myFunction()" class="form-control filter-table" data-column="sted">
-		  <option selected>Alle steder</option>
-		  <option value="Sosiologisk institutt">Sosiologi</option>
-		  <option value="Institutt for økonomi">økonomi</option>
-		</select>
-		
+				
 		<p> tekst </p>
 		<!-- table for showing data -->
 		<table id="emner" class="stripe hover"></table>
