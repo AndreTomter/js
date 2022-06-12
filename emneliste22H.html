@@ -4,8 +4,7 @@
 	<head>
 <style>
 table {
-  width: 100%;
-  max-height: 200px;
+  max-height: 500px;
 }
 
 
@@ -120,6 +119,8 @@ function show(data) {
 	
 	
 	<body>
+				 <div style="overflow:hidden; style="max-height:500px;">
+
 		<!-- Here a loader is created which
 			loads till response comes -->
 		<div class="d-flex justify-content-center">
@@ -131,14 +132,14 @@ function show(data) {
 		<h1>Emner som overføres til Canvas</h1>
 				
 		<p> tekst </p>
-		 <div style="overflow:hidden; style="max-height:200px;">
 		<!-- table for showing data -->
-		<table id="emner" class="stripe hover" style="max-height:200px;"></table>
-			  </div>
+		<table id="emner" class="stripe hover" style="max-height:400px;"></table>
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
     </script>
     <script src=
      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
     </script>
+									  			  </div>
+
 	</body>
 </html>
