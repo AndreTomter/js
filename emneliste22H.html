@@ -7,24 +7,11 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 <script>
-	$(document).ready(function() {
-   	var table =  $('#emner').DataTable();
-	});
-	$(document).ready(function() {
-   var table =  $('#emner').DataTable();
-    
-     $('#dropdown1').on('change', function () {
-     			if(this.value=="Alle Sprachen")
-          {
-          table.columns(1).search('').draw();
-          }
-          else
-          {
-          table.columns(1).search( this.value ).draw();
-          }                   
-   } );
-
-});	
+	$(document).ready(function () {
+    $('#emner').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
 </script>		
 		<script>
 
@@ -84,8 +71,11 @@ function show(data) {
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script>
 		      
-	$(document).ready(function() {
-   	var table =  $('#emner').DataTable();
+		$(document).ready(function () {
+    $('#emner').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
 	$(document).ready(function() {
    var table =  $('#emner').DataTable();
     
