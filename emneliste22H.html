@@ -8,7 +8,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 <script>
-	
+	document.addEventListener('DOMContentLoaded', function () {
+    let table = new DataTable('#example');
+});
 	$(document).ready(function () {
    	$('#example').DataTable({
       	  	paging: true,
