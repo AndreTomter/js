@@ -32,6 +32,7 @@ tr.fnr-18 {  visibility: collapse; }
   color: white;
 }
 </style>		
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 
 
 <script>
@@ -95,13 +96,17 @@ function show(data) {
 		
 </script>
 		
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 		
 <script>
 
+
 jQuery(document).ready(function() {
-$(".clickable-row").click(function() {
-window.location.href = $(this).data('href');
+    $(".clickable-row").click(function() {
+
+        thisdata = $(this).attr('data-href');
+        console.log(thisdata);
+
+        window.location.href = thisdata;
     });
 });
 </script>
