@@ -92,7 +92,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement}" data-href="http://www.uib.no/emne/${r.emnekode}"> 
+        tab += `<tr class="fnr-${r.faknr_reglement} clickable-row" data-href="http://www.uib.no/emne/${r.emnekode}"> 
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</td>   
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnenavn_bokmal}</td>   
    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.studiepoeng} sp</td>   
@@ -111,14 +111,15 @@ function show(data) {
 		
 		</script>
 		
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
 		
 	<script>
-		jQuery(document).ready(function($) {
-    		$('*[data-href]').on('click', function() {
-       		window.location = $(this).data("href");
-		    });
-		});
+
+jQuery(document).ready(function() {
+    $(".clickable-row").click(function() {
+        window.location.href = $(this).data('href');
+    });
+});
 	</script>
 		
 	</head>
