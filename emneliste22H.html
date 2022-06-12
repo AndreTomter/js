@@ -93,10 +93,9 @@ function show(data) {
 	// Loop to access all rows
 	for (let r of data.emne) {
         tab += `<tr class="fnr-${r.faknr_reglement}" data-href="http://www.uib.no/emne/${r.emnekode}"> 
-    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnekode}</td>
-			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnenavn_bokmal}</td>   
-   			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.studiepoeng} sp</td>   
-			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
+			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.emnenavn_bokmal}</td>   
+   			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}">${r.studiepoeng} sp</td>   
+			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}" data-href="http://www.uib.no/emne/${r.emnekode}"><a href="http://www.uib.no/emne/${r.emnekode}">link</a></td>   
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
