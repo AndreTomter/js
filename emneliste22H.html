@@ -3,6 +3,14 @@
 <html lang="en">
 	<head>
 <style>
+table {
+  width: 100%;
+}
+
+th {
+  height: 500px;
+}
+
 tr.fnr-11 {  visibility: collapse; }
 tr.fnr-12 {  visibility: collapse; }
 tr.fnr-13 {  visibility: collapse; }
@@ -125,8 +133,10 @@ function show(data) {
 		<h1>Emner som overføres til Canvas</h1>
 				
 		<p> tekst </p>
+		 <div style="overflow-x:auto;">
 		<!-- table for showing data -->
 		<table id="emner" class="stripe hover" style="height:500px;"></table>
+			  </div">
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
     </script>
     <script src=
