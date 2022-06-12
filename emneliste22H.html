@@ -8,28 +8,6 @@
 
 <script>
 	
-function filterTable() {
-  // Variables
-  let dropdown, table, rows, cells, 'data-sted', filter;
-  dropdown = document.getElementById("dropdown1");
-  table = document.getElementById("emner");
-  rows = table.getElementsByTagName("tr");
-  filter = dropdown.value;
-
-  // Loops through rows and hides those with fakultet that don't match the filter
-  for (let row of rows) { // `for...of` loops through the NodeList
-    cells = row.getElementsByTagName("td");
-    'data-sted' = cells[2] || null; // gets the 2nd `td` or nothing
-    // if the filter is set to 'All', or this is the header row, or 2nd `td` text matches filter
-    if (filter === "All" || !'data-sted' || (filter === 'data-sted'.textContent)) {
-      row.style.display = ""; // shows this row
-    }
-    else {
-      row.style.display = "none"; // hides this row
-    }
-  }
-}
-
 	
 	
 	
@@ -40,30 +18,6 @@ function filterTable() {
 });
 </script>		
 		<script>
-	
-function filterTable() {
-  // Variables
-  let dropdown, table, rows, cells, fakultet, filter;
-  dropdown = document.getElementById("dropdown1");
-  table = document.getElementById("emner");
-  rows = table.getElementsByTagName("tr");
-  filter = dropdown.value;
-
-  // Loops through rows and hides those with fakultet that don't match the filter
-  for (let row of rows) { // `for...of` loops through the NodeList
-    cells = row.getElementsByTagName("td");
-    fakultet = cells[2] || null; // gets the 2nd `td` or nothing
-    // if the filter is set to 'All', or this is the header row, or 2nd `td` text matches filter
-    if (filter === "All" || !fakultet || (filter === fakultet.textContent)) {
-      row.style.display = ""; // shows this row
-    }
-    else {
-      row.style.display = "none"; // hides this row
-    }
-  }
-}
-
-	
 	
 // api url
 const api_url =
