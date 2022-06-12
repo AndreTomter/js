@@ -11,6 +11,9 @@ tr.fnr-12 {
 tr.fnr-13 {
   visibility: collapse;
 }
+tr.fnr-16 {
+  visibility: collapse;
+}
 tr.fnr-17 {
   visibility: collapse;
 }
@@ -101,7 +104,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement}"> 
+        tab += `<tr class="fnr-${r.faknr_reglement}" data-href="http://www.uib.no/emne/${r.emnekode}"> 
     			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnekode}</td>
 			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.emnenavn_bokmal}</td>   
    			<td data-sted="${r.faknavn_bokmal} ${r.instituttnavn_bokmal}">${r.studiepoeng} sp</td>   
@@ -115,6 +118,13 @@ function show(data) {
 	document.addEventListener('DOMContentLoaded', function () {
     let table = new DataTable('#example');
 });
+		
+		jQuery(document).ready(function($) {
+    $('*[data-href]').on('click', function() {
+        window.location = $(this).data("href");
+    });
+});
+		
 		</script>
 		
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
