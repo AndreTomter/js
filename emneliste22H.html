@@ -104,10 +104,10 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}" clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"> 
-			<td><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
-			<td>${r.emnenavn_bokmal}</td>   
-   			<td>${r.studiepoeng} sp</td>   
+        tab += `<tr class="fnr-${r.faknr_reglement} clickable" data-port="${r.faknr_reglement}${r.instituttnr_reglement}" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"> 
+			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
+			<td >${r.emnenavn_bokmal}</td>   
+   			<td >${r.studiepoeng} sp</td>   
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
@@ -124,7 +124,7 @@ function show(data) {
     </script>
 		<script>
 			
-$('#filter').change(function() {
+$("#filter").change(function() {
     var port = $(this).val()
     console.log( port )
     if ( port !== '' ) {
@@ -159,7 +159,7 @@ $('#filter').change(function() {
 		<h1>Emner som overføres til Canvas</h1>
 				
 		<p> tekst </p>
-		<select id='filter'>
+		<select id="filter">
 			<option value=""></option>
 			<option value="1511">Sosiologisk institutt</option>
 			<option value="1512">Institutt for administrasjon og organisasjonsvitenskap</option>
