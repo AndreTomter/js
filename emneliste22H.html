@@ -2,6 +2,47 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 	<head>
+		<style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
 <style>
 table {
   max-height: 500px;
@@ -147,7 +188,11 @@ $("#filter").change(function() {
 		<h1>Emner som overføres til Canvas</h1>
 				
 		<p> tekst </p>
+						     
 		<select id="filter">
+				   div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div  class="dropdown-content">
 			<option value=""></option>
 			<option value="1511">Sosiologisk institutt</option>
 			<option value="1512">Institutt for administrasjon og organisasjonsvitenskap</option>
@@ -156,7 +201,8 @@ $("#filter").change(function() {
 			<option value="1517">Institutt for informasjons- og medievitenskap</option>
 			<option value="1534">Institutt for sosialantropologi</option>
 			<option value="1541">Institutt for geografi</option>
-
+</div>
+</div>
 		</select>
 					    <script>
 			
@@ -173,6 +219,14 @@ $('#filter').change(function() {
 });	
 		</script>
 		<p> tekst </p>
+	    <div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div  class="dropdown-content">
+  <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+  </div>
+</div>
 		<!-- table for showing data -->
 		<table id="emner" class="stripe hover" style="max-height:400px;"></table>
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
