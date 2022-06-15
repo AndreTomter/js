@@ -104,7 +104,7 @@ function show(data) {
 	
 	// Loop to access all rows
 	for (let r of data.emne) {
-        tab += `<tr class="fnr-${r.faknr_reglement} data-port="${r.faknr_reglement}${r.instituttnr_reglement}" clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"> 
+        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}" clickable" onclick="window.location='http://www.uib.no/emne/${r.emnekode}'"> 
 			<td><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
 			<td>${r.emnenavn_bokmal}</td>   
    			<td>${r.studiepoeng} sp</td>   
