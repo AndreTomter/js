@@ -40,6 +40,20 @@ tr.fnr-18 {  visibility: collapse; }
 </style>
 		
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+
+		<script>
+			
+$('#filter').change(function() {
+    var port = $(this).val()
+    console.log( port )
+    if ( port !== '' ) {
+      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+    } else {
+      $("tr").css('visibility', 'visible');
+    }
+});	
+		</script>
 		
 <script>
     $(function(){
