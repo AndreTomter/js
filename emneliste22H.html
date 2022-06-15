@@ -34,8 +34,11 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+	
 }
-
+option[value=""][disabled] {
+  display: none;
+}
 .dropdown-content a:hover {background-color: #f1f1f1}
 
 .dropdown:hover .dropdown-content {
@@ -194,7 +197,7 @@ $("#filter").change(function() {
 						     
 		<select class="dropbtn dropdown" id="filter">
 				  
- 
+  			<option value="" disabled selected>Select something...</option>
 			<option class="dropdown-content" value="1511">Sosiologisk institutt</option>
 			<option class="dropdown-content" value="1512">Institutt for administrasjon og organisasjonsvitenskap</option>
 			<option class="dropdown-content" value="1513">Institutt for sammenliknende politikk</option>
