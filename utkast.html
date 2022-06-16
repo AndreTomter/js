@@ -10,7 +10,7 @@ var dmJSON = "https://superandre89.github.io/js/utv.json";
 $.getJSON( dmJSON, function(data) {
    $.each(data, function(i, f) {
       var tblRow = 
-      '<tr data-port="' + f.landnavn_engelsk +'">'
+      '<tr data-port="' + f.landnr +'">'
       + '<td>' + f.avtale_eier + '</td>'
       + '<td>' + f.eksternt_sted + '</td>'
       + '<td>' + f.landnavn_norsk + '</td>' 
@@ -41,62 +41,62 @@ google.charts.load('current', {
 
 function drawVisualization() {
   var data = google.visualization.arrayToDataTable([
-    ['Country','Land'],
-['Argentina', 'Argentina'],
-['Australia', 'Australia'],
-['Belgium', 'Belgia'],
-['Brazil', 'Brasil'],
-['Canada', 'Canada'],
-['Chile', 'Chile'],
-['Colombia', 'Colombia'],
-['Costa Rica', 'Costa Rica'],
-['Denmark', 'Danmark'],
-['Egypt', 'Egypt'],
-['Fiji', 'Fiji'],
-['Finland', 'Finland'],
-['France', 'Frankrike'],
-['Faroe Islands', 'Færøyene'],
-['Ghana', 'Ghana'],
-['Greenland', 'Grønland'],
-['Hong Kong', 'Hong Kong'],
-['India', 'India'],
-['Ireland', 'Irland'],
-['Iceland', 'Island'],
-['Italy', 'Italia'],
-['Japan', 'Japan'],
-['China', 'Kina'],
-['Latvia', 'Latvia'],
-['Lithuania', 'Litauen'],
-['Luxembourg', 'Luxembourg'],
-['Mexico', 'Mexico'],
-['Netherlands', 'Nederland'],
-['New Zealand', 'New Zealand'],
-['Palestine', 'Palestina'],
-['Peru', 'Peru'],
-['Poland', 'Polen'],
-['Portugal', 'Portugal'],
-['Russia', 'Russland'],
-['Slovakia', 'Slovakia'],
-['Slovenia', 'Slovenia'],
-['Spain', 'Spania'],
-['United Kingdom', 'Storbritannia og Nord-Irland'],
-['Switzerland', 'Sveits'],
-['Sweden', 'Sverige'],
-['South Africa', 'Sør-Afrika'],
-['South Korea', 'Sør-Korea'],
-['Thailand', 'Thailand'],
-['Czech Republic', 'Tsjekkia'],
-['Turkey', 'Tyrkia'],
-['Germany', 'Tyskland'],
-['Uganda', 'Uganda'],
-['Ukraine', 'Ukraina'],
-['Hungary', 'Ungarn'],
-['USA', 'USA'],
-['Austria', 'Østerrike']
+    ['Country','Land']
+,["China ", "Kina", 484]
+,["Belgium ", "Belgia", 112]
+,["Uganda ", "Uganda", 386]
+,["Costa Rica ", "Costa Rica", 616]
+,["Ghana ", "Ghana", 260]
+,["South Korea ", "Sør-Korea", 492]
+,["Palestine ", "Palestina", 524]
+,["Ukraine ", "Ukraina", 148]
+,["Brazil ", "Brasil", 715]
+,["Ireland ", "Irland", 121]
+,["Hungary ", "Ungarn", 152]
+,["Argentina ", "Argentina", 705]
+,["Fiji ", "Fiji", 811]
+,["Chile ", "Chile", 725]
+,["United Kingdom ", "Storbritannia og Nord-Irland", 139]
+,["Italy ", "Italia", 123]
+,["Iceland ", "Island", 105]
+,["Slovenia ", "Slovenia", 146]
+,["Luxembourg ", "Luxembourg", 129]
+,["Colombia ", "Colombia", 730]
+,["Japan ", "Japan", 464]
+,["South Africa ", "Sør-Afrika", 359]
+,["Thailand ", "Thailand", 568]
+,["Netherlands ", "Nederland", 127]
+,["Germany ", "Tyskland", 144]
+,["Switzerland ", "Sveits", 141]
+,["USA ", "USA", 684]
+,["Australia ", "Australia", 805]
+,["Czech Republic ", "Tsjekkia", 158]
+,["Hong Kong ", "Hong Kong", 436]
+,["Finland ", "Finland", 103]
+,["Greenland ", "Grønland", 102]
+,["Austria ", "Østerrike", 153]
+,["Egypt ", "Egypt", 249]
+,["Latvia ", "Latvia", 124]
+,["Russia ", "Russland", 140]
+,["Faroe Islands ", "Færøyene", 104]
+,["France ", "Frankrike", 117]
+,["Turkey ", "Tyrkia", 143]
+,["Canada ", "Canada", 612]
+,["Denmark ", "Danmark", 101]
+,["Mexico ", "Mexico", 652]
+,["Sweden ", "Sverige", 106]
+,["India ", "India", 444]
+,["Spain ", "Spania", 137]
+,["Lithuania ", "Litauen", 136]
+,["Poland ", "Polen", 131]
+,["New Zealand ", "New Zealand", 820]
+,["Portugal ", "Portugal", 132]
+,["Peru ", "Peru", 760]
+,["Slovakia ", "Slovakia", 157]
 ]);
 
   var view = new google.visualization.DataView(data);
-  view.hideColumns([]);
+  view.hideColumns([3]);
 
   var options = {
     backgroundColor: '#0000ffff',
