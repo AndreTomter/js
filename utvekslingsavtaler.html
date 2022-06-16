@@ -1,0 +1,58 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+$(function() {
+
+var entries = [];
+var dmJSON = "https://superandre89.github.io/js/utv.json";
+$.getJSON( dmJSON, function(data) {
+   $.each(data, function(i, f) {
+      var tblRow = 
+      '<tr data-port="' + f.landnavn_engelsk +'">'
+      + '<td>' + f.avtale_eier + '</td>'
+      + '<td>' + f.eksternt_sted + '</td>'
+      + '<td>' + f.landnavn_norsk + '</td>' 
+      + '<td>' + f.fagnavn_norsk + '</td>'
+      + '<td>' + f.utvprogramkode + '</td>' 
+      + '<td>' + f.avtaleid + '</td>' 
+      + '</tr>'
+       $(tblRow).appendTo("#entrydata tbody");
+ });
+
+});
+
+});
+</script>
+</head>
+
+<body>
+<p>
+  Henter avtaler som er lagret i filen "utv.json" og vise dem i en tabell. Radene har data-port= f.landnavn_engelsk
+<p>
+<p>
+  Filen må lages manuelt. 
+<p>
+<p>
+  Tanken er at filen skal brukes både til å lage tabellen, og til å lage GeoChart. GeoChart skal igjen kunne brukes til å filtere tabellen 
+<p>
+<table id= "entrydata" border="1">
+    <thead>
+        <th>Avtale eier</th>
+        <th>Sted</th>
+        <th>Land</th>
+        <th>Fag</th>
+        <th>Avtaletype</th>
+        <th>Avtaleid</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+
+</body>
+
+</html>
