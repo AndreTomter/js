@@ -1,0 +1,122 @@
+<body>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="visualization"></div>
+<script>
+google.charts.load('current', {
+  callback: drawVisualization,
+  packages:['geochart']
+});
+
+function drawVisualization() {
+  var data = google.visualization.arrayToDataTable([
+    ['Country','Link','Navn',],
+['Argentina','https://utveksling.w.uib.no/category/argentina/','Argentina'],
+['Australia','https://utveksling.w.uib.no/category/australia/','Australia'],
+['Belgium','https://utveksling.w.uib.no/category/belgia/','Belgia'],
+['Bolivia','https://utveksling.w.uib.no/category/bolivia/','Bolivia'],
+['Canada','https://utveksling.w.uib.no/category/canada/','Canada'],
+['Chile','https://utveksling.w.uib.no/category/chile/','Chile'],
+['Denmark','https://utveksling.w.uib.no/category/danmark/','Danmark'],
+['Egypt','https://utveksling.w.uib.no/category/egypt/','Egypt'],
+['England','https://utveksling.w.uib.no/category/england/','England'],
+['Fiji','https://utveksling.w.uib.no/category/fiji/','Fiji'],
+['France','https://utveksling.w.uib.no/category/frankrike/','Frankrike'],
+['Ghana','https://utveksling.w.uib.no/category/ghana/','Ghana'],
+['Hawaii','https://utveksling.w.uib.no/category/hawaii/','Hawaii'],
+['Hong Kong','https://utveksling.w.uib.no/category/hong-kong/','Hong Kong'],
+['Ireland','https://utveksling.w.uib.no/category/irland/','Irland'],
+['Italy','https://utveksling.w.uib.no/category/italia/','Italia'],
+['Japan','https://utveksling.w.uib.no/category/japan/','Japan'],
+['China','https://utveksling.w.uib.no/category/kina/','Kina'],
+['The Netherlands','https://utveksling.w.uib.no/category/nederland/','Nederland'],
+['New Zealand','https://utveksling.w.uib.no/category/new-zealand/','New Zealand'],
+['Portugal','https://utveksling.w.uib.no/category/portugal/','Portugal'],
+['Russia','https://utveksling.w.uib.no/category/russland/','Russland'],
+['Slovenia','https://utveksling.w.uib.no/category/slovenia/','Slovenia'],
+['Spain','https://utveksling.w.uib.no/category/spania/','Spania'],
+['South Africa','https://utveksling.w.uib.no/category/sor-afrika/','Sør-Afrika'],
+['South Korea','https://utveksling.w.uib.no/category/sor-korea/','Sør-Korea'],
+['Thailand','https://utveksling.w.uib.no/category/thailand/','Thailand'],
+['Czech Republic','https://utveksling.w.uib.no/category/tsjekkia/','Tsjekkia'],
+['Turkey','https://utveksling.w.uib.no/category/tyrkia/','Tyrkia'],
+['Germany','https://utveksling.w.uib.no/category/tyskland/','Tyskland'],
+['USA','https://utveksling.w.uib.no/category/usa/','USA'],
+['Wales','https://utveksling.w.uib.no/category/wales/','Wales'],
+['Austria','https://utveksling.w.uib.no/category/osterrike/','Østerrike'],
+
+
+
+
+
+  ]);
+
+  var view = new google.visualization.DataView(data);
+  view.hideColumns([1]);
+
+  var options = {
+    backgroundColor: '#0000ffff',
+    datalessRegionColor: '#f5f5f5',
+    defaultColor: '#6b8e9b',
+    displayMode: 'regions',
+    tooltip: {textStyle: {color: '#333333'}, trigger:'focus',isHtml: true},
+    legend: 'none',
+    height:600,
+    width:800
+  };
+
+  var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
+  google.visualization.events.addListener(chart, 'select', myClickHandler);
+  chart.draw(view, options);
+
+  function myClickHandler(){
+    var selection = chart.getSelection();
+    if (selection.length > 0) {
+      var port = data.getValue(selection[0].row, 0);
+     $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+    } else {
+      $("tr").css('visibility', 'visible');
+    }
+  }
+}
+</script>
+<table>
+<tr data-port="Argentina">     <td>Argentina</td>	<td>rg</td></tr>
+<tr data-port="Australia">     <td>Australia</td>	<td>rg</td></tr>
+<tr data-port="Belgia">     <td>Belgia</td>	<td>rg</td></tr>
+<tr data-port="Bolivia">     <td>Bolivia</td>	<td>rg</td></tr>
+<tr data-port="Canada">     <td>Canada</td>	<td>rg</td></tr>
+<tr data-port="Chile">     <td>Chile</td>	<td>rg</td></tr>
+<tr data-port="Danmark">     <td>Danmark</td>	<td>rg</td></tr>
+<tr data-port="Egypt">     <td>Egypt</td>	<td>rg</td></tr>
+<tr data-port="England">     <td>England</td>	<td>rg</td></tr>
+<tr data-port="Fiji">     <td>Fiji</td>	<td>rg</td></tr>
+<tr data-port="Frankrike">     <td>Frankrike</td>	<td>rg</td></tr>
+<tr data-port="Ghana">     <td>Ghana</td>	<td>rg</td></tr>
+<tr data-port="Hawaii">     <td>Hawaii</td>	<td>rg</td></tr>
+<tr data-port="Hong Kong">     <td>Hong Kong</td>	<td>rg</td></tr>
+<tr data-port="Irland">     <td>Irland</td>	<td>rg</td></tr>
+<tr data-port="Italia">     <td>Italia</td>	<td>rg</td></tr>
+<tr data-port="Japan">     <td>Japan</td>	<td>rg</td></tr>
+<tr data-port="Kina">     <td>Kina</td>	<td>rg</td></tr>
+<tr data-port="Nederland">     <td>Nederland</td>	<td>rg</td></tr>
+<tr data-port="New Zealand">     <td>New Zealand</td>	<td>rg</td></tr>
+<tr data-port="Portugal">     <td>Portugal</td>	<td>rg</td></tr>
+<tr data-port="Russland">     <td>Russland</td>	<td>rg</td></tr>
+<tr data-port="Slovenia">     <td>Slovenia</td>	<td>rg</td></tr>
+<tr data-port="Spania">     <td>Spania</td>	<td>rg</td></tr>
+<tr data-port="Sør-Afrika">     <td>Sør-Afrika</td>	<td>rg</td></tr>
+<tr data-port="Sør-Korea">     <td>Sør-Korea</td>	<td>rg</td></tr>
+<tr data-port="Thailand">     <td>Thailand</td>	<td>rg</td></tr>
+<tr data-port="Tsjekkia">     <td>Tsjekkia</td>	<td>rg</td></tr>
+<tr data-port="Tyrkia">     <td>Tyrkia</td>	<td>rg</td></tr>
+<tr data-port="Tyskland">     <td>Tyskland</td>	<td>rg</td></tr>
+<tr data-port="USA">     <td>USA</td>	<td>rg</td></tr>
+<tr data-port="Wales">     <td>Wales</td>	<td>rg</td></tr>
+<tr data-port="Østerrike">     <td>Østerrike</td>	<td>rg</td></tr>
+
+</table>
+
+
+</body>
