@@ -96,7 +96,7 @@ function drawVisualization() {
 ]);
 
   var view = new google.visualization.DataView(data);
-  view.hideColumns([3]);
+  view.hideColumns([2]);
 
   var options = {
     backgroundColor: '#0000ffff',
@@ -117,8 +117,10 @@ function drawVisualization() {
     var selection = chart.getSelection();
     if (selection.length > 0) {
       var port = data.getValue(selection[0].row, 2);
-     $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
       $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+      $("tr[data-port=" + 'overskrift'+ "]").css('visibility', 'visible');
+
     } else {
       $("tr").css('visibility', 'visible');
     }
@@ -127,14 +129,14 @@ function drawVisualization() {
 </script>
 <p>tekst</p>
 <table id= "entrydata" border="1">
-    <thead>
+    <tr data-port="overskrift">
         <th>Avtale eier</th>
         <th>Sted</th>
         <th>Land</th>
         <th>Fag</th>
         <th>Avtaletype</th>
         <th>Avtaleid</th>
-    </thead>
+    </tr>
     <tbody>
 
     </tbody>
