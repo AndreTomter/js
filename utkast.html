@@ -40,7 +40,7 @@ $.getJSON( dmJSON, function(data) {
       + '<td>' + f.landnavn_norsk + '</td>' 
       + '<td>' + f.fagnavn_norsk + '</td>'
       + '<td>' + f.utvprogramkode + '</td>' 
-      + '<td>' + f.avtaleid + '</td>' 
+      + '<td> <a href="https://www.uib.no/utvekslingsavtale/'+ f.avtaleid + '">'+ f.avtaleid +'</td>' 
       + '</tr>'
        $(tblRow).appendTo("#entrydata tbody");
  });
@@ -154,8 +154,8 @@ function drawVisualization() {
 <p>tekst</p>
 <table class="utv-tabell" id= "entrydata" border="1">
     <tr class="utv-tabell" data-port="overskrift">
-        <th style="width: 350px">Avtale eier</th>
-        <th >Sted</th>
+        <th style="width: 380px">Avtale eier</th>
+        <th style="width: 420px>Sted</th>
         <th >Land</th>
         <th >Fag</th>
         <th >Avtaletype</th>
