@@ -34,7 +34,7 @@ var dmJSON = "https://superandre89.github.io/js/utv.json";
 $.getJSON( dmJSON, function(data) {
    $.each(data, function(i, f) {
       var tblRow = 
-      '<tr data-port="' + f.landnr +'">'
+      '<tr class="utv-tabell" data-port="' + f.landnr +'">'
       + '<td>' + f.avtale_eier + '</td>'
       + '<td>' + f.eksternt_sted + '</td>'
       + '<td>' + f.landnavn_norsk + '</td>' 
@@ -161,7 +161,7 @@ function drawVisualization() {
         <th class="utv-tabell">Avtaletype</th>
         <th class="utv-tabell">Avtaleid</th>
     </tr>
-    <tbody>
+    <tbody class="utv-tabell">
 
     </tbody>
 </table>
