@@ -1,5 +1,29 @@
 <html>
 <head>
+<style>
+   #utv-tabell {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#utv-tabell td, #utv-tabell th {
+  border: 1px collapse #ddd;
+  padding: 8px;
+}
+
+#utv-tabell tr:nth-child(even){background-color: #f2f2f2;}
+
+#utv-tabell tr:hover {background-color: #ddd;}
+
+#utv-tabell th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #DB3F3D;	
+  color: white;
+}
+</style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 <script>
 
@@ -128,14 +152,14 @@ function drawVisualization() {
 }
 </script>
 <p>tekst</p>
-<table id= "entrydata" border="1">
-    <tr data-port="overskrift">
-        <th>Avtale eier</th>
-        <th>Sted</th>
-        <th>Land</th>
-        <th>Fag</th>
-        <th>Avtaletype</th>
-        <th>Avtaleid</th>
+<table class="utv-tabell" id= "entrydata" border="1">
+    <tr class="utv-tabell" data-port="overskrift">
+        <th class="utv-tabell">Avtale eier</th>
+        <th class="utv-tabell">Sted</th>
+        <th class="utv-tabell">Land</th>
+        <th class="utv-tabell">Fag</th>
+        <th class="utv-tabell">Avtaletype</th>
+        <th class="utv-tabell">Avtaleid</th>
     </tr>
     <tbody>
 
