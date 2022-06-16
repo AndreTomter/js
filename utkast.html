@@ -116,7 +116,7 @@ function drawVisualization() {
   function myClickHandler(){
     var selection = chart.getSelection();
     if (selection.length > 0) {
-      var port = data.getValue(selection[0].row, 0);
+      var port = data.getValue(selection[0].row, 2);
      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
       $("tr[data-port=" + port+ "]").css('visibility', 'visible');
     } else {
