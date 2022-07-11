@@ -108,10 +108,12 @@ var dd = String(semdato.getDate()).padStart(2, '0');
 var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = semdato.getFullYear();
 
-if (						mm	< 	06) 	{ semester = yyyy	+	"V";}
-if (dd < 15 && 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
-if (dd > 15 &&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
-if (						mm	> 	06) 	{ semester = yyyy	+	"H";}
+if (dd >= 	15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
+if (				mm	< 	06) 	{ semester = yyyy	+	"V";}
+if (dd <	15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
+
+if (dd >= 	15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
+if (				mm	> 	06) 	{ semester = yyyy	+	"H";}
 
 
 // document.write(semester);
@@ -217,7 +219,9 @@ $("#filter").change(function() {
 		</div>
 		<h1>Emner som overføres til Canvas</h1>
 				
-		<p> tekst </p>
+		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
+		<p> Endrer semester 15 desember og 15 juni </p>
+		<p> Korrekt sortering av emnene i stigende rekkefølge gjennstår </p>
 						     
 		<select class="dropbtn dropdown" id="filter">
 				  
