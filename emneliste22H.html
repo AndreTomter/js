@@ -101,10 +101,25 @@ tr.fnr-18 {  visibility: collapse; }
 </script>
 
 <script>
+// Finner rett semester
+
+var semdato = new Date();
+var dd = String(semdato.getDate()).padStart(2, '0');
+var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = semdato.getFullYear();
+
+if (						mm	< 	06) 	{ semester = yyyy	+	"V";}
+if (dd < 15 && 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
+if (dd > 15 &&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
+if (						mm	> 	06) 	{ semester = yyyy	+	"H";}
+
+
+// document.write(semester);
+	
 	
 // api url
 const api_url =
-	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
+	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
 
 // Defining async function
 async function getapi(url) {
