@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<style>
+.dropbtn {
+  background-color: #DB3F3D;
+  color: #ffffff;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  color: #282828;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content select {
+  color: #282828;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+	
+}
+.skjul {
+  display: none;
+  color: #ffffff;
+  font: bold;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+<style>
+table {
+  max-height: 500px;
+}
+
+
+tr.fnr-11 {  visibility: collapse; }
+tr.fnr-12 {  visibility: collapse; }
+tr.fnr-13 {  visibility: collapse; }
+tr.fnr-16 {  visibility: collapse; }
+tr.fnr-17 {  visibility: collapse; }
+tr.fnr-18 {  visibility: collapse; }
+
+#emner {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#emner td, #emner th {
+  border: 1px collapse #ddd;
+  padding: 8px;
+}
+
+#emner tr:nth-child(even){background-color: #f2f2f2;}
+
+#emner tr:hover {background-color: #ddd;}
+
+#emner th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #DB3F3D;	
+  color: white;
+}
+</style>
+		
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+
+		
+		
+<script>
+    $(function(){
+        $('*[data-href]').on('click', function() {
+             window.location = $(this).data("href");
+        });
+    })
+</script>
+
+<script>
+
+	
+// api url
+const api_url =
+	"https://superandre89.github.io/js/avtaleliste.json";
+
+// Defining async function
+async function getapi(url) {
+	
+	// Storing response
+	const response = await fetch(url);
+	
+	// Storing data in form of JSON
+	var data = await response.json();
+	console.log(data);
+	if (response) {
+		hideloader();
+	}
+	show(data);
+
+}
+
+
+// Calling that async function
+getapi(api_url);
+
+// Function to hide the loader
+function hideloader() {
+	document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+	let tab =
+		`<thead stype="color: #FFFFFF"><tr data-port="stay">
+			<th>Emnekode</th>
+			<th>Emnenavn</th>
+			<th>Studiepoeng</th>
+		</tr></thead>`;
+	
+	// Loop to access all rows
+	for (let r of data.avtaler) {
+        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.landnr"> 
+			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
+			<td >${r.emnenavn_bokmal}</td>   
+   			<td >${r.studiepoeng} sp</td>   
+		</tr>`;
+	}
+	// Setting innerHTML as tab variable
+	document.getElementById("emner").innerHTML = tab;
+}
+
+	document.addEventListener('DOMContentLoaded', function () {
+    let table = new DataTable('#example');
+});
+	
+  table = document.getElementById("emner");	
+	////////////
+	
+	
+	
+	
+	
+</script>
+		
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+		<script>
+			
+$("#filter").change(function() {
+    var port = $(this).val()
+    console.log( port )
+    if ( port !== '' ) {
+      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+    } else {
+      $("tr").css('visibility', 'visible');
+    }
+});	
+		</script>
+    <script src=
+     "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>		
+
+		
+	</head>
+	
+	
+	
+	
+	<body>
+				 <div style="overflow:hidden; style="max-height:500px;">
+
+		<!-- Here a loader is created which
+			loads till response comes -->
+		<div class="d-flex justify-content-center">
+			<div class="spinner-border"
+				role="status" id="loading">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<h1>Emner som overføres til Canvas</h1>
+				
+		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
+		<p> Endrer semester 15 desember og 15 juni </p>
+		<p> Korrekt sortering av emnene i stigende rekkefølge gjennstår </p>
+						     
+		<select class="dropbtn dropdown" id="filter">
+				  
+  			<option class="dropdown-content skjul" value="valg" style="color: #ffffff; font: bold"; hidden selected>Velg institutt</option>
+			<option class="dropdown-content" value="1511">Sosiologisk institutt</option>
+			<option class="dropdown-content" value="1512">Institutt for politikk og forvaltning</option>
+			<option class="dropdown-content" value="1513">Institutt for sammenliknende politikk</option>
+			<option class="dropdown-content" value="1515">Institutt for økonomi</option>
+			<option class="dropdown-content" value="1517">Institutt for informasjons- og medievitenskap</option>
+			<option class="dropdown-content" value="1534">Institutt for sosialantropologi</option>
+			<option class="dropdown-content" value="1541">Institutt for geografi</option>
+
+		</select>
+					    <script>
+			
+$('#filter').change(function() {
+    var port = $(this).val()
+    console.log( port )
+    if ( port !== '' ) {
+	$("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+	$("tr[data-port=" + port+ "]").css('visibility', 'visible');
+	$("tr[data-port=stay]").css('visibility', 'visible');
+    } else {
+      $("tr").css('visibility', 'visible');
+    }
+});	
+		</script>
+		<p> tekst </p>
+	   
+		<!-- table for showing data -->
+		<table id="emner" class="stripe hover" style="max-height:400px;"></table>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+    <script src=
+     "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>
+									  
+<script>
+
+</script>									  			  </div>
+
+	</body>
+</html>
