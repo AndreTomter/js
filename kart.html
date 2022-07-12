@@ -127,17 +127,17 @@ function hideloader() {
 function show(data) {
 	let tab =
 		`<thead stype="color: #FFFFFF"><tr data-port="stay">
-			<th>Emnekode</th>
-			<th>Emnenavn</th>
-			<th>Studiepoeng</th>
+			<th>avtale_eier</th>
+			<th>eksternt_sted</th>
+			<th>landnavn_norsk</th>
 		</tr></thead>`;
 	
 	// Loop to access all rows
 	for (let r of data.avtaler) {
-        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.landnr"> 
-			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
-			<td >${r.emnenavn_bokmal}</td>   
-   			<td >${r.studiepoeng} sp</td>   
+        tab += `<tr class="fnr-" data-port="${r.landnr"> 
+			<td >${r.avtale_eier}</a></td>   
+			<td >${r.eksternt_sted}</td>   
+   			<td >${r.landnavn_norsk}</td>   
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
