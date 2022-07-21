@@ -1,79 +1,82 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
-	<head>
-	   <script>
-     var semdato = new Date();
-var dd = String(semdato.getDate()).padStart(2, '0');
-var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = semdato.getFullYear();
+<head>
+	<script>
+     	var semdato = new Date();
+	var dd = String(semdato.getDate()).padStart(2, '0');
+	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = semdato.getFullYear();
 
-if (dd >= 	15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
-if (				mm	< 	06) 	{ semester = yyyy	+	"V";}
-if (dd <	15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
-
-if (dd >= 	15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
-if (				mm	> 	06) 	{ semester = yyyy	+	"H";}
-
-
-// document.write(semester);
-
+		if (dd >= 15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
+		if (			mm	< 	06) 	{ semester = yyyy	+	"V";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
+		if (			mm	> 	06) 	{ semester = yyyy	+	"H";}
 	
-const fakulet = ['15']
+	//fakultet som skal vises
+	const fakultet = ['15']
 
-// api url
-const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
+	// api url
+	const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
 
-// Defining async function
-async function getapi(url) {
+	// Defining async function
+	async function getapi(url)	{
 
-// Storing response
-const response = await fetch(url);
+	// Storing response
+	const response = await fetch(url);
 
-// Storing data in form of JSON
-const data = await response.json();
-  const emne = data.emne.filter( i => fakulet.includes( i.faknr_reglement ) );
-  const sortert = emne.sort( function( a, b )
-  {
-      a = a.emnekode.toLowerCase();
-      b = b.emnekode.toLowerCase();
-      return a < b ? -1 : a > b ? 1 : 0;
-});
-   console.log(sortert)
+	// Storing data in form of JSON
+	const data = await response.json();
+  	
+	// filtrerer listen	
+	const emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+  	
+	//sorterer alfabetisk
+	const sortert = emne.sort( function( a, b )
+  	{
+		a = a.emnekode.toLowerCase();
+      		b = b.emnekode.toLowerCase();
+      		return a < b ? -1 : a > b ? 1 : 0;
+	});
    
-   show(sortert)
+	console.log(sortert)
    
-  }
-  getapi(api_url)
+   	show(sortert)
+   
+  					}
+  	
+	getapi(api_url)
   
-  function show(sortert) {
-	let tab =
-		`<thead stype="color: #FFFFFF"><tr data-port="stay">
-			<th>Emnekode</th>
-			<th>Emnenavn</th>
-			<th>Studiepoeng</th>
-		</tr></thead>`;
+  	function show(sortert) {
+		let tab =
+			`<thead stype="color: #FFFFFF"><tr data-port="stay">
+				<th>Emnekode</th>
+				<th>Emnenavn</th>
+				<th>Studiepoeng</th>
+			</tr></thead>`;
 	
-	// Loop to access all rows
-	for (let r of sortert) {
-        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
-			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
-			<td >${r.emnenavn_bokmal}</td>   
-   			<td >${r.studiepoeng} sp</td>   
-		</tr>`;
-	}
+		// Loop to access all rows
+		for (let r of sortert) {
+        	tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+				<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
+				<td >${r.emnenavn_bokmal}</td>   
+   				<td >${r.studiepoeng} sp</td>   
+			</tr>`;
+					}
+	
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
-}
-document.addEventListener('DOMContentLoaded', function () {
-    let table = new DataTable('#example');
-});
+				}
+	document.addEventListener('DOMContentLoaded', function () {
+    		let table = new DataTable('#example');
+								});
 	
-  table = document.getElementById("emner");	
+  	table = document.getElementById("emner");	
 	////////////
     </script>
-	</head>
-	<body>
-<table id="emner" class="stripe hover" style="max-height:400px;"></table>
-	</body>
+</head>
+<body>
+	<table id="emner" class="stripe hover" style="max-height:400px;"></table>
+</body>
 </html>
