@@ -117,31 +117,25 @@ if (				mm	> 	06) 	{ semester = yyyy	+	"H";}
 
 
 // document.write(semester);
-const fakulet = ['15']
+	
+	
+// api url
 const api_url =
-	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+  semester;
+	"https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
 
 // Defining async function
 async function getapi(url) {
-
-// Storing response
-const response = await fetch(url);
-
-// Storing data in form of JSON
-const data = await response.json();
-  const emne = data.emne.filter( i => fakulet.includes( i.faknr_reglement ) );
-  const sortert = emne.sort( function( a, b )
-  {
-      a = a.emnekode.toLowerCase();
-      b = b.emnekode.toLowerCase();
-      return a < b ? -1 : a > b ? 1 : 0;
-});
-   console.log(sortert)
-
+	
+	// Storing response
+	const response = await fetch(url);
+	
+	// Storing data in form of JSON
+	var data = await response.json();
+	console.log(data);
 	if (response) {
 		hideloader();
 	}
-	show(sortert);
+	show(data);
 
 }
 
@@ -154,7 +148,7 @@ function hideloader() {
 	document.getElementById('loading').style.display = 'none';
 }
 // Function to define innerHTML for HTML table
-function show(sortert) {
+function show(data) {
 	let tab =
 		`<thead stype="color: #FFFFFF"><tr data-port="stay">
 			<th>Emnekode</th>
@@ -163,7 +157,7 @@ function show(sortert) {
 		</tr></thead>`;
 	
 	// Loop to access all rows
-	for (let r of sortert.emne) {
+	for (let r of data.emne) {
         tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
 			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
 			<td >${r.emnenavn_bokmal}</td>   
