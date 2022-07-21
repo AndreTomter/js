@@ -134,12 +134,16 @@ const response = await fetch(url);
 const data = await response.json();
   const emne = data.emne.filter( i => fakulet.includes( i.faknr_reglement ) );
   const sortert = emne.sort( function( a, b )
-  {
-      a = a.emnekode.toLowerCase();
-      b = b.emnekode.toLowerCase();
-      return a < b ? -1 : a > b ? 1 : 0;
-});
-   console.log(sortert)
+  	{
+      		a = a.emnekode.toLowerCase();
+      		b = b.emnekode.toLowerCase();
+      		return a < b ? -1 : a > b ? 1 : 0;
+	});
+		
+   console.log(sortert);
+	if (response) {
+		hideloader();
+	};
    
    show(sortert)
    
