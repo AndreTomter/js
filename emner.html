@@ -76,18 +76,7 @@
 	
 	</script>
 	
-	<script>		
-	$("#filter").change(function() {
-	    var port = $(this).val()
-	    console.log( port )
-	    if ( port !== '' ) {
-	      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
-	      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
-	    } else {
-	      $("tr").css('visibility', 'visible');
-	    }
-	});	
-	</script>
+	
 	
 
 </head>
@@ -110,7 +99,18 @@
 			<option class="dropdown-content" value="1541">Institutt for geografi</option>
 
 		</select>
-	
+	<script>		
+	$("#filter").change(function() {
+	    var port = $(this).val()
+	    console.log( port )
+	    if ( port !== '' ) {
+	      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+	      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+	    } else {
+	      $("tr").css('visibility', 'visible');
+	    }
+	});	
+	</script>
 	<table id="emner" class="stripe hover" style="max-height:400px;"></table>
 </body>
 </html>
