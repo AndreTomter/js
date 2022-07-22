@@ -73,10 +73,44 @@
 								});
 	
   	table = document.getElementById("emner");	
-	////////////
-    </script>
+	
+	</script>
+	
+	<script>		
+	$("#filter").change(function() {
+	    var port = $(this).val()
+	    console.log( port )
+	    if ( port !== '' ) {
+	      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
+	      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
+	    } else {
+	      $("tr").css('visibility', 'visible');
+	    }
+	});	
+	</script>
+	
+
 </head>
 <body>
+	<h1>Emner som overføres til Canvas</h1>
+				
+		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
+		<p> Endrer semester 15 desember og 15 juni </p>
+		<p> Korrekt sortering av emnene i stigende rekkefølge gjennstår </p>
+						     
+		<select class="dropbtn dropdown" id="filter">
+				  
+  			<option class="dropdown-content skjul" value="valg" style="color: #ffffff; font: bold"; hidden selected>Velg institutt</option>
+			<option class="dropdown-content" value="1511">Sosiologisk institutt</option>
+			<option class="dropdown-content" value="1512">Institutt for politikk og forvaltning</option>
+			<option class="dropdown-content" value="1513">Institutt for sammenliknende politikk</option>
+			<option class="dropdown-content" value="1515">Institutt for økonomi</option>
+			<option class="dropdown-content" value="1517">Institutt for informasjons- og medievitenskap</option>
+			<option class="dropdown-content" value="1534">Institutt for sosialantropologi</option>
+			<option class="dropdown-content" value="1541">Institutt for geografi</option>
+
+		</select>
+	
 	<table id="emner" class="stripe hover" style="max-height:400px;"></table>
 </body>
 </html>
