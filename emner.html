@@ -2,6 +2,14 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
+	<style>
+		table { width: 70%; border: 1px solid gray; border-collapse: collapse; }
+		td { border: 1px solid gray; padding: 4px; }
+		tr.hidden { display: none; }
+		#tab tr.alt { background-color: #ddd;}
+	</style>
+	<script>
+		
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script>
      	var semdato = new Date();
@@ -97,7 +105,27 @@
 			<option class="dropdown-content" value="1541">Institutt for geografi</option>
 
 		</select>
-		<script>			
+		<script>
+			var tab = document.getElementById("tab"), 
+	btns = tab.getElementsByTagName("a"), 
+	show = document.getElementById("show"), 
+	rows
+;
+
+stripe(); // Stripe the rows in beginning
+
+// The stripe function itself
+function stripe() {
+    // select all rows which are not hidden
+	rows = tab.querySelectorAll('tr:not(.hidden)');
+  
+    // add a class for every second such row
+	for(var x = 0; x < rows.length; x++) {
+    	if (x % 2 == 0) { rows[x].classList.add('alt'); }
+		else { rows[x].classList.remove('alt'); }
+	}
+}
+			
 		$('#filter').change(function() {
 			var port = $(this).val()
 			console.log( port )
