@@ -127,7 +127,7 @@ function drawVisualization() {
   var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
   google.visualization.events.addListener(chart, 'select', myClickHandler);
   chart.draw(view, options);
-}
+
   function myClickHandler(){
     var selection = chart.getSelection();
     if (selection.length > 0) {
@@ -139,7 +139,7 @@ function drawVisualization() {
     } else {
       $("tr").css('visibility', 'visible');
     }
-  
+  }
 };
 
 
