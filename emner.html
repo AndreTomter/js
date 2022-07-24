@@ -3,7 +3,44 @@
 <html lang="en">
 <head>
 
-	
+	<style>
+	table
+		{
+		max-height: 500px;
+		}
+
+	#emner	
+		{
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+	#emner td, #emner th 
+		{
+	 	border: 1px collapse #ddd;
+	  	padding: 8px;
+		}
+
+	#emner tr:nth-child(even)
+		{
+		background-color: #f2f2f2;
+		}
+
+	#emner tr:hover 
+		{
+		background-color: #ddd;
+		}
+
+	#emner th 	
+		{
+	  padding-top: 12px;
+	  padding-bottom: 12px;
+	  text-align: left;
+	  background-color: #DB3F3D;	
+	  color: white;
+		}
+	</style>
 		
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script>
@@ -62,7 +99,7 @@
 	
 		// Loop to access all rows
 		for (let r of sortert) {
-        	tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+        	tab += `<tr data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
 				<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
 				<td >${r.emnenavn_bokmal}</td>   
    				<td >${r.studiepoeng} sp</td>   
