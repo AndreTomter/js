@@ -5,11 +5,21 @@
 
 <style>
 
-
-.emner table
+	#filter
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #DB3F3D;
+		color: white;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+	
+	.emner table
 		{
 		max-height: 500px;
-    width: 100%;
+    		width: 100%;
    
 		}
 
@@ -23,8 +33,9 @@
 	.emner td, .emner th, .emner tr
 		{
 	 	border: 1px collapse #ddd;
-	  padding: 8px;
-    border-collapse: collapse;
+	  	padding: 8px;
+     		border-collapse: collapse;
+		font-size: 14px;
 		}
 
 	.emner tr:nth-child(even)
@@ -39,11 +50,12 @@
 
 	.emner th 	
 		{
-	  padding-top: 12px;
-	  padding-bottom: 12px;
+	  padding-top: 16px;
+	  padding-bottom: 15px;
 	  text-align: left;
 	  background-color: #DB3F3D;	
 	  color: white;
+	  font-size: 16px;
 		}
 </style>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -110,7 +122,7 @@ function doZebra(){
   
   	function show(sortert) {
 		let tab =
-			`<thead stype="color: #FFFFFF"><tr data-port="stay">
+			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
 				<th>Emnekode</th>
 				<th>Emnenavn</th>
 				<th>Studiepoeng</th>
@@ -118,7 +130,7 @@ function doZebra(){
 	
 		// Loop to access all rows
 		for (let r of sortert) {
-        	tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+        	tab += `<tr class="emner" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
 				<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
 				<td >${r.emnenavn_bokmal}</td>   
    				<td >${r.studiepoeng} sp</td>   
