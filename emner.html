@@ -4,12 +4,42 @@
 <head>
 
 <style>
-
-	#filter
+	select
 		{
 		font-family: Arial, Helvetica, sans-serif;
 		background-color: #DB3F3D;
 		color: white;
+		padding: 10px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+
+	option
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #fff;
+		color: #333333 ;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+
+	.emner a
+		{
+		color:#0075af;
+		}
+	
+	.emner p
+		{
+		color: #333333;
+		}
+
+	#filter
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		color: #333333;
 		padding: 12px;
 		font-size: 14px;
 		border: none;
@@ -27,7 +57,6 @@
 		{
 		  font-family: Arial, Helvetica, sans-serif;
 		  border-collapse: collapse;
-		  
 		}
 		
 	.emner td, .emner th, .emner tr
@@ -38,8 +67,6 @@
 		font-size: 14px;
 		}
 
-	
-
 	.emner tr:hover 
 		{
 		background-color: #ddd;
@@ -47,12 +74,12 @@
 
 	.emner th 	
 		{
-	  padding-top: 16px;
-	  padding-bottom: 15px;
-	  text-align: left;
-	  background-color: #DB3F3D;	
-	  color: white;
-	  font-size: 16px;
+		 padding-top: 16px;
+		 padding-bottom: 15px;
+		 text-align: left;
+		 background-color: #DB3F3D;	
+		 color: white;
+		 font-size: 16px;
 		}
 </style>
 
@@ -157,9 +184,9 @@ function doZebra(){
 				
 		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
 		<p> Endrer semester 15 desember og 15 juni </p>
-		<p> Korrekt sortering av emnene i stigende rekkefølge gjennstår </p>
+		
 						     
-		<select class="emner" id="filter">
+		<select class="emner" stye="background-color: #DB3F3D" id="filter">
 				  
   			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Velg institutt</option>
 			<option class="emner" value="1511">Sosiologisk institutt</option>
