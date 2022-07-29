@@ -4,6 +4,16 @@
 <head>
 
 <style>
+	table tr 
+		{
+  		border-bottom: 1px solid #d5d5d5;
+		}
+
+	table tr:last-child 
+		{
+  		border: 0 !important;
+		}
+	
 	select
 		{
 		font-family: Arial, Helvetica, sans-serif;
@@ -19,7 +29,7 @@
 		{
 		font-family: Arial, Helvetica, sans-serif;
 		background-color: #fff;
-		color: #333333 !important;
+		color: #333333 ;
 		padding: 12px;
 		font-size: 14px;
 		border: none;
@@ -28,12 +38,13 @@
 
 	.emner a
 		{
-		color:#0075af !important;
+		color:#0075af;
 		}
 	
 	.emner p
 		{
 		color: #333333;
+    
 		}
 
 	#filter
@@ -48,8 +59,9 @@
 	
 	.emner table
 		{
-		max-height: 500px;
+		//max-height: 500px;
     		width: 100%;
+        
    
 		}
 
@@ -62,6 +74,8 @@
 	.emner td, .emner th, .emner tr
 		{
 	 	border: 1px collapse #ddd;
+    		padding-left: 20px !important;
+    		padding-right: 20px !important;
 	  	padding: 8px;
      		border-collapse: collapse;
 		font-size: 14px;
