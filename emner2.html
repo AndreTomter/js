@@ -1,0 +1,103 @@
+<head
+
+  <script>
+    document.addEventListener('DOMContentLoaded', init, false);
+
+    let data, table, sortCol;
+    let sortAsc = false;
+    const pageSize = 12;
+    let curPage = 1;
+    let fakultet = ['15']
+
+  // finner rett semester //  
+  var semdato = new Date();
+	var dd = String(semdato.getDate()).padStart(2, '0');
+	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = semdato.getFullYear();
+		if (dd >= 15 	&&	mm	== 	12) 	{ semester = yyyy + 1	+	"V";}
+		if (			        mm	< 	06)   { semester = yyyy	+	0 + "V";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	0 + "V";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	0 + "H";}
+		if (			        mm	> 	06)   { semester = yyyy	+	0 + "H";}
+	    
+
+    async function init() {
+      // Select the table (well, tbody)
+      table = document.querySelector('#emneTable tbody');
+      // hent emnene
+      let resp = await fetch('https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/'+semester);
+      data = await resp.json();
+
+      emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+
+      renderTable();
+
+      // listen for sort clicks
+      document.querySelectorAll('#emneTable thead tr th').forEach(t => {
+         t.addEventListener('click', sort, false);
+      });
+
+      document.querySelector('#nextButton').addEventListener('click', nextPage, false);
+      document.querySelector('#prevButton').addEventListener('click', previousPage, false);
+    }
+
+    function renderTable() {
+      // create html
+      let result = '';
+      emne.filter((row, index) => {
+            let start = (curPage-1)*pageSize;
+            let end =curPage*pageSize;
+            if(index >= start && index < end) return true;
+      }).forEach(c => {
+         result += `<tr>
+         <td style="text-align: left;"><a href="https://www.uib.no/emne/${c.emnekode}"  target="_blank" rel="noopener noreferrer">${c.emnekode}</a></td>
+         <td style="text-align: left;">${c.emnenavn_bokmal}</td>
+         <td style="text-align: right;">${c.studiepoeng} sp</td>
+         </tr>`;
+      });
+      table.innerHTML = result;
+    }
+
+    function sort(e) {
+      let thisSort = e.target.dataset.sort;
+      if(sortCol === thisSort) sortAsc = !sortAsc;
+      sortCol = thisSort;
+      console.log('sort dir is ', sortAsc);
+      emne.sort((a, b) => {
+        if(a[sortCol] < b[sortCol]) return sortAsc?1:-1;
+        if(a[sortCol] > b[sortCol]) return sortAsc?-1:1;
+        return 0;
+      });
+      renderTable();
+    }
+
+    function previousPage() {
+      if(curPage > 1) curPage--;
+      renderTable();
+    }
+
+    function nextPage() {
+      if((curPage * pageSize) < emne.length) curPage++;
+      renderTable();
+    }
+  </script>
+</head>
+<body>
+<table id="emneTable">
+  <thead>
+    <tr>
+      <th style="text-align: left;" data-sort="emnekode">Emnekode</th>
+      <th style="text-align: left;" >Emnenavn</th>
+      <th style="text-align: right;" data-sort="emnekode">Studiepoeng</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="3"><i>Loading...</i></td></tr>
+  </tbody>
+</table>
+
+<button id="prevButton">Previous</button> 
+<button id="nextButton">Next</button> 
+
+</body>
