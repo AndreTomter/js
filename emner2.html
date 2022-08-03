@@ -12,16 +12,15 @@
     let fakultet = ['15']
 
   // finner rett semester //  
-  var semdato = new Date();
-	var dd = String(semdato.getDate()).padStart(2, '0');
-	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
-	var yyyy = semdato.getFullYear();
-		if (dd >= 15 	&&	mm	== 	12) 	{ semester = yyyy + 1	+	"V";}
-		if (			        mm	< 	06)   { semester = yyyy	+	0 + "V";}
-		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	0 + "V";}
-		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	0 + "H";}
-		if (			        mm	> 	06)   { semester = yyyy	+	0 + "H";}
-	    
+  var semesterdato = new Date();
+	var dd = String(semesterdato.getDate()).padStart(2, '0');
+	var mm = String(semesterdato.getMonth() + 1).padStart(2, '0'); 						// Januar er 0!
+	var yyyy = semesterdato.getFullYear();
+		if ( dd >= 15	&&  mm  ==  12)	{ semester = yyyy + 1 +	"V";}					// viser vårsemesteret fra og med 15 desember
+		if (		    mm  <   06) { semester = yyyy + 0 + "V";}					// viser vårsemesteret frem til juni
+		if ( dd <  15 	&&  mm  ==  06) { semester = yyyy + 0 + "V";}					// viser vårsemesteret første halvdel av juni
+		if ( dd >= 15 	&&  mm  ==  06) { semester = yyyy + 0 + "H";}					// viser høstsemester siste halvdel av juni
+		if (		    mm  >   06) { semester = yyyy + 0 + "H";}					// viser høstsemester etter juni
 
     async function init() {
       // Select the table (well, tbody)
