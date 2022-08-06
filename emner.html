@@ -160,11 +160,11 @@ function doZebra(){
   	
 	//sorterer alfabetisk
 	const sortert = emne.sort( function( a, b )
-  	{
-		a = a.emnekode.toLowerCase();
-      		b = b.emnekode.toLowerCase();
-      		return a < b ? -1 : a > b ? 1 : 0;
-	});
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
    
 	console.log(sortert)
    
