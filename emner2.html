@@ -29,15 +29,17 @@
       let resp = await fetch('https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/'+semester);
       data = await resp.json();
 
-      filterEmne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
-
-	//sorterer alfabetisk
-	const emne = filterEmne.sort( function( a, b )
-  	{
-		a = a.emnekode.toLowerCase();
-      		b = b.emnekode.toLowerCase();
-      		return a < b ? -1 : a > b ? 1 : 0;
-	});	    
+       //sorterer alfabetisk
+	  
+      emne = data.emne
+                        .filter ( i => fakultet.includes( i.faknr_reglement ) )
+                        .sort( function( a, b )
+                                 {
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                         }
+                                );;
     
       renderTable();
 
