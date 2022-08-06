@@ -29,20 +29,16 @@
       let resp = await fetch('https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/'+semester);
       data = await resp.json();
 
-//sorterer alfabetisk
-	const sortert = data.sort( function( a, b )
+      emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+
+	//sorterer alfabetisk
+	const sortert = emne.sort( function( a, b )
   	{
 		a = a.emnekode.toLowerCase();
       		b = b.emnekode.toLowerCase();
       		return a < b ? -1 : a > b ? 1 : 0;
 	});	    
-	    
-	    
-	    
-	    
-	    
-      emne = sortert.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
-
+    
       renderTable();
 
       // listen for sort clicks
