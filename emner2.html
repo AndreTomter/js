@@ -2,6 +2,30 @@
 <head>
 // hentet kode fra https://www.raymondcamden.com/2022/03/14/building-table-sorting-and-pagination-in-javascript //
 // mulig filter : https://www.raymondcamden.com/2021/04/12/proof-of-concept-dynamically-filtering-a-large-select //
+  <style>
+ .scrollbar tbody
+{
+  text-align: left;
+  display: inline-block;
+	height: 50px !important;
+	width: 100% !important;;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 15px;
+}
+.scrollbar tr 
+{
+  display: table;
+	width: 100% !important;
+  text-align: left;
+}
+td
+{
+ 
+  text-align: left;
+}
+
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', init, false);
 
@@ -54,19 +78,27 @@
 
     function renderTable() {
       // create html
-      let result = '';
+      let result = 
+		 `<thead>
+			<tr>
+				<th style="text-align: left; width:110px" data-sort="emnekode">Emnekode</th>
+				<th style="text-align: left;" >Emnenavn</th>
+				<th style="text-align: right;" data-sort="emnekode">Studiepoeng</th>
+			</tr>
+		  </thead>`;
       emne.filter((row, index) => {
             let start = (curPage-1)*pageSize;
             let end =curPage*pageSize;
             if(index >= start && index < end) return true;
       }).forEach(c => {
-         result += `<tr>
-         <td style="text-align: left;"><a href="https://www.uib.no/emne/${c.emnekode}"  target="_blank" rel="noopener noreferrer">${c.emnekode}</a></td>
-         <td style="text-align: left;">${c.emnenavn_bokmal}</td>
-         <td style="text-align: right;">${c.studiepoeng} sp</td>
-         </tr>`;
-      });
-      table.innerHTML = result;
+         result += 
+		`<tr>
+			<td style="text-align: left;"><a href="https://www.uib.no/emne/${c.emnekode}"  target="_blank" rel="noopener noreferrer">${c.emnekode}</a></td>
+         		<td style="text-align: left;">${c.emnenavn_bokmal}</td>
+         		<td style="text-align: right;">${c.studiepoeng} sp</td>
+        	</tr>`;
+      			});
+      document.getElementById("emneTable").innerHTML = result;
     }
 
     function sort(e) {
@@ -94,22 +126,11 @@
   </script>
 </head>
 <body>
-<table style="width:650px" id="emneTable">
-  <thead>
-    <tr>
-      <th style="text-align: left; width:110px" data-sort="emnekode">Emnekode</th>
-      <th style="text-align: left;" >Emnenavn</th>
-      <th style="text-align: right;" data-sort="emnekode">Studiepoeng</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td colspan="3"><i>Loading...</i></td></tr>
-  </tbody>
-</table>
+	<table id="emneTable" class="scrollbar" style="width:650px" >
+	</table>
 
-<button id="prevButton">Previous</button> 
-<button id="nextButton">Next</button> 
+	<button id="prevButton">Previous</button> 
+	<button id="nextButton">Next</button> 
 
 </body>
 <html>
