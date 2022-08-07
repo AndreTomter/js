@@ -3,26 +3,38 @@
 // hentet kode fra https://www.raymondcamden.com/2022/03/14/building-table-sorting-and-pagination-in-javascript //
 // mulig filter : https://www.raymondcamden.com/2021/04/12/proof-of-concept-dynamically-filtering-a-large-select //
   <style>
- .scrollbar tbody
+    table
+    {
+table-layout: fixed  !important;
+display: table;
+margin-bottom: 15px;
+    }
+tbody
 {
   text-align: left;
-  display: inline-block;
-	height: 50px !important;
-	width: 100% !important;;
+ 
+	width: 100% !important;
 	background: #F5F5F5;
 	overflow-y: scroll;
-	margin-bottom: 15px;
-}
-.scrollbar tr 
-{
-  display: table;
-	width: 100% !important;
-  text-align: left;
+
 }
 td
+    {
+      padding-left: 20px;
+      height: 40px;
+      text-align: left;
+    }
+    td + td {
+    padding-left: 0;
+}
+    th 
 {
- 
+ height: 40px;
   text-align: left;
+  padding-left: 20px;
+}
+    td:nth-child(2n+1) {  
+ padding-right: 20px !important;
 }
 
   </style>
@@ -82,8 +94,8 @@ td
 		 `<thead>
 			<tr>
 				<th style="text-align: left; width:110px" data-sort="emnekode">Emnekode</th>
-				<th style="text-align: left;" >Emnenavn</th>
-				<th style="text-align: right;" data-sort="emnekode">Studiepoeng</th>
+				<th style="text-align: left; width: 500px" >Emnenavn</th>
+				<th style="text-align: right; width: 90px" data-sort="emnekode">Studiepoeng</th>
 			</tr>
 		  </thead>`;
       emne.filter((row, index) => {
@@ -126,7 +138,7 @@ td
   </script>
 </head>
 <body>
-	<table id="emneTable" class="scrollbar" style="width:650px" >
+	<table id="emneTable" class="scrollbar">
 	</table>
 
 	<button id="prevButton">Previous</button> 
