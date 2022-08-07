@@ -3,14 +3,15 @@
 <html lang="en">
 <head>
   <script>
-window.parent.postMessage(
-  {
-    subject: "lti.showModuleNavigation",
-    show: false
-  },
-  "*"
-)
-    </script>
+$( document ).ready(function() {
+
+ parent.postMessage(JSON.stringify({
+      subject: "lti.showModuleNavigation",
+      show: false
+    }), "*");
+
+});
+</script>
   </head>
   <body>
   </body>
