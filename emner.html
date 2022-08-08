@@ -115,23 +115,12 @@
 				window.parent.postMessage(
 		  {
 		    subject: "lti.frameResize",
-		    height: 400
+		    height: 900
 		  },
 		  "*"
 		)
 	</script>
-<script>
-function doZebra(){
-     var tTrCnt=0;
-     $("##tblData tbody tr").each(function(){
-         if($(this).css("display")!="none" && !$(this).hasClass("struck")){
-             tTrCnt++;
-             if(tTrCnt % 2) $(this).removeClass().addClass("eee");
-             else  $(this).removeClass().addClass("fff");
-         }
-     });
-}
-</script>	
+
 		
    
 	<script>
