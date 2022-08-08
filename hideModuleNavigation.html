@@ -12,6 +12,24 @@ $( document ).ready(function() {
 
 });
 </script>
+   <script>
+window.parent.postMessage(
+  {
+    subject: "lti.frameResize",
+    show: false
+  },
+  "*"
+)
+</script>
+     <script>
+window.parent.postMessage(
+  {
+    subject: "lti.showModuleNavigation",
+    show: false
+  },
+  "*"
+)
+</script>
   </head>
   <body>
   </body>
