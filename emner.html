@@ -114,16 +114,8 @@
 		<script>
 window.parent.postMessage(
   {
-    subject: "requestFullWindowLaunch",
-    data: {
-      url: "https://mitt.uib.no/courses/29165/external_tools/928",
-      placement: "course_navigation",
-      launchType: "new_window",
-      launchOptions: {
-        width: 1000,
-        height: 4000
-      }
-    }
+    subject: "lti.frameResize",
+    show: true
   },
   "*"
 )
