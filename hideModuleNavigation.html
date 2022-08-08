@@ -7,7 +7,7 @@ $( document ).ready(function() {
 
  parent.postMessage(JSON.stringify({
       subject: "lti.showModuleNavigation",
-      show: false
+      show: true
     }), "*");
 
 });
@@ -16,7 +16,7 @@ $( document ).ready(function() {
 window.parent.postMessage(
   {
     subject: "lti.frameResize",
-    show: false
+    show: true
   },
   "*"
 )
@@ -25,7 +25,7 @@ window.parent.postMessage(
 window.parent.postMessage(
   {
     subject: "lti.showModuleNavigation",
-    show: false
+    show: true
   },
   "*"
 )
