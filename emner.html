@@ -4,7 +4,43 @@
 <head>
 
 <style>
+   .tableFixHead {
+        overflow-y: auto;
+        height: 506px;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
 
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #ee0979;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+    
+}
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #C9D6FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+}
+/* scrollbar width */
+::-webkit-scrollbar {
+  width: 15px;
+  
+}
+	html, body {
+	height: 700px;
+			
+}
 	div
 		{
 		height: auto;
@@ -105,19 +141,24 @@
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<script>
-		    window.parent.postMessage({ subject: "toggleCourseNavigationMenu" }, "*")
-		</script>
-		<script>
-window.parent.postMessage(
-  {
-    subject: "lti.frameResize",
-    height: 4500
-  },
-  "*"
-)
-	</script>
-
+	<script>
+    $(document).ready(function(){
+        $('table').find('tr:odd').css('background-color','#f5f5f5');
+	$('table').find('tr:even').css('background-color','#d5d5d5');
+    });
+</script>
+<script>
+function doZebra(){
+     var tTrCnt=0;
+     $("##tblData tbody tr").each(function(){
+         if($(this).css("display")!="none" && !$(this).hasClass("struck")){
+             tTrCnt++;
+             if(tTrCnt % 2) $(this).removeClass().addClass("eee");
+             else  $(this).removeClass().addClass("fff");
+         }
+     });
+}
+</script>	
 		
    
 	<script>
@@ -198,7 +239,8 @@ window.parent.postMessage(
 <body>
 	<div>
 	<h1>Emner som overføres til Canvas</h1>
-
+				
+		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
 		<p> Endrer semester 15 desember og 15 juni </p>
 		
 						     
@@ -230,9 +272,11 @@ window.parent.postMessage(
 		});
     </script>
     <p>
-    
+    rf
     </p>
+   <div class="tableFixHead">
 	<table id="emner" class="emner"></table>
+    </div>
 	</div>
 </body>
 </html>
