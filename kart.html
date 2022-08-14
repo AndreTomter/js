@@ -3,10 +3,45 @@
 <html lang="en">
 	<head>
 <style>
-
+  
+  /* scrollbar Handle */
+div ::-webkit-scrollbar-thumb {
+    background: #ee0979;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+    
+}
+/* scrollbar Track */
+div ::-webkit-scrollbar-track {
+    background: #C9D6FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+}
+/* scrollbar width */
+div ::-webkit-scrollbar {
+  width: 15px;
+  
+}
+  
+.tableFixHead {
+        overflow-y: auto;
+        height: 506px;
+        width:820px;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: auto;
+      }
 	table tr 
 		{
   		border-bottom: 1px solid #d5d5d5;
+      border-collapse: collapse;
 		}
 
 	table tr:last-child 
@@ -17,7 +52,7 @@
 	.emner table
 		{
 		max-height: 500px;
-    		width: 100%;
+    		width:800px;
    
 		}
 
@@ -34,8 +69,7 @@
 	.emner table
 		{
 		height: auto;
-		//max-height: 500px;
-    		width: 100%;
+	
         
    
 		}
@@ -146,7 +180,7 @@ function drawVisualization() {
     displayMode: 'regions',
     tooltip: {textStyle: {color: '#333333'}, trigger:'focus',isHtml: true},
     legend: 'none',
-    height:600,
+    height:500,
     width:800
   };
 
@@ -200,17 +234,11 @@ function hideloader() {
 }
 // Function to define innerHTML for HTML table
 function show(data) {
-	let tab =
-		`<thead stype="color: #FFFFFF"><tr data-port="overskrift">
-			<th>Avtale eier</th>
-			<th>Eksternt sted</th>
-			<th>Land</th>
-			<th style="min-width:75px">Avtale-id</th>
-		</tr></thead>`;
+	tab=''
 	
 	// Loop to access all rows
 	for (let r of data.avtaler) {
-        tab += `<tr class="emner" id="emner" data-port="${r.landnr}"> 
+       tab += `<tr class="emner" id="emner" data-port="${r.landnr}"> 
 			<td>${r.avtale_eier}</td>   
 			<td>${r.eksternt_sted}</td>   
    			<td>${r.landnavn_norsk}</td>
@@ -244,9 +272,21 @@ function show(data) {
                 <span class="sr-only">Loading...</span>
               </div>
         </div>
-        
-        <table id="emner" class="emner" style="max-height:400px;  width:800px"></table>
-    </div>
+        <div class="tableFixHead">
+        <table class="emner">
+          <thead stype="color: #FFFFFF"><tr data-port="overskrift">
+			<th>Avtale eier</th>
+			<th>Eksternt sted</th>
+			<th>Land</th>
+			<th style="min-width:75px">Avtale-id</th>
+		</tr>
+		  <tbody id="emner" >
+          </tbody>
+		</thead>
+          
+        </table>
+    </div>  
+  </div>
     
 </body>
 </html>
