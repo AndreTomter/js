@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
@@ -12,31 +13,24 @@
 	</script>
 <style>
   
-  /* scrollbar Handle */
-div ::-webkit-scrollbar-thumb {
-    background: #ee0979;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 5px;
-    
-}
-/* scrollbar Track */
-div ::-webkit-scrollbar-track {
-    background: #C9D6FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 5px;
-}
+  
+
+
 /* scrollbar width */
 div ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
   
 }
   
 .tableFixHead {
-        overflow-y: auto;
+        
         height: 506px;
-        width:820px;
+        width:830px;
+      
+  
+        overflow-y: auto;
+    
+        
       }
       .tableFixHead thead th {
         position: sticky;
@@ -44,7 +38,7 @@ div ::-webkit-scrollbar {
       }
       table {
         border-collapse: collapse;
-        width: auto;
+        
       }
 	table tr 
 		{
@@ -60,7 +54,7 @@ div ::-webkit-scrollbar {
 	.emner table
 		{
 		max-height: 500px;
-    		width:800px;
+    		width:795px;
    
 		}
 
@@ -290,7 +284,7 @@ function show(data) {
 				<th style="min-width:75px">Avtale-id</th>
 			</tr>
 		</thead>
-		<tbody id="emner" >
+		<tbody id="emner"  >
           	</tbody>
         </table>
     </div>  
