@@ -2,6 +2,14 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 	<head>
+		<script>
+		window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 800
+		  },
+		  '*')
+	</script>
 <style>
   
   /* scrollbar Handle */
