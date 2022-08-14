@@ -2,11 +2,18 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-
+<script>
+		window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 600
+		  },
+		  '*')
+	</script>
 <style>
    .tableFixHead {
         overflow-y: auto;
-        height: 506px;
+        height: 506px !important;
       }
       .tableFixHead thead th {
         position: sticky;
@@ -137,14 +144,7 @@
 		}
 </style>
 
-	<script>
-		window.top.postMessage(
-		  {
-		    subject: 'lti.frameResize',
-		    height: 600
-		  },
-		  '*')
-	</script>
+	
 		
    
 	<script>
@@ -258,7 +258,7 @@
 		});
     </script>
     <p>
-    rf
+    rfe
     </p>
    <div class="tableFixHead">
 	<table id="emner" class="emner"></table>
