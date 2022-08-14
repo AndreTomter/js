@@ -137,7 +137,14 @@
 		}
 </style>
 
-	
+	<script>
+		window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 600
+		  },
+		  '*')
+	</script>
 		
    
 	<script>
