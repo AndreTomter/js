@@ -165,7 +165,7 @@
 		if (dd >= 15 	&&	mm 	== 	06) 	{ semestertekst = "høsten " + yyyy	;}
 		if (			mm	> 	06) 	{ semestertekst = "høsten " + yyyy	;}
 	
-		document.getElementById("semestertekst").innerHTML=semestertekst;
+		
 		
 	//fakultet som skal vises
 	const fakultet = ['15']
@@ -220,6 +220,7 @@
 	
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
+	document.getElementById("semestertekst").innerHTML = semestertekst;
 				}
 	document.addEventListener('DOMContentLoaded', function () {
     		let table = new DataTable('#example');
