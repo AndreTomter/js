@@ -7,7 +7,7 @@
 		window.top.postMessage(
 		  {
 		    subject: 'lti.frameResize',
-		    height: 1150
+		    height: 900
 		  },
 		  '*')
 	</script>
@@ -33,29 +33,30 @@
 		{
   		width: 4px;
 		}
-  
-.tableFixHead {
-        
-        height: 506px;
-        width:830px;
-      
-  
-        overflow-y: auto;
-    
-        
-      }
-      .tableFixHead thead th {
-        position: sticky;
-        top: 0;
-      }
-      table {
+
+	.tableFixHead 
+		{
+	        height: 483px;
+        	width:830px;
+        	overflow-y: auto;
+      		}
+	
+      .tableFixHead thead th 
+		{
+        	position: sticky;
+        	top: 0;
+      		}
+	
+	table 
+		{
+			
         border-collapse: collapse;
-        
-      }
+      		}
+	
 	table tr 
 		{
   		border-bottom: 1px solid #d5d5d5;
-      border-collapse: collapse;
+      		border-collapse: collapse;
 		}
 
 	table tr:last-child 
@@ -67,7 +68,6 @@
 		{
 		max-height: 500px;
     		width:795px;
-   
 		}
 
 	.emner a
@@ -82,10 +82,7 @@
 		}
 	.emner table
 		{
-		height: auto;
-	
-        
-   
+		height: auto; 
 		}
 
 	.emner	
