@@ -11,26 +11,147 @@
 		  '*')
 	</script>
 <style>
+html, body 
+    {
+     overflow-y: hidden;
+     overflow: clip;
+     width: 800px;
+    }
+ 
+  
+	a
+		{
+		 color:#0075af;
+     font-family: Arial, Helvetica, sans-serif;
+		}
+	
+  p
+		{
+		 color: #333333;
+     font-family: Arial, Helvetica, sans-serif;
+		}
+  
 	.tableFixHead 
 		{
-        	overflow-y: scroll;
-        	height: 400px !important;
-      		}
+     overflow-y: scroll;
+     height: 500px !important;
+     min-height: 50px;
+     width: 800px;
+     padding-right: 8px;
+    }
 	
-	.tableFixHead thead th 
+	.tableFixHead .emner thead th 
 		{
-        	position: sticky !important;
-        	top: 0 !important;
-      		}
+     position: sticky !important;
+     top: 0 !important;
+    }
+
 	
-      	table 
+
+	
+	.emner	
 		{
-        	border-collapse: collapse;
-        	width: 100%;
-		height: 400px
-      		}
+		 font-family: Arial, Helvetica, sans-serif;
+		 border-collapse: collapse;
+		}
+	
+	.emner table
+		{
+		 position: 0;
+		 border-collapse: collapse;
+     overflow: clip;
+     position: fixed !important;   
+     display: table;
+     
+  }
 
+	.emner td, .emner th, .emner tr
+		{
+	 	 border: 1px collapse #ddd;
+     padding-left: 20px !important;
+     padding-right: 20px !important;
+	   padding: 8px;
+     border-collapse: collapse;
+		 font-size: 12px;
+     border-bottom: 1px solid #d5d5d5;
+		}
 
+	.emner tr:hover 
+		{
+		background-color: #ddd;
+		}
+  .emner tr
+		{
+    display: table-row;
+    
+		}
+	
+  .col1
+    {
+		width: 80px !important;
+    display: table-col;
+		}
+  .col2
+    {
+		width: 535px !important;
+    display: table-col;
+		}
+  .col3
+    {
+		width: 80px !important;
+    display: table-col;
+		}
+  .emner th 	
+		{
+		 padding-top: 9px;
+		 padding-bottom: 8px;
+		 text-align: left;
+		 background-color: #DB3F3D;	
+		 color: white !important;
+		 font-size: 14px !important;
+		}
+	
+  .emner table td + td + td 
+		{
+  		text-align: left !important;
+		}
+	.emner table th + th + th 
+		{
+  		text-align: right !important;
+		}
+  
+  #filter
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		color: #333333;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+  
+  select
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #DB3F3D;
+		color: #ffffff !important;
+		padding: 10px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+
+	option
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #fff;
+		color: #333333 ;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+  
 	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
 		{
     		background: #640000;  							/* fallback for old browsers */
@@ -53,114 +174,10 @@
   		width: 4px;
 		}
 
-	div
-		{
-		height: auto;
-		}
-	
-	table tr 
-		{
-  		border-bottom: 1px solid #d5d5d5;
-		}
-
-	table tr:last-child 
-		{
-  		border: 0 !important;
-		}
-	
-	select
-		{
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: #DB3F3D;
-		color: #ffffff !important;
-		padding: 10px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
-		}
-
-	option
-		{
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: #fff;
-		color: #333333 ;
-		padding: 12px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
-		}
-
-	.emner a
-		{
-		color:#0075af;
-		}
-	
-	.emner p
-		{
-		color: #333333;
-    
-		}
-
-	#filter
-		{
-		font-family: Arial, Helvetica, sans-serif;
-		color: #333333;
-		padding: 12px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
-		}
-	
-	.emner table
-		{
-		height: auto;
-		border-collapse: collapse;
-    		width: 100%;
-		}
-
-	.emner	
-		{
-		  font-family: Arial, Helvetica, sans-serif;
-		  border-collapse: collapse;
-		}
-		
-	.emner td, .emner th, .emner tr
-		{
-	 	border: 1px collapse #ddd;
-    		padding-left: 20px !important;
-    		padding-right: 20px !important;
-	  	padding: 8px;
-     		border-collapse: collapse;
-		font-size: 12px;
-		}
-
-	.emner tr:hover 
-		{
-		background-color: #ddd;
-		}
-
-	.emner th 	
-		{
-		 padding-top: 9px;
-		 padding-bottom: 8px;
-		 text-align: left;
-		 background-color: #DB3F3D;	
-		 color: white;
-		 font-size: 14px;
-		}
-	.emner table td + td + td 
-		{
-  		text-align: left;
-		}
-	.emner table th + th + th 
-		{
-  		text-align: right;
-		}
 </style>
 
-	
 		
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
      	var semdato = new Date();
 	var dd = String(semdato.getDate()).padStart(2, '0');
@@ -218,9 +235,9 @@
   	function show(sortert) {
 		let tab =
 			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
-				<th>Emnekode</th>
-				<th>Emnenavn</th>
-				<th>Studiepoeng</th>
+				<th class="col1">Emnekode</th>
+				<th class="col2">Emnenavn</th>
+				<th class="col3">Studiepoeng</th>
 			</tr></thead>`;
 	
 		// Loop to access all rows
@@ -251,6 +268,7 @@
 		<p style="text-align: right;">
 		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
   			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Velg institutt</option>
+      <option class="emner" value="valg">Alle emner</option>
 			<option class="emner" value="1511">Sosiologisk institutt</option>
 			<option class="emner" value="1512">Institutt for politikk og forvaltning</option>
 			<option class="emner" value="1513">Institutt for sammenliknende politikk</option>
@@ -266,11 +284,11 @@
 			var port = $(this).val()
 			console.log( port )
 			if ( port !== '' ) {
-				$("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
-				$("tr[data-port=" + port+ "]").css('visibility', 'visible');
-				$("tr[data-port=stay]").css('visibility', 'visible');
+				$("tr[data-port!=" + port+ "]").css('display', 'none');
+				$("tr[data-port=" + port+ "]").css('display', 'table-row');
+				$("tr[data-port=stay]").css('display', 'table-row');
 			} else {
-				$("tr").css('visibility', 'visible');
+				$("tr").css();
 			}
 		});
     </script>
