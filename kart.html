@@ -16,9 +16,14 @@ html, body
     {
      overflow-y: hidden;
      overflow: clip;
-     width: 800px;
+     width: 878px;
+     min-width: 878px;
     }
- 
+
+  .center 
+    {
+     padding-left: 30px;
+    }
   
 	a
 		{
@@ -37,7 +42,8 @@ html, body
      overflow-y: scroll;
      height: 500px !important;
      min-height: 50px;
-     width: 800px;
+     width: 878px !important;
+     min-width: 878px !important;
      padding-right: 8px;
     }
 	
@@ -46,9 +52,6 @@ html, body
      position: sticky !important;
      top: 0 !important;
     }
-
-	
-
 	
 	.emner	
 		{
@@ -89,46 +92,38 @@ html, body
 	
   .col1
     {
-		width: 150px !important;
-    min-width: 150px;
+		width: 32% !important;
+    min-width: 32% !important;
     display: table-col;
 		}
   .col2
     {
-		width: 280px !important;
-    min-width: 280px;
+		width: 33% !important;
+    min-width: 33% !important;
     display: table-col;
 		}
   .col3
     {
-		width: 140px !important;
-    min-width: 140px;
+		width: 21% !important;
+    min-width: 21% !important;
     display: table-col;
 		}
   .col4
     {
-		width: 70px !important;
-    min-width: 70px;
+		width: 13% !important;
+    min-width: 13% !important;
     display: table-col;
 		}
   .emner th 	
 		{
 		 padding-top: 9px;
 		 padding-bottom: 8px;
-		 text-align: left;
+		 text-align: left !important;
 		 background-color: #DB3F3D;	
 		 color: white !important;
 		 font-size: 14px !important;
 		}
-	
-  .emner table td + td + td 
-		{
-  		text-align: left !important;
-		}
-	.emner table th + th + th + th
-		{
-  		text-align: right !important;
-		}
+
   
   #filter
 		{
@@ -260,8 +255,8 @@ function drawVisualization() {
     displayMode: 'regions',
     tooltip: {textStyle: {color: '#333333'}, trigger:'focus',isHtml: true},
     legend: 'none',
-    height:450,
-    width:700
+    height:500,
+    width:780
   };
 
   var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
@@ -353,17 +348,14 @@ function show(data) {
 
 </head>
 <body>
-    <div>
-        <div id="visualization"></div>
-        <div class="d-flex justify-content-center">
-              <div class="spinner-border"
-                role="status" id="loading">
-                <span class="sr-only">Loading...</span>
-              </div>
-        </div>
-        <div class="tableFixHead">
+  <div class="center"><p>
+    <div  id="visualization"></div></p>
+      <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="tableFixHead">
 		<table id="emner" class="emner"></table>
- 	</div>
   </div>
     
 </body>
