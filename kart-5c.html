@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+<script>
+		window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 800
+		  },
+		  '*')
+	</script>
+<style>
+  
+html, body 
+    {
+      overflow-y    : hidden ;
+      overflow      : clip ;
+      width         : 860px ;
+    }
+
+  .center 
+    {
+      padding-left  : 15px ;
+      margin        : 0px ;
+	    padding-top   : 0px ;
+    }
+  
+	a
+		{
+		  color          : #0075af ;
+      font-family    : Arial, Helvetica, sans-serif ;
+		}
+	
+  p
+		{
+		  color          : #333333;
+      font-family    : Arial, Helvetica, sans-serif;
+		}
+  
+	.tableFixHead 
+		{
+      overflow-y     : scroll ;
+      height         : 500px !important ;
+      min-height     : 50px ;
+      width          : 839px ;
+      padding-right  : 8px ;
+    }
+	
+	.tableFixHead .emner tr th 
+    {
+      position        : sticky !important ;
+      top             : 0px !important ;
+    }
+	
+	.emner	
+		{
+		  font-family     : Arial, Helvetica, sans-serif ;
+		  border-collapse : collapse ;
+		}
+	
+	.emner table
+		{
+		  position         : 0px ;
+		  border-collapse  : collapse ;
+      overflow         : clip ;
+      position         : fixed !important ;   
+    }
+
+ .emner tr
+		{
+	 	  border            : 0px collapse #ddd ;
+      padding-left      : 20px !important ;
+	    padding           : 0px ;
+      text-align        : left !important ;
+      border-collapse   : collapse ;
+      border-bottom     : 1px solid #d5d5d5 ;
+		}
+  
+  .emner td
+		{
+      padding-top         : 1px !important ;
+		  padding-bottom      : 1px !important ;
+	 	  border              : 0px collapse #ddd ;
+      padding-left        : 20px !important ;
+	    padding             : 0px ;
+      text-align          : left !important ;
+      border-collapse     : collapse ;
+		  font-size           : 12px ;
+      border-bottom       : 1px solid #d5d5d5 ;
+		}
+  
+
+	.emner tr:hover 
+		{
+		  background-color   : #ddd;
+		}
+  
+	
+  .emner th 	
+		{
+		  padding-top         : 12px !important ;
+		  padding-bottom      : 12px !important ;
+      padding-left        : 20px !important ;
+		  text-align          : left !important ;
+		  background-color    : #DB3F3D ;	
+		  color               : white !important ;
+		  font-size           : 14px !important ;
+		}
+
+  
+  #filter
+		{
+		  font-family          : Arial, Helvetica, sans-serif ;
+		  color                : #333333 ;
+		  padding              : 12px ;
+		  font-size            : 14px ;
+		  border               : none ;
+		  cursor               : pointer ;
+		}
+  
+  select
+     {
+		  font-family          : Arial, Helvetica, sans-serif ;
+		  background-color     : #DB3F3D ;
+		  color                : #ffffff !important ;
+		  padding              : 10px ;
+		  font-size            : 14px ;
+      border               : none ;
+      cursor               : pointer ;
+		}
+
+	option
+		{
+		 font-family            : Arial, Helvetica, sans-serif ;
+		 background-color       : #fff ;
+		 color                  : #333333 ;
+		 padding                : 12px ;
+		 font-size              : 14px ;
+     border                 : none;
+     cursor                 : pointer;
+		}
+  
+	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+		{
+     background: #640000;  							/* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     border-radius: 4px;
+    }
+	
+	::-webkit-scrollbar-track 							/* scrollbar Track */
+		{
+	    	background: #C9D6FF;  							/* fallback for old browsers */
+	    	background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+	    	background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    		border-radius: 4px;
+		}
+	
+	/* scrollbar width */
+	::-webkit-scrollbar 
+		{
+  		width: 4px;
+		}
+
+</style>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+google.charts.load('current', {
+  callback: drawVisualization,
+  packages:['geochart']
+});
+
+function drawVisualization() {
+  var data = google.visualization.arrayToDataTable([
+    ['Country','Land','landnr']
+,["China", "Kina", 484]
+,["Belgium", "Belgia", 112]
+,["Uganda", "Uganda", 386]
+,["Costa Rica", "Costa Rica", 616]
+,["Ghana", "Ghana", 260]
+,["South Korea", "Sør-Korea", 492]
+,["Palestine", "Palestina", 524]
+,["Ukraine", "Ukraina", 148]
+,["Brazil", "Brasil", 715]
+,["Ireland", "Irland", 121]
+,["Hungary", "Ungarn", 152]
+,["Argentina", "Argentina", 705]
+,["Fiji", "Fiji", 811]
+,["Chile", "Chile", 725]
+,["United Kingdom", "Storbritannia og Nord-Irland", 139]
+,["Italy", "Italia", 123]
+,["Iceland", "Island", 105]
+,["Slovenia", "Slovenia", 146]
+,["Luxembourg", "Luxembourg", 129]
+,["Colombia", "Colombia", 730]
+,["Japan", "Japan", 464]
+,["South Africa", "Sør-Afrika", 359]
+,["Thailand", "Thailand", 568]
+,["Netherlands", "Nederland", 127]
+,["Germany", "Tyskland", 144]
+,["Switzerland", "Sveits", 141]
+,["United States", "USA", 684]          /// NB: USA må døpes om til United States ///
+,["Australia", "Australia", 805]
+,["Czech Republic", "Tsjekkia", 158]
+,["Hong Kong", "Hong Kong", 436]
+,["Finland", "Finland", 103]
+,["Greenland", "Grønland", 102]
+,["Austria", "Østerrike", 153]
+,["Egypt", "Egypt", 249]
+,["Latvia", "Latvia", 124]
+,["Russia", "Russland", 140]
+,["Faroe Islands", "Færøyene", 104]
+,["France", "Frankrike", 117]
+,["Turkey", "Tyrkia", 143]
+,["Canada", "Canada", 612]
+,["Denmark", "Danmark", 101]
+,["Mexico", "Mexico", 652]
+,["Sweden", "Sverige", 106]
+,["India", "India", 444]
+,["Spain", "Spania", 137]
+,["Lithuania", "Litauen", 136]
+,["Poland", "Polen", 131]
+,["New Zealand", "New Zealand", 820]
+,["Portugal", "Portugal", 132]
+,["Peru", "Peru", 760]
+,["Slovakia", "Slovakia", 157]
+]);
+
+  var view = new google.visualization.DataView(data);
+  view.hideColumns([2]);
+
+  var options = {
+    backgroundColor: '#0000ffff',
+    datalessRegionColor: '#f5f5f5',
+    defaultColor: '#6b8e9b',
+    displayMode: 'regions',
+    tooltip: {textStyle: {color: '#333333'}, trigger:'focus',isHtml: true},
+    legend: 'none',
+    height:430,
+    width:780
+  };
+
+  var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
+  google.visualization.events.addListener(chart, 'select', myClickHandler);
+  chart.draw(view, options);
+
+  function myClickHandler(){
+    var selection = chart.getSelection();
+    if (selection.length > 0) {
+      var port = data.getValue(selection[0].row, 2);
+      $("tr[data-port!=" + port+ "]").css('display', 'none');
+      $("tr[data-port=" + port+ "]").css('display', 'table-row');
+      $("tr[data-port=" + 'overskrift'+ "]").css('display', 'table-row');
+
+    } else {
+      $("tr").css('display', 'table-row');
+    }
+  }
+};
+
+
+	
+// api url
+const api_url =
+	"https://andretomter.github.io/js/avtaleliste";
+
+// Defining async function
+async function getapi(url) {
+	
+	// Storing response
+	const response = await fetch(url);
+	
+	// Storing data in form of JSON
+	var data = await response.json();
+	console.log(data);
+	if (response) {
+		hideloader();
+	}
+	show(data);
+
+}
+
+
+// Calling that async function
+getapi(api_url);
+
+// Function to hide the loader
+function hideloader() {
+	document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+		let tab =
+			`<colgroup>
+      <col style="width: 160px">
+      <col style="width: 288px">
+      <col style="width: 288px">
+      <col style="width: 170px">
+      <col style="width: 110px">
+      </colgrioup>
+          
+			<tr data-port="overskrift" stype="color: #FFFFFF">
+				<th >Land</th>
+				<th >Sted</th>
+        <th >Avtale eier</th>
+				<th >Fag</th>
+				<th >Avtale-id</th>
+			</tr>
+		`;
+	
+		// Loop to access all rows 
+		for (let r of data.avtaler) {
+        	tab += `<tr class="emner" data-port="${r.landnr}"> 
+			<td><p>${r.landnavn_norsk}</p></td>   
+			<td><p>${r.eksternt_sted}</p></td>
+      <td><p>${r.avtale_eier}</p></td>   
+
+   		<td><p>${r.fagnavn_norsk}</p></td>
+			<td><p><a href="https://www.uib.no/utvekslingsavtale/${r.avtaleid}"  target="_blank" rel="noopener noreferrer">${r.avtaleid}</a></p></td> 
+		</tr>`;
+	}
+	// Setting innerHTML as tab variable
+	document.getElementById("emner").innerHTML = tab;
+}
+
+	document.addEventListener('DOMContentLoaded', function () {
+    let table = new DataTable('#emner');
+});
+	
+  table = document.getElementById("emner");	
+	////////////
+	
+	
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+  <div class="center">
+    <div  id="visualization"></div>
+      <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="tableFixHead">
+		<table id="emner" class="emner"></table>
+  </div>
+    
+</body>
+</html>
