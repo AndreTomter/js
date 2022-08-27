@@ -14,129 +14,140 @@
   
 html, body 
     {
-     overflow-y: hidden;
-     overflow: clip;
-    width: 842 px;
+      overflow-y    : hidden ;
+      overflow      : clip ;
+      width         : 850px ;
     }
 
   .center 
     {
-      padding-left: 30px;
-      margin:0;
-	    padding-top:0;
+      padding-left  : 15px ;
+      margin        : 0px ;
+	    padding-top   : 0px ;
     }
   
 	a
 		{
-		 color:#0075af;
-     font-family: Arial, Helvetica, sans-serif;
+		  color          : #0075af ;
+      font-family    : Arial, Helvetica, sans-serif ;
 		}
 	
   p
 		{
-		 color: #333333;
-     font-family: Arial, Helvetica, sans-serif;
+		  color          : #333333;
+      font-family    : Arial, Helvetica, sans-serif;
 		}
   
 	.tableFixHead 
 		{
-     overflow-y: scroll;
-     height: 500px !important;
-     min-height: 50px;
-     width: 838 px;
-     min-width: 838 px;
-     padding-right: 8px;
+      overflow-y     : scroll ;
+      height         : 500px !important ;
+      min-height     : 50px ;
+      width          : 839px ;
+      padding-right  : 8px ;
     }
 	
 	.tableFixHead .emner tr th 
-		{
-     position: sticky !important;
-     top: 0 !important;
+    {
+      position        : sticky !important ;
+      top             : 0px !important ;
     }
 	
 	.emner	
 		{
-		 font-family: Arial, Helvetica, sans-serif;
-		 border-collapse: collapse;
+		  font-family     : Arial, Helvetica, sans-serif ;
+		  border-collapse : collapse ;
 		}
 	
 	.emner table
 		{
-		 position: 0;
-		 border-collapse: collapse;
-     overflow: clip;
-     position: fixed !important;   
-     
-     
-  }
+		  position         : 0px ;
+		  border-collapse  : collapse ;
+      overflow         : clip ;
+      position         : fixed !important ;   
+    }
 
-	.emner td, .emner th, .emner tr
+ .emner tr
 		{
-	 	 border: 1px collapse #ddd;
-     padding-left: 20px !important;
-     padding-right: 20px !important;
-	   padding: 0px;
-     border-collapse: collapse;
-		 font-size: 12px;
-     border-bottom: 1px solid #d5d5d5;
+	 	  border            : 0px collapse #ddd ;
+      padding-left      : 20px !important ;
+	    padding           : 0px ;
+      text-align        : left !important ;
+      border-collapse   : collapse ;
+      border-bottom     : 1px solid #d5d5d5 ;
 		}
+  
+  .emner td
+		{
+      padding-top         : 1px !important ;
+		  padding-bottom      : 1px !important ;
+	 	  border              : 0px collapse #ddd ;
+      padding-left        : 20px !important ;
+	    padding             : 0px ;
+      text-align          : left !important ;
+      border-collapse     : collapse ;
+		  font-size           : 12px ;
+      border-bottom       : 1px solid #d5d5d5 ;
+		}
+  
 
 	.emner tr:hover 
 		{
-		background-color: #ddd;
+		  background-color   : #ddd;
 		}
   
 	
   .emner th 	
 		{
-		 padding-top: 9px;
-		 padding-bottom: 8px;
-		 text-align: left !important;
-		 background-color: #DB3F3D;	
-		 color: white !important;
-		 font-size: 14px !important;
+		  padding-top         : 12px !important ;
+		  padding-bottom      : 12px !important ;
+      padding-left        : 20px !important ;
+		  text-align          : left !important ;
+		  background-color    : #DB3F3D ;	
+		  color               : white !important ;
+		  font-size           : 14px !important ;
 		}
 
   
   #filter
 		{
-		font-family: Arial, Helvetica, sans-serif;
-		color: #333333;
-		padding: 12px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
+		  font-family          : Arial, Helvetica, sans-serif ;
+		  color                : #333333 ;
+		  padding              : 12px ;
+		  font-size            : 14px ;
+		  border               : none ;
+		  cursor               : pointer ;
 		}
   
   select
-		{
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: #DB3F3D;
-		color: #ffffff !important;
-		padding: 10px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
+     {
+		  font-family          : Arial, Helvetica, sans-serif ;
+		  background-color     : #DB3F3D ;
+		  color                : #ffffff !important ;
+		  padding              : 10px ;
+		  font-size            : 14px ;
+      border               : none ;
+      cursor               : pointer ;
 		}
 
 	option
 		{
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: #fff;
-		color: #333333 ;
-		padding: 12px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
+		 font-family            : Arial, Helvetica, sans-serif ;
+		 background-color       : #fff ;
+		 color                  : #333333 ;
+		 padding                : 12px ;
+		 font-size              : 14px ;
+     border                 : none;
+     cursor                 : pointer;
 		}
   
 	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
 		{
-    		background: #640000;  							/* fallback for old browsers */
-    		background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
-    		background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-		border-radius: 4px;
-    		}
+     background: #640000;  							/* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     border-radius: 4px;
+    }
 	
 	::-webkit-scrollbar-track 							/* scrollbar Track */
 		{
@@ -284,10 +295,10 @@ function hideloader() {
 function show(data) {
 		let tab =
 			`<colgroup>
-      <col style="width:270px">
-      <col style="width:288px">
-      <col style="width:182px">
-      <col style="width:98x">
+      <col style="width: 270px">
+      <col style="width: 288px">
+      <col style="width: 180px">
+      <col style="width: 105px">
       </colgrioup>
           
 			<tr data-port="overskrift" stype="color: #FFFFFF">
@@ -298,7 +309,7 @@ function show(data) {
 			</tr>
 		`;
 	
-		// Loop to access all rows
+		// Loop to access all rows 
 		for (let r of data.avtaler) {
         	tab += `<tr class="emner" data-port="${r.landnr}"> 
 			<td><p>${r.avtale_eier}</p></td>   
