@@ -312,7 +312,7 @@ function hideloader() {
 // Function to define innerHTML for HTML table
 function show(data) {
 		let tab =
-			`<table class="emner">
+			`
           	<thead stype="color: #FFFFFF">
 			<tr data-port="overskrift">
 				<th class="col1">Avtale eier</th>
@@ -325,10 +325,10 @@ function show(data) {
 		// Loop to access all rows
 		for (let r of data.avtaler) {
         	tab += `<tr class="emner" data-port="${r.landnr}"> 
-			<td>${r.avtale_eier}</td>   
-			<td>${r.eksternt_sted}</td>   
-   		<td>${r.landnavn_norsk}</td>
-			<td><a href="https://www.uib.no/utvekslingsavtale/${r.avtaleid}"  target="_blank" rel="noopener noreferrer">${r.avtaleid}</a></td> 
+			<td><p>${r.avtale_eier}</p></td>   
+			<td><p>${r.eksternt_sted}</p></td>   
+   			<td><p>${r.landnavn_norsk}</p></td>
+			<td><p><a href="https://www.uib.no/utvekslingsavtale/${r.avtaleid}"  target="_blank" rel="noopener noreferrer">${r.avtaleid}</a></p></td> 
 		</tr>`;
 	}
 	// Setting innerHTML as tab variable
