@@ -179,67 +179,67 @@ google.charts.load('current', {
 
 function drawVisualization() {
   var data = google.visualization.arrayToDataTable([
-    ['Country','Land','landnr']
-,["China", "Kina", 484]
-,["Belgium", "Belgia", 112]
-,["Uganda", "Uganda", 386]
-,["Costa Rica", "Costa Rica", 616]
-,["Ghana", "Ghana", 260]
-,["South Korea", "Sør-Korea", 492]
-,["Palestine", "Palestina", 524]
-,["Ukraine", "Ukraina", 148]
-,["Brazil", "Brasil", 715]
-,["Ireland", "Irland", 121]
-,["Hungary", "Ungarn", 152]
-,["Argentina", "Argentina", 705]
-,["Fiji", "Fiji", 811]
-,["Chile", "Chile", 725]
-,["United Kingdom", "Storbritannia og Nord-Irland", 139]
-,["Italy", "Italia", 123]
-,["Iceland", "Island", 105]
-,["Slovenia", "Slovenia", 146]
-,["Luxembourg", "Luxembourg", 129]
-,["Colombia", "Colombia", 730]
-,["Japan", "Japan", 464]
-,["South Africa", "Sør-Afrika", 359]
-,["Thailand", "Thailand", 568]
-,["Netherlands", "Nederland", 127]
-,["Germany", "Tyskland", 144]
-,["Switzerland", "Sveits", 141]
-,["United States", "USA", 684]          /// NB: USA må døpes om til United States ///
-,["Australia", "Australia", 805]
-,["Czech Republic", "Tsjekkia", 158]
-,["Hong Kong", "Hong Kong", 436]
-,["Finland", "Finland", 103]
-,["Greenland", "Grønland", 102]
-,["Austria", "Østerrike", 153]
-,["Egypt", "Egypt", 249]
-,["Latvia", "Latvia", 124]
-,["Russia", "Russland", 140]
-,["Faroe Islands", "Færøyene", 104]
-,["France", "Frankrike", 117]
-,["Turkey", "Tyrkia", 143]
-,["Canada", "Canada", 612]
-,["Denmark", "Danmark", 101]
-,["Mexico", "Mexico", 652]
-,["Sweden", "Sverige", 106]
-,["India", "India", 444]
-,["Spain", "Spania", 137]
-,["Lithuania", "Litauen", 136]
-,["Poland", "Polen", 131]
-,["New Zealand", "New Zealand", 820]
-,["Portugal", "Portugal", 132]
-,["Peru", "Peru", 760]
-,["Slovakia", "Slovakia", 157]
+    ['Landkode','Land','Antall avtaler']
+,['US', 'USA', 19]
+,['AR', 'Argentina', 1]
+,['IN', 'India', 1]
+,['HU', 'Ungarn', 1]
+,['PT', 'Portugal', 2]
+,['FR', 'Frankrike', 27]
+,['UA', 'Ukraina', 2]
+,['RU', 'Russland', 2]
+,['IE', 'Irland', 3]
+,['NZ', 'New Zealand', 2]
+,['CO', 'Colombia', 1]
+,['ZA', 'Sør-Afrika', 2]
+,['TW', 'Taiwan', 1]
+,['FI', 'Finland', 17]
+,['SI', 'Slovenia', 3]
+,['IT', 'Italia', 9]
+,['ES', 'Spania', 16]
+,['BR', 'Brasil', 3]
+,['PE', 'Peru', 1]
+,['CR', 'Costa Rica', 1]
+,['TH', 'Thailand', 1]
+,['GH', 'Ghana', 1]
+,['GL', 'Grønland', 1]
+,['DK', 'Danmark', 15]
+,['CL', 'Chile', 2]
+,['CN', 'Kina', 5]
+,['CA', 'Canada', 7]
+,['PS', 'Palestina', 1]
+,['JP', 'Japan', 12]
+,['UG', 'Uganda', 1]
+,['PL', 'Polen', 4]
+,['CH', 'Sveits', 2]
+,['BE', 'Belgia', 5]
+,['LU', 'Luxembourg', 1]
+,['MX', 'Mexico', 4]
+,['AT', 'Østerrike', 4]
+,['DE', 'Tyskland', 39]
+,['TR', 'Tyrkia', 3]
+,['IS', 'Island', 7]
+,['KR', 'Sør-Korea', 4]
+,['CZ', 'Tsjekkia', 7]
+,['NL', 'Nederland', 17]
+,['FJ', 'Fiji', 1]
+,['HK', 'Hong Kong', 5]
+,['EG', 'Egypt', 1]
+,['FO', 'Færøyene', 2]
+,['GB', 'Storbritannia', 23]
+,['LT', 'Litauen', 2]
+,['SE', 'Sverige', 18]
+,['AU', 'Australia', 9]
 ]);
 
   var view = new google.visualization.DataView(data);
-  view.hideColumns([2]);
+  view.hideColumns([3]);
 
   var options = {
     backgroundColor: '#0000ffff',
     datalessRegionColor: '#f5f5f5',
     defaultColor: '#6b8e9b',
+    colorAxis: {colors: ['#6b8e9b']},
     displayMode: 'regions',
     tooltip: {textStyle: {color: '#333333'}, trigger:'focus',isHtml: true},
     legend: 'none',
@@ -253,7 +253,7 @@ function drawVisualization() {
   function myClickHandler(){
     var selection = chart.getSelection();
     if (selection.length > 0) {
-      var port = data.getValue(selection[0].row, 2);
+      var port = data.getValue(selection[0].row, 0);
       $("tr[data-port!=" + port+ "]").css('display', 'none');
       $("tr[data-port=" + port+ "]").css('display', 'table-row');
       $("tr[data-port=" + 'overskrift'+ "]").css('display', 'table-row');
@@ -314,7 +314,7 @@ function show(data) {
 	
 		// Loop to access all rows 
 		for (let r of data.avtaler) {
-        	tab += `<tr class="emner" data-port="${r.landnr}"> 
+        	tab += `<tr class="emner" data-port="${r.landkode}"> 
 			<td><p>${r.avtale_eier}</p></td>   
 			<td><p>${r.eksternt_sted}</p></td>   
    		<td><p>${r.landnavn_norsk}</p></td>
