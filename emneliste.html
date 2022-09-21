@@ -267,10 +267,10 @@ html, body
 	
 		// Loop to access all rows
 		for (let r of sortert) {
-        	tab += `<tr class="emner" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+        	tab += `<tr class="emner" data-port="${r.status_pensum_finnes}"> 
 				<td ><a href="https://www.uib.no/emne/${r.emnekode}"  target="_blank" rel="noopener noreferrer">${r.emnekode}</a></td>   
 				<td >${r.emnenavn_bokmal}</td>   
-   				<td style="text-align: right;">${r.status_pensum_finnes} sp</td>   
+   				<td style="text-align: right;">${r.status_pensum_finnes}</td>   
 			</tr>`;
 					}
 	
@@ -292,15 +292,9 @@ html, body
 	
 		<p style="text-align: right;">
 		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
-  			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Filtrer på institutt</option>
-      
-			<option class="emner" value="1511">Sosiologisk institutt</option>
-			<option class="emner" value="1512">Institutt for politikk og forvaltning</option>
-			<option class="emner" value="1513">Institutt for sammenliknende politikk</option>
-			<option class="emner" value="1515">Institutt for økonomi</option>
-			<option class="emner" value="1517">Institutt for informasjons- og medievitenskap</option>
-			<option class="emner" value="1534">Institutt for sosialantropologi</option>
-			<option class="emner" value="1541">Institutt for geografi</option>
+  			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Status Pensum finnes</option>
+			<option class="emner" value="J">Ja</option>
+			<option class="emner" value="N">Nei</option>
 		</select>
 		</p>
 		<script>
