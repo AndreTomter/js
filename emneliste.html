@@ -1,264 +1,327 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
-	<head>
-		<style>
-.dropbtn {
-  background-color: #DB3F3D;
-  color: #ffffff;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  color: #282828;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content select {
-  color: #282828;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-	
-}
-.skjul {
-  display: none;
-  color: #ffffff;
-  font: bold;
-}
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-</style>
+<head>
+<script>
+		window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 800
+		  },
+		  '*')
+	</script>
 <style>
-table {
-  max-height: 500px;
-}
-
-
-tr.fnr-11 {  visibility: collapse; }
-tr.fnr-12 {  visibility: collapse; }
-tr.fnr-13 {  visibility: collapse; }
-tr.fnr-16 {  visibility: collapse; }
-tr.fnr-17 {  visibility: collapse; }
-tr.fnr-18 {  visibility: collapse; }
-
-#emner {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#emner td, #emner th {
-  border: 1px collapse #ddd;
-  padding: 8px;
-}
-
-#emner tr:nth-child(even){background-color: #f2f2f2;}
-
-#emner tr:hover {background-color: #ddd;}
-
-#emner th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #DB3F3D;	
-  color: white;
-}
-</style>
-		
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-
-		
-		
-<script>
-    $(function(){
-        $('*[data-href]').on('click', function() {
-             window.location = $(this).data("href");
-        });
-    })
-</script>
-
-<script>
-// Finner rett semester
-
-var semdato = new Date();
-var dd = String(semdato.getDate()).padStart(2, '0');
-var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = semdato.getFullYear();
-
-if (dd >= 	15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
-if (				mm	< 	06) 	{ semester = yyyy	+	"V";}
-if (dd <	15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
-
-if (dd >= 	15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
-if (				mm	> 	06) 	{ semester = yyyy	+	"H";}
-
-
-// document.write(semester);
-
+html, body 
+    {
+     overflow-y: hidden;
+     overflow: clip;
+     width: 800px;
+	     
+    }
+ ::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+	{
+     	background: #640000;  							/* fallback for old browsers */
+     	background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+     	background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     	
+    	}
 	
-const fakulet = ['15']
-
-// api url
-const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
-
-// Defining async function
-async function getapi(url) {
-
-// Storing response
-const response = await fetch(url);
-
-// Storing data in form of JSON
-const data = await response.json();
-  const emne = data.emne.filter( i => fakulet.includes( i.faknr_reglement ) );
-  const sortert = emne.sort( function( a, b )
-  	{
-      		a = a.emnekode.toLowerCase();
-      		b = b.emnekode.toLowerCase();
-      		return a < b ? -1 : a > b ? 1 : 0;
-	});
-		
-   console.log(sortert);
-	if (response) {
-		hideloader();
-	};
-   
-   show(sortert)
-   
-  }
-  getapi(api_url)
-  
-  function show(sortert) {
-	let tab =
-		`<thead stype="color: #FFFFFF"><tr data-port="stay">
-			<th>Emnekode</th>
-			<th>Emnenavn</th>
-			<th>Studiepoeng</th>
-		</tr></thead>`;
+::-webkit-scrollbar-track 							/* scrollbar Track */
+	{
+    	background: #C9D6FF;  							/* fallback for old browsers */
+    	background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+    	background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	
-	// Loop to access all rows
-	for (let r of sortert) {
-        tab += `<tr class="fnr-${r.faknr_reglement}" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
-			<td ><a href="http://www.uib.no/emne/${r.emnekode}">${r.emnekode}</a></td>   
-			<td >${r.emnenavn_bokmal}</td>   
-   			<td >${r.studiepoeng} sp</td>   
-		</tr>`;
 	}
+	
+	/* scrollbar width */
+::-webkit-scrollbar 
+	{
+	 width: 8px;
+	}
+  
+	a
+		{
+		 color:#0075af;
+     font-family: Arial, Helvetica, sans-serif;
+		}
+	
+  p
+		{
+		 color: #333333;
+     font-family: Arial, Helvetica, sans-serif;
+		}
+  	
+	.tableFixHead 
+	{
+      	overflow-y     : scroll ;
+      	height         : 500px !important ;
+      	min-height     : 380px ;
+      	width          : 795px ;
+      	padding-right  : 1px ;
+        scrollbar-width: thin;
+        scrollbar-color: #6b8e9b;
+	}
+	
+	
+	.tableFixHead .emner thead th 
+		{
+     position: sticky !important;
+     top: 0 !important;
+    }
+
+	
+
+	
+	.emner	
+		{
+		 font-family: Arial, Helvetica, sans-serif;
+		 border-collapse: collapse;
+		}
+	
+	.emner table
+		{
+		 position: 0;
+		 border-collapse: collapse;
+     overflow: clip;
+     position: fixed !important;   
+     display: table;
+     
+  }
+
+	.emner td, .emner th, .emner tr
+		{
+	 	 border: 1px collapse #ddd;
+     padding-left: 20px !important;
+     padding-right: 20px !important;
+	   padding: 8px;
+     border-collapse: collapse;
+		 font-size: 12px;
+     border-bottom: 1px solid #d5d5d5;
+		}
+
+	.emner tr:hover 
+		{
+		background-color: #ddd;
+		}
+  .emner tr
+		{
+    display: table-row;
+    
+		}
+	
+  .col1
+    {
+		width: 80px !important;
+    display: table-col;
+		}
+  .col2
+    {
+		width: 535px !important;
+    display: table-col;
+		}
+  .col3
+    {
+		width: 80px !important;
+    display: table-col;
+		}
+  .emner th 	
+		{
+		 padding-top: 9px;
+		 padding-bottom: 8px;
+		 text-align: left;
+		 background-color: #DB3F3D;	
+		 color: white !important;
+		 font-size: 14px !important;
+		}
+	
+  .emner table td + td + td 
+		{
+  		text-align: left !important;
+		}
+	.emner table th + th + th 
+		{
+  		text-align: right !important;
+		}
+  
+  #filter
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		color: #333333;
+		padding: 12px;
+		maring-right: 25px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+  
+  select
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #DB3F3D;
+		color: #ffffff !important;
+		padding: 10px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+
+	option
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #fff;
+		color: #333333 ;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+  
+	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+		{
+    		background: #640000;  							/* fallback for old browsers */
+    		background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+    		background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		border-radius: 4px;
+    		}
+	
+	::-webkit-scrollbar-track 							/* scrollbar Track */
+		{
+	    	background: #C9D6FF;  							/* fallback for old browsers */
+	    	background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+	    	background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    		border-radius: 4px;
+		}
+	
+	/* scrollbar width */
+	::-webkit-scrollbar 
+		{
+  		width: 4px;
+		}
+
+</style>
+
+		
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script>
+     	var semdato = new Date();
+	var dd = String(semdato.getDate()).padStart(2, '0');
+	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = semdato.getFullYear();
+
+		if (dd >= 15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
+		if (			mm	< 	06) 	{ semester = yyyy	+	"V";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
+		if (			mm	> 	06) 	{ semester = yyyy	+	"H";}
+		
+		if (dd >= 15 	&&	mm	== 	12) 	{ semestertekst = "våren " + yyyy+1	;}
+		if (			mm	< 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semestertekst = "høsten " + yyyy	;}
+		if (			mm	> 	06) 	{ semestertekst = "høsten " + yyyy	;}
+	
+		
+		
+	//fakultet som skal vises
+	const fakultet = ['15']
+
+	// api url
+	const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
+
+	// Defining async function
+	async function getapi(url)	{
+
+	// Storing response
+	const response = await fetch(url);
+
+	// Storing data in form of JSON
+	const data = await response.json();
+  	
+	// filtrerer listen	
+	const emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+  	
+	//sorterer alfabetisk
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+   
+	console.log(sortert)
+   
+   	show(sortert)
+   
+  					}
+  	
+	getapi(api_url)
+  
+  	function show(sortert) {
+		let tab =
+			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
+				<th class="col1">Emnekode</th>
+				<th class="col2">Emnenavn</th>
+				<th class="col3">status_pensum_finnes</th>
+			</tr></thead>`;
+	
+		// Loop to access all rows
+		for (let r of sortert) {
+        	tab += `<tr class="emner" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+				<td ><a href="https://www.uib.no/emne/${r.emnekode}"  target="_blank" rel="noopener noreferrer">${r.emnekode}</a></td>   
+				<td >${r.emnenavn_bokmal}</td>   
+   				<td style="text-align: right;">${r.status_pensum_finnes} sp</td>   
+			</tr>`;
+					}
+	
 	// Setting innerHTML as tab variable
 	document.getElementById("emner").innerHTML = tab;
-}
-document.addEventListener('DOMContentLoaded', function () {
-    let table = new DataTable('#example');
-});
+	document.getElementById("semestertekst").innerHTML = semestertekst;
+				}
+	document.addEventListener('DOMContentLoaded', function () {
+    		let table = new DataTable('#example');
+								});
 	
-  table = document.getElementById("emner");	
-	////////////	
+  	table = document.getElementById("emner");	
 	
-</script>
+	</script>
 		
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
-    </script>
-		<script>
-			
-$("#filter").change(function() {
-    var port = $(this).val()
-    console.log( port )
-    if ( port !== '' ) {
-      $("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
-      $("tr[data-port=" + port+ "]").css('visibility', 'visible');
-    } else {
-      $("tr").css('visibility', 'visible');
-    }
-});	
-		</script>
-    <script src=
-     "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-    </script>		
-
-		
-	</head>
+</head>
+<body>
+	<h1>Emner med undervisning <span id="semestertekst"></span></h1>
 	
-	
-	
-	
-	<body>
-				 <div style="overflow:hidden; style="max-height:500px;">
-
-		<!-- Here a loader is created which
-			loads till response comes -->
-		<div class="d-flex justify-content-center">
-			<div class="spinner-border"
-				role="status" id="loading">
-				<span class="sr-only">Loading...</span>
-			</div>
-		</div>
-		<h1>Emner som overføres til Canvas</h1>
-				
-		<p> Lister ut undervisningsenheter som overføres til Canvas </p>
-		<p> Endrer semester 15 desember og 15 juni </p>
-		<p> Korrekt sortering av emnene i stigende rekkefølge gjennstår </p>
-						     
-		<select class="dropbtn dropdown" id="filter">
-				  
-  			<option class="dropdown-content skjul" value="valg" style="color: #ffffff; font: bold"; hidden selected>Velg institutt</option>
-			<option class="dropdown-content" value="1511">Sosiologisk institutt</option>
-			<option class="dropdown-content" value="1512">Institutt for politikk og forvaltning</option>
-			<option class="dropdown-content" value="1513">Institutt for sammenliknende politikk</option>
-			<option class="dropdown-content" value="1515">Institutt for økonomi</option>
-			<option class="dropdown-content" value="1517">Institutt for informasjons- og medievitenskap</option>
-			<option class="dropdown-content" value="1534">Institutt for sosialantropologi</option>
-			<option class="dropdown-content" value="1541">Institutt for geografi</option>
-
+		<p style="text-align: right;">
+		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
+  			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Filtrer på institutt</option>
+      
+			<option class="emner" value="1511">Sosiologisk institutt</option>
+			<option class="emner" value="1512">Institutt for politikk og forvaltning</option>
+			<option class="emner" value="1513">Institutt for sammenliknende politikk</option>
+			<option class="emner" value="1515">Institutt for økonomi</option>
+			<option class="emner" value="1517">Institutt for informasjons- og medievitenskap</option>
+			<option class="emner" value="1534">Institutt for sosialantropologi</option>
+			<option class="emner" value="1541">Institutt for geografi</option>
 		</select>
-					    <script>
-			
-$('#filter').change(function() {
-    var port = $(this).val()
-    console.log( port )
-    if ( port !== '' ) {
-	$("tr[data-port!=" + port+ "]").css('visibility', 'collapse');
-	$("tr[data-port=" + port+ "]").css('visibility', 'visible');
-	$("tr[data-port=stay]").css('visibility', 'visible');
-    } else {
-      $("tr").css('visibility', 'visible');
-    }
-});	
-		</script>
-		<p> tekst </p>
-	   
-		<!-- table for showing data -->
-		<table id="emner" class="stripe hover" style="max-height:400px;"></table>
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+		</p>
+		<script>
+		
+    $('#filter').change(function() {
+			var port = $(this).val()
+			console.log( port )
+			if ( port !== '' ) {
+				$("tr[data-port!=" + port+ "]").css('display', 'none');
+				$("tr[data-port=" + port+ "]").css('display', 'table-row');
+				$("tr[data-port=stay]").css('display', 'table-row');
+			} 
+	    		else {
+				$("tr").css('display', 'table-row');
+			}
+		});
     </script>
-    <script src=
-     "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-    </script>
-									  
-<script>
 
-</script>									  			  </div>
-
-	</body>
+	<div class="tableFixHead">
+		<table id="emner" class="emner"></table>
+ 	</div>
+	<p style="font-size: 10px;">Listen endrer semester 15 desember og 15 juni </p>
+</body>
 </html>
