@@ -1,0 +1,37 @@
+const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
+
+	// Defining async function
+	async function getapi(url)	{
+
+	// Storing response
+	const response = await fetch(url);
+
+	// Storing data in form of JSON
+	const data = await response.json();
+  	
+	// filtrerer listen	
+	const emne = data.emne;
+  	
+	//sorterer alfabetisk
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+    
+    let text = "";
+    
+    for (const x of sortert.values()) {
+  text += x.emnekode + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+
+  
+    show(myArray)
+   
+  					}
+  	
+	getapi(api_url)
+
