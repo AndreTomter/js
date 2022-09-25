@@ -292,8 +292,7 @@ html, body
 	
 		<p style="text-align: right;">
 		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
-  			<option class="emner" value="valg" style="color: #ffffff; font: bold"; hidden selected>Filtrer på institutt</option>
-      
+  			<option class="emner" value="0" style="font: bold";>Vis alle institutt</option>
 			<option class="emner" value="1511">Sosiologisk institutt</option>
 			<option class="emner" value="1512">Institutt for politikk og forvaltning</option>
 			<option class="emner" value="1513">Institutt for sammenliknende politikk</option>
@@ -308,7 +307,10 @@ html, body
     $('#filter').change(function() {
 			var port = $(this).val()
 			console.log( port )
-			if ( port !== '' ) {
+	    		if ( port == '0' ) {
+				$("tr").css('display', 'table-row');
+			} 
+			else if ( port !== '' ) {
 				$("tr[data-port!=" + port+ "]").css('display', 'none');
 				$("tr[data-port=" + port+ "]").css('display', 'table-row');
 				$("tr[data-port=stay]").css('display', 'table-row');
