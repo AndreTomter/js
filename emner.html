@@ -3,76 +3,70 @@
 <html lang="en">
 <head>
 <script>
-		window.top.postMessage(
+	window.top.postMessage(
 		  {
 		    subject: 'lti.frameResize',
 		    height: 800
 		  },
 		  '*')
-	</script>
+</script>
 <style>
-html, body 
-    {
-     overflow-y: hidden;
-     overflow: clip;
-     width: 800px;
-	     
-    }
- ::-webkit-scrollbar-thumb 							/* scrollbar Handle */
-	{
-     	background: #640000;  							/* fallback for old browsers */
-     	background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
-     	background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     	
-    	}
+	html, body 
+	    {
+	     overflow-y: hidden;
+	     overflow: clip;
+	     width: 800px;     
+	    }
+
+	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+		{
+		 background: #640000;  							/* fallback for old browsers */
+		 background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+		 background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
 	
-::-webkit-scrollbar-track 							/* scrollbar Track */
-	{
-    	background: #C9D6FF;  							/* fallback for old browsers */
-    	background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
-    	background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	::-webkit-scrollbar-track 							/* scrollbar Track */
+		{
+    		 background: #C9D6FF;  							/* fallback for old browsers */
+    		 background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+    		 background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
 	
-	}
 	
-	/* scrollbar width */
-::-webkit-scrollbar 
-	{
-	 width: 8px;
-	}
+	::-webkit-scrollbar 							/* scrollbar width */
+		{
+		 width: 8px;
+		}
   
 	a
 		{
 		 color:#0075af;
-     font-family: Arial, Helvetica, sans-serif;
+     		 font-family: Arial, Helvetica, sans-serif;
 		}
 	
-  p
+  	p
 		{
 		 color: #333333;
-     font-family: Arial, Helvetica, sans-serif;
+     		 font-family: Arial, Helvetica, sans-serif;
 		}
   	
 	.tableFixHead 
-	{
-      	overflow-y     : scroll ;
-      	height         : 500px !important ;
-      	min-height     : 380px ;
-      	width          : 795px ;
-      	padding-right  : 1px ;
-        scrollbar-width: thin;
-        scrollbar-color: #6b8e9b;
-	}
+		{
+		 overflow-y     : scroll ;
+		 height         : 500px !important ;
+		 min-height     : 380px ;
+		 width          : 795px ;
+		 padding-right  : 1px ;
+		 scrollbar-width: thin;
+		 scrollbar-color: #6b8e9b;
+		}
 	
 	
 	.tableFixHead .emner thead th 
 		{
-     position: sticky !important;
-     top: 0 !important;
-    }
-
-	
-
-	
+    		 position: sticky !important;
+    		 top: 0 !important;
+    		}	
 	.emner	
 		{
 		 font-family: Arial, Helvetica, sans-serif;
@@ -83,49 +77,51 @@ html, body
 		{
 		 position: 0;
 		 border-collapse: collapse;
-     overflow: clip;
-     position: fixed !important;   
-     display: table;
-     
-  }
+     		 overflow: clip;
+     		 position: fixed !important;   
+		 display: table;
+		}
 
 	.emner td, .emner th, .emner tr
 		{
 	 	 border: 1px collapse #ddd;
-     padding-left: 20px !important;
-     padding-right: 20px !important;
-	   padding: 8px;
-     border-collapse: collapse;
+     		 padding-left: 20px !important;
+     		 padding-right: 20px !important;
+	   	 padding: 8px;
+     		 border-collapse: collapse;
 		 font-size: 12px;
-     border-bottom: 1px solid #d5d5d5;
+    		 border-bottom: 1px solid #d5d5d5;
 		}
 
 	.emner tr:hover 
 		{
-		background-color: #ddd;
+		 background-color: #ddd;
 		}
-  .emner tr
+  	
+	.emner tr
 		{
-    display: table-row;
-    
+		 display: table-row;
 		}
 	
-  .col1
-    {
-		width: 80px !important;
-    display: table-col;
+	.col1
+		{
+		 width: 80px !important;
+   		 display: table-col;
 		}
-  .col2
-    {
-		width: 535px !important;
-    display: table-col;
+	
+	.col2
+    		{
+		 width: 535px !important;
+    		 display: table-col;
 		}
-  .col3
-    {
-		width: 80px !important;
-    display: table-col;
+	
+	.col3
+   		{
+		 width: 80px !important;
+		 display: table-col;
 		}
-  .emner th 	
+	
+  	.emner th 	
 		{
 		 padding-top: 9px;
 		 padding-bottom: 8px;
@@ -135,27 +131,28 @@ html, body
 		 font-size: 14px !important;
 		}
 	
-  .emner table td + td + td 
+	.emner table td + td + td 
 		{
-  		text-align: left !important;
+  		 text-align: left !important;
 		}
+	
 	.emner table th + th + th 
 		{
-  		text-align: right !important;
+  		 text-align: right !important;
 		}
   
-  #filter
+  	#filter
 		{
-		font-family: Arial, Helvetica, sans-serif;
-		color: #333333;
-		padding: 12px;
-		maring-right: 25px;
-		font-size: 14px;
-		border: none;
-		cursor: pointer;
+		 font-family: Arial, Helvetica, sans-serif;
+		 color: #333333;
+		 padding: 12px;
+		 maring-right: 25px;
+		 font-size: 14px;
+		 border: none;
+		 cursor: pointer;
 		}
   
-  select
+  	select
 		{
 		font-family: Arial, Helvetica, sans-serif;
 		background-color: #DB3F3D;
