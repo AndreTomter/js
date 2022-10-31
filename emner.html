@@ -209,13 +209,13 @@ html, body
 	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
 	var yyyy = semdato.getFullYear();
 
-		if (dd >= 15 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
+		if (dd >= 01 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
 		if (			mm	< 	06) 	{ semester = yyyy	+	"V";}
 		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
 		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
 		if (			mm	> 	06) 	{ semester = yyyy	+	"H";}
 		
-		if (dd >= 15 	&&	mm	== 	12) 	{ semestertekst = "våren " + yyyy+1	;}
+		if (dd >= 01 	&&	mm	== 	12) 	{ semestertekst = "våren " + yyyy+1	;}
 		if (			mm	< 	06) 	{ semestertekst = "våren " + yyyy	;}
 		if (dd <  15 	&& 	mm 	== 	06) 	{ semestertekst = "våren " + yyyy	;}
 		if (dd >= 15 	&&	mm 	== 	06) 	{ semestertekst = "høsten " + yyyy	;}
@@ -324,6 +324,6 @@ html, body
 	<div class="tableFixHead">
 		<table id="emner" class="emner"></table>
  	</div>
-	<p style="font-size: 10px;">Listen endrer semester 15 desember og 15 juni </p>
+	<p style="font-size: 10px;">Oversikten viser emner som undervises inneværende semester. Bacheloroppgave, masteroppgave og PhD emner vises ikke. Visningen endrer semester 01 desember og 15 juni. </p>
 </body>
 </html>
