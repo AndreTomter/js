@@ -5,11 +5,11 @@
 <body>
 <p id="demo"></p>
 
-<p>The documentURI property is not supported in Internet Explorer 11 (or earlier).</p>
+<p>The Document.referrer property.</p>
 
 <script>
-let uri = document.documentURI;
-document.getElementById("demo").innerHTML = uri;
+let ref = document.referrer
+document.getElementById("demo").innerHTML = ref;
 </script>
   <p>....</p>
   
