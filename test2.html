@@ -3,32 +3,30 @@
   
 </head>
 <body>
-<p id="demo"></p>
+
 
 <p>The Document.referrer property.</p>
-
+<p id="ref"></p>
 <script>
 let ref = document.referrer
-document.getElementById("demo").innerHTML = ref;
+document.getElementById("ref").innerHTML = ref;
 </script>
+  
   <p>....</p>
   
-<p>The base URI of the document is:</p>
 
-<p id="demo"></p>
-
-<p>The baseURI property is not supported in Internet Explorer 11 or earlier.</p>
-<p id="base"></p>
+<p>window.document.title</p>
+<p id="wt"></p>
 <script>
-let base = window.document.title;
-document.getElementById("base").innerHTML = base;
+let wtitle = window.document.title;
+document.getElementById("wt").innerHTML = wtitle;
 </script>
-æææ
-  
- <p id="basee"></p> 
+  <p>....</p>
+<p>  document.baseURI</p>
+ <p id="baseU"></p> 
   <script>
-let basee = document.baseURI;
-document.getElementById("basee").innerHTML = basee;
+let baseU = document.baseURI;
+document.getElementById("baseU").innerHTML = baseU;
 </script>
 </body>
 
