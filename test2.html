@@ -1,10 +1,29 @@
+<html lang="en">
 <head>
-  <script>
-    const currentURL = document.baseURI;
-    console.log(currentURL);
-    document.getElementById("demo").innerHTML=currentURL
-  </script> 
+  
 </head>
 <body>
 <p id="demo"></p>
+
+<p>The documentURI property is not supported in Internet Explorer 11 (or earlier).</p>
+
+<script>
+let uri = document.documentURI;
+document.getElementById("demo").innerHTML = uri;
+</script>
+  <p>....</p>
+  
+<p>The base URI of the document is:</p>
+
+<p id="demo"></p>
+
+<p>The baseURI property is not supported in Internet Explorer 11 or earlier.</p>
+
+<script>
+let base = document.baseURI;
+document.getElementById("demo").innerHTML = base;
+</script>
+
 </body>
+
+</html>
