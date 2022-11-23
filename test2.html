@@ -43,11 +43,17 @@ document.getElementById("path").innerHTML = path;
 <script>
 let ref = document.referrer
 let content = ref.getElementsByTagName("a")[0].innerHTML;
-document.getElementById("demo").innerHTML = content;
+document.getElementById("demox").innerHTML = content;
 </script>
   
   --------
-  
+ <p id="demox"></p>
+
+<script>
+let ref = document.referrer
+let content = document.referrer.getElementsByTagName("a")[0].innerHTML;
+document.getElementById("demox").innerHTML = content;
+</script>  
   
   
   
