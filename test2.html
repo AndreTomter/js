@@ -4,7 +4,6 @@
 </head>
 <body>
 
-
 <p>The Document.referrer property.</p>
 <p id="ref"></p>
 <script>
@@ -12,33 +11,44 @@ let ref = document.referrer
 document.getElementById("ref").innerHTML = ref;
 </script>
   
-  <p>....</p>
+  </hr>
   
-
+<p>The Dwindow.top property.</p>
+<p id="top"></p>
+<script>
+let top = window.top
+document.getElementById("top").innerHTML = top;
+</script>
+  
+</hr>
+  
 <p>window.document.title</p>
 <p id="wt"></p>
 <script>
 let wtitle = window.document.title;
 document.getElementById("wt").innerHTML = wtitle;
 </script>
-  <p>....</p>
+</hr>
 <p>  document.baseURI</p>
  <p id="baseU"></p> 
   <script>
 let baseU = document.baseURI;
 document.getElementById("baseU").innerHTML = baseU;
 </script>
-  
-    <p>....path</p>
-  <p id="path"></p>
+
+  </hr>
+
+<p>....path</p>
+<p id="path"></p>
 
 <script>
 let path = location.pathname;
 document.getElementById("path").innerHTML = path;
 </script>
-  -------
+ 
+</hr>
   
-  <p id="demox"></p>
+<p id="demox"></p>
 
 <script>
 let ref = document.referrer
@@ -47,12 +57,12 @@ document.getElementById("demox").innerHTML = content;
 </script>
   
   --------
- <p id="demox"></p>
+ <p id="demoz"></p>
 
 <script>
-let ref = document.referrer
-let content = document.referrer.getElementsByTagName("a")[0].innerHTML;
-document.getElementById("demox").innerHTML = content;
+let ref = window.top
+let content = window.top.getElementsByTagName("a")[0].innerHTML;
+document.getElementById("demoz").innerHTML = content;
 </script>  
   
   
