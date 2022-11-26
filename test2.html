@@ -4,14 +4,23 @@
  window.top.postMessage(
   {
     subject: 'lti.showModuleNavigation',
-    show: true
+    show: false
   },
   '*'
 )
     </script>
 </head>
 <body>
-  oppdattert 2
+  <script>
+ window.top.postMessage(
+  {
+    subject: 'lti.showModuleNavigation',
+    show: false
+  },
+  '*'
+)
+    </script>
+  oppdattert 3
 <div style="border:2 px solid;">
   <h2>Document.referrer.</h2>
   <p id="ref"></p>
