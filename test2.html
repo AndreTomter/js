@@ -3,41 +3,51 @@
   
 </head>
 <body>
-
-<p>The Document.referrer property.</p>
-<p id="ref"></p>
-<script>
-let ref = document.referrer
-document.getElementById("ref").innerHTML = ref;
-</script>
-  
-  </hr>
-  
-<p>The Dwindow.top property.</p>
-<p id="top"></p>
-<script>
-let top = window.top
-document.getElementById("top").innerHTML = top;
-</script>
-  
-</hr>
-  
-<p>window.document.title</p>
-<p id="wt"></p>
-<script>
-let wtitle = window.document.title;
-document.getElementById("wt").innerHTML = wtitle;
-</script>
-</hr>
-<p>  document.baseURI</p>
- <p id="baseU"></p> 
+<div style="border:2 px solid;">
+  <h2>Document.referrer.</h2>
+  <p id="ref"></p>
   <script>
-let baseU = document.baseURI;
-document.getElementById("baseU").innerHTML = baseU;
-</script>
-
+    var ref = document.referrer
+    document.getElementById("ref").innerHTML = ref;
+  </script>
+</div>  
+  
   </hr>
+  
+<div style="border:2 px solid;">  
+<h2>Window.top.</2>
+<p id="top1"></p>
+<script>
+  let top = window.top
+  document.getElementById("top1").innerHTML = top;
+</script>
+</div>
+  
+</hr>
 
+<div style="border:2 px solid;">  
+    <h2>window.document.title</h2>
+    <p id="wt"></p>
+    <script>
+       let wdt = window.document.title;
+        document.getElementById("wt").innerHTML = wdt;
+      
+    </script>
+
+</div>
+</hr>
+  
+<div style="border:2 px solid;">  
+  <h2>  document.baseURI</h2>
+  <p id="baseU"></p> 
+  <script>
+    let baseU = document.baseURI;
+    document.getElementById("baseU").innerHTML = baseU;
+  </script> 
+</div>
+  
+  </hr>
+<div style="border:2 px solid;">
 <p>....path</p>
 <p id="path"></p>
 
@@ -45,27 +55,27 @@ document.getElementById("baseU").innerHTML = baseU;
 let path = location.pathname;
 document.getElementById("path").innerHTML = path;
 </script>
- 
+</div> 
 </hr>
-  
+<div style="border:2 px solid;">  
 <p id="demox"></p>
 
 <script>
-let ref = document.referrer
-let content = ref.getElementsByTagName("a")[0].innerHTML;
-document.getElementById("demox").innerHTML = content;
+const dref = document.referrer
+const demox = dref.getElementsByTagName("a")[0].innerHTML;
+document.getElementById("demox").innerHTML = demox;
 </script>
-  
-  --------
- <p id="demoz"></p>
+</div>  
+
+<div style="border:2 px solid;">
+<p id="demoz"></p>
 
 <script>
-let ref = window.top
-let content = window.top.getElementsByTagName("a")[0].innerHTML;
-document.getElementById("demoz").innerHTML = content;
+let demoz = window.top.getElementsByTagName("a")[0].innerHTML;
+document.getElementById("demoz").innerHTML = demoz;
 </script>  
   
-  
+</div> 
   
 </body>
 
