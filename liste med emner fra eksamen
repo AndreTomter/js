@@ -1,0 +1,50 @@
+// listen viser ikke alle emner - slik som sted. usikker på utvalget, tor den sjekker vurdenhet ett sem bak og frem 
+async function getData() {
+  const url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.11')).json()
+  const emner11 = url11.emne
+  var emnekode11 = Object.keys(emner11)
+  const data11 = Promise.all(url11)
+//console.log(emnekode)
+
+const ids12 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.12')).json()
+  const emner12 = ids12.emne
+  var emnekode12 = Object.keys(emner12)
+  const data12 = Promise.all(ids12)
+
+const ids13 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.13')).json()
+  const emner13 = ids13.emne
+  var emnekode13 = Object.keys(emner13)
+  const data13 = Promise.all(ids13)
+
+const ids15 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.15')).json()
+  const emner15 = ids15.emne
+  var emnekode15 = Object.keys(emner15)
+  const data15 = Promise.all(ids15)
+
+const ids17 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.17')).json()
+  const emner17 = ids17.emne
+  var emnekode17 = Object.keys(emner17)
+  const data17 = Promise.all(ids17)
+
+const ids34 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.34')).json()
+  const emner34 = ids34.emne
+  var emnekode34 = Object.keys(emner34)
+  const data34 = Promise.all(ids34)
+
+const ids41 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.41')).json()
+  const emner41 = ids41.emne
+  var emnekode41 = Object.keys(emner41)
+  const data41 = Promise.all(ids41)
+
+const emnekoder = emnekode11.concat(emnekode12).concat(emnekode13).concat(emnekode15).concat(emnekode17).concat(emnekode34).concat(emnekode41);
+  
+  return emnekoder 
+  
+}
+
+getData()
+.then(emnekoder => {
+ console.log(emnekoder)
+ return emnekoder
+})
+
