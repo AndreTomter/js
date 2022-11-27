@@ -1,4 +1,18 @@
 // listen viser ikke alle emner - slik som sted. usikker på utvalget, tor den sjekker vurdenhet ett sem bak og frem 
+// listen kan filtreres til å gjelde et bestemt semester 'https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.13&semester=2022v'
+// setter farge på emnene som treffes 
+getData()
+.then(emnekoder => {
+var arr = emnekoder;    
+arr = arr.map(i => '.' + i);
+
+
+const nodeList = document.querySelectorAll(arr);
+for (let i = 0; i < nodeList.length; i++) {
+  nodeList[i].style.backgroundColor = "red";
+}
+/////////////////////////////////////////////////
+
 async function getData() {
   const url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/eksamen.json?sted=184.15.11')).json()
   const emner11 = url11.emne
