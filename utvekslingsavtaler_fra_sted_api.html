@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<script>
+async function getData() {
+  var url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
+  var avt11 = url11.utvekslingsavtaler
+  var data11 = Promise.all(url11)
+
+	var url12 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.12/info.json')).json()
+  var avt12 = url12.utvekslingsavtaler
+  var data12 = Promise.all(url12)
+  
+	var url13 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.13/info.json')).json()
+  var avt13 = url13.utvekslingsavtaler
+  var data13 = Promise.all(url13)
+  
+  var url15 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.15/info.json')).json()
+  var avt15 = url12.utvekslingsavtaler
+  var data15 = Promise.all(url15)
+  
+  var url17 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.17/info.json')).json()
+  var avt17 = url17.utvekslingsavtaler
+  var data17 = Promise.all(url17)
+  
+  var url34 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.34/info.json')).json()
+  var avt34 = url34.utvekslingsavtaler
+  var data34 = Promise.all(url34)
+  
+  var url41 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.41/info.json')).json()
+  var avt41 = url41.utvekslingsavtaler
+  var data41 = Promise.all(url41)
+
+var emnekoder = avt11.concat(avt12).concat(avt13).concat(avt15).concat(avt17).concat(avt34).concat(avt41)
+  
+   	//show(emnekoder)
+  return emnekoder 
+  
+   
+}
+
+getData()
+.then(emnekoder => {
+ console.log(emnekoder)
+ 
+		let tab =
+			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
+				<th class="col1">Avtaletype</th>
+        <th class="col1">Id</th>
+				<th class="col2">Land</th>
+				<th class="col3">Navn</th>
+        <th class="col3">Eier</th>
+			</tr></thead>`;
+	
+		// Loop to access all rows
+		for (let r of emnekoder) {
+        	tab += `<tr> 
+				<td >${r.category}</a></td>  
+        <td >${r.id}</a></td>  
+				<td >${r.ref_countries}</td>   
+   			<td >${r.title_no.split(' og ').slice(0,1)}</td> 
+        <td >${r.title_no.slice((r.title_no.search(" og "))+3).replace(/ \([\s\S]*?\)/g, '')
+            
+         
+            }</td>  
+			</tr>`;
+					}
+	
+	// Setting innerHTML as tab variable
+	document.getElementById("emner").innerHTML = tab;
+  
+  })
+
+</script>
+</head>
+<body>
+  <p>
+    Gjennstår: filtrere ut uønskede avtaletyper. Fellesgrad og forskerutdanning har ikke publiserte avtalesider, men vises likevel i listen foreløpig.
+  </p>
+<table id="emner" class="emner"></table>
+</body>
+
+</html>
