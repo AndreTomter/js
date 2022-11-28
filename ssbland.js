@@ -1,0 +1,999 @@
+let SSB = [{
+  alfa2kode: "AD",
+  landkode: "114",
+  landNavn: "Andorra"
+}, {
+  alfa2kode: "AE",
+  landkode: "426",
+  landNavn: "De forente arabiske emirater"
+}, {
+  alfa2kode: "AF",
+  landkode: "404",
+  landNavn: "Afghanistan"
+}, {
+  alfa2kode: "AG",
+  landkode: "603",
+  landNavn: "Antigua og Barbuda"
+}, {
+  alfa2kode: "AI",
+  landkode: "660",
+  landNavn: "Anguilla"
+}, {
+  alfa2kode: "AL",
+  landkode: "111",
+  landNavn: "Albania"
+}, {
+  alfa2kode: "AM",
+  landkode: "406",
+  landNavn: "Armenia"
+}, {
+  alfa2kode: "AO",
+  landkode: "204",
+  landNavn: "Angola"
+}, {
+  alfa2kode: "AR",
+  landkode: "705",
+  landNavn: "Argentina"
+}, {
+  alfa2kode: "AS",
+  landkode: "802",
+  landNavn: "Amerikansk Samoa"
+}, {
+  alfa2kode: "AT",
+  landkode: "153",
+  landNavn: "Østerrike"
+}, {
+  alfa2kode: "AU",
+  landkode: "805",
+  landNavn: "Australia"
+}, {
+  alfa2kode: "AW",
+  landkode: "657",
+  landNavn: "Aruba"
+}, {
+  alfa2kode: "AX",
+  landkode: "103",
+  landNavn: "Finland"
+}, {
+  alfa2kode: "AZ",
+  landkode: "407",
+  landNavn: "Aserbajdsjan"
+}, {
+  alfa2kode: "BA",
+  landkode: "155",
+  landNavn: "Bosnia-Hercegovina"
+}, {
+  alfa2kode: "BB",
+  landkode: "602",
+  landNavn: "Barbados"
+}, {
+  alfa2kode: "BD",
+  landkode: "410",
+  landNavn: "Bangladesh"
+}, {
+  alfa2kode: "BE",
+  landkode: "112",
+  landNavn: "Belgia"
+}, {
+  alfa2kode: "BF",
+  landkode: "393",
+  landNavn: "Burkina Faso"
+}, {
+  alfa2kode: "BG",
+  landkode: "113",
+  landNavn: "Bulgaria"
+}, {
+  alfa2kode: "BH",
+  landkode: "409",
+  landNavn: "Bahrain"
+}, {
+  alfa2kode: "BI",
+  landkode: "216",
+  landNavn: "Burundi"
+}, {
+  alfa2kode: "BJ",
+  landkode: "229",
+  landNavn: "Benin"
+}, {
+  alfa2kode: "BL",
+  landkode: "687",
+  landNavn: "Saint-Barthélemy"
+}, {
+  alfa2kode: "BM",
+  landkode: "606",
+  landNavn: "Bermuda"
+}, {
+  alfa2kode: "BN",
+  landkode: "416",
+  landNavn: "Brunei"
+}, {
+  alfa2kode: "BO",
+  landkode: "710",
+  landNavn: "Bolivia"
+}, {
+  alfa2kode: "BQ",
+  landkode: "659",
+  landNavn: "Bonaire, Sint Eustatius og Saba"
+}, {
+  alfa2kode: "BR",
+  landkode: "715",
+  landNavn: "Brasil"
+}, {
+  alfa2kode: "BS",
+  landkode: "605",
+  landNavn: "Bahamas"
+}, {
+  alfa2kode: "BT",
+  landkode: "412",
+  landNavn: "Bhutan"
+}, {
+  alfa2kode: "BV",
+  landkode: "0",
+  landNavn: "Norge"
+}, {
+  alfa2kode: "BW",
+  landkode: "205",
+  landNavn: "Botswana"
+}, {
+  alfa2kode: "BY",
+  landkode: "120",
+  landNavn: "Hviterussland"
+}, {
+  alfa2kode: "BZ",
+  landkode: "604",
+  landNavn: "Belize"
+}, {
+  alfa2kode: "CA",
+  landkode: "612",
+  landNavn: "Canada"
+}, {
+  alfa2kode: "CC",
+  landkode: "808",
+  landNavn: "Kokosøyene"
+}, {
+  alfa2kode: "CD",
+  landkode: "279",
+  landNavn: "Kongo"
+}, {
+  alfa2kode: "CF",
+  landkode: "337",
+  landNavn: "Den sentralafrikanske republikk"
+}, {
+  alfa2kode: "CG",
+  landkode: "278",
+  landNavn: "Kongo - Brazzaville"
+}, {
+  alfa2kode: "CH",
+  landkode: "141",
+  landNavn: "Sveits"
+}, {
+  alfa2kode: "CI",
+  landkode: "239",
+  landNavn: "Elfenbeinskysten"
+}, {
+  alfa2kode: "CK",
+  landkode: "809",
+  landNavn: "Cookøyene"
+}, {
+  alfa2kode: "CL",
+  landkode: "725",
+  landNavn: "Chile"
+}, {
+  alfa2kode: "CM",
+  landkode: "270",
+  landNavn: "Kamerun"
+}, {
+  alfa2kode: "CN",
+  landkode: "484",
+  landNavn: "Kina"
+}, {
+  alfa2kode: "CO",
+  landkode: "730",
+  landNavn: "Colombia"
+}, {
+  alfa2kode: "CR",
+  landkode: "616",
+  landNavn: "Costa Rica"
+}, {
+  alfa2kode: "CU",
+  landkode: "620",
+  landNavn: "Cuba"
+}, {
+  alfa2kode: "CV",
+  landkode: "273",
+  landNavn: "Kapp Verde"
+}, {
+  alfa2kode: "CW",
+  landkode: "661",
+  landNavn: "Curaçao"
+}, {
+  alfa2kode: "CX",
+  landkode: "807",
+  landNavn: "Christmasøya"
+}, {
+  alfa2kode: "CY",
+  landkode: "500",
+  landNavn: "Kypros"
+}, {
+  alfa2kode: "CZ",
+  landkode: "158",
+  landNavn: "Tsjekkia"
+}, {
+  alfa2kode: "DE",
+  landkode: "144",
+  landNavn: "Tyskland"
+}, {
+  alfa2kode: "DJ",
+  landkode: "250",
+  landNavn: "Djibouti"
+}, {
+  alfa2kode: "DK",
+  landkode: "101",
+  landNavn: "Danmark"
+}, {
+  alfa2kode: "DM",
+  landkode: "622",
+  landNavn: "Dominica"
+}, {
+  alfa2kode: "DO",
+  landkode: "624",
+  landNavn: "Den dominikanske republikk"
+}, {
+  alfa2kode: "DZ",
+  landkode: "203",
+  landNavn: "Algerie"
+}, {
+  alfa2kode: "EC",
+  landkode: "735",
+  landNavn: "Ecuador"
+}, {
+  alfa2kode: "EE",
+  landkode: "115",
+  landNavn: "Estland"
+}, {
+  alfa2kode: "EG",
+  landkode: "249",
+  landNavn: "Egypt"
+}, {
+  alfa2kode: "EH",
+  landkode: "304",
+  landNavn: "Vest-Sahara"
+}, {
+  alfa2kode: "ER",
+  landkode: "241",
+  landNavn: "Eritrea"
+}, {
+  alfa2kode: "ES",
+  landkode: "137",
+  landNavn: "Spania"
+}, {
+  alfa2kode: "ET",
+  landkode: "246",
+  landNavn: "Etiopia"
+}, {
+  alfa2kode: "FI",
+  landkode: "103",
+  landNavn: "Finland"
+}, {
+  alfa2kode: "FJ",
+  landkode: "811",
+  landNavn: "Fiji"
+}, {
+  alfa2kode: "FK",
+  landkode: "740",
+  landNavn: "Falklandsøyene"
+}, {
+  alfa2kode: "FM",
+  landkode: "826",
+  landNavn: "Mikronesiaføderasjonen"
+}, {
+  alfa2kode: "FO",
+  landkode: "104",
+  landNavn: "Færøyene"
+}, {
+  alfa2kode: "FR",
+  landkode: "117",
+  landNavn: "Frankrike"
+}, {
+  alfa2kode: "GA",
+  landkode: "254",
+  landNavn: "Gabon"
+}, {
+  alfa2kode: "GB",
+  landkode: "139",
+  landNavn: "Storbritannia"
+}, {
+  alfa2kode: "GD",
+  landkode: "629",
+  landNavn: "Grenada"
+}, {
+  alfa2kode: "GE",
+  landkode: "430",
+  landNavn: "Georgia"
+}, {
+  alfa2kode: "GF",
+  landkode: "745",
+  landNavn: "Fransk Guyana"
+}, {
+  alfa2kode: "GG",
+  landkode: "162",
+  landNavn: "Guernsey"
+}, {
+  alfa2kode: "GH",
+  landkode: "260",
+  landNavn: "Ghana"
+}, {
+  alfa2kode: "GI",
+  landkode: "118",
+  landNavn: "Gibraltar"
+}, {
+  alfa2kode: "GL",
+  landkode: "102",
+  landNavn: "Grønland"
+}, {
+  alfa2kode: "GM",
+  landkode: "256",
+  landNavn: "Gambia"
+}, {
+  alfa2kode: "GN",
+  landkode: "264",
+  landNavn: "Guinea"
+}, {
+  alfa2kode: "GP",
+  landkode: "631",
+  landNavn: "Guadeloupe"
+}, {
+  alfa2kode: "GQ",
+  landkode: "235",
+  landNavn: "Ekvatorial-Guinea"
+}, {
+  alfa2kode: "GR",
+  landkode: "119",
+  landNavn: "Hellas"
+}, {
+  alfa2kode: "GT",
+  landkode: "632",
+  landNavn: "Guatemala"
+}, {
+  alfa2kode: "GU",
+  landkode: "817",
+  landNavn: "Guam"
+}, {
+  alfa2kode: "GW",
+  landkode: "266",
+  landNavn: "Guinea-Bissau"
+}, {
+  alfa2kode: "GY",
+  landkode: "720",
+  landNavn: "Guyana"
+}, {
+  alfa2kode: "HK",
+  landkode: "436",
+  landNavn: "Hongkong"
+}, {
+  alfa2kode: "HN",
+  landkode: "644",
+  landNavn: "Honduras"
+}, {
+  alfa2kode: "HR",
+  landkode: "122",
+  landNavn: "Kroatia"
+}, {
+  alfa2kode: "HT",
+  landkode: "636",
+  landNavn: "Haiti"
+}, {
+  alfa2kode: "HU",
+  landkode: "152",
+  landNavn: "Ungarn"
+}, {
+  alfa2kode: "ID",
+  landkode: "448",
+  landNavn: "Indonesia"
+}, {
+  alfa2kode: "IE",
+  landkode: "121",
+  landNavn: "Irland"
+}, {
+  alfa2kode: "IL",
+  landkode: "460",
+  landNavn: "Israel"
+}, {
+  alfa2kode: "IM",
+  landkode: "164",
+  landNavn: "Man"
+}, {
+  alfa2kode: "IN",
+  landkode: "444",
+  landNavn: "India"
+}, {
+  alfa2kode: "IO",
+  landkode: "213",
+  landNavn: "Det britiske territorium i Indiahavet"
+}, {
+  alfa2kode: "IQ",
+  landkode: "452",
+  landNavn: "Irak"
+}, {
+  alfa2kode: "IR",
+  landkode: "456",
+  landNavn: "Iran"
+}, {
+  alfa2kode: "IS",
+  landkode: "105",
+  landNavn: "Island"
+}, {
+  alfa2kode: "IT",
+  landkode: "123",
+  landNavn: "Italia"
+}, {
+  alfa2kode: "JE",
+  landkode: "163",
+  landNavn: "Jersey"
+}, {
+  alfa2kode: "JM",
+  landkode: "648",
+  landNavn: "Jamaica"
+}, {
+  alfa2kode: "JO",
+  landkode: "476",
+  landNavn: "Jordan"
+}, {
+  alfa2kode: "JP",
+  landkode: "464",
+  landNavn: "Japan"
+}, {
+  alfa2kode: "KE",
+  landkode: "276",
+  landNavn: "Kenya"
+}, {
+  alfa2kode: "KG",
+  landkode: "502",
+  landNavn: "Kirgisistan"
+}, {
+  alfa2kode: "KH",
+  landkode: "478",
+  landNavn: "Kambodsja"
+}, {
+  alfa2kode: "KI",
+  landkode: "815",
+  landNavn: "Kiribati"
+}, {
+  alfa2kode: "KM",
+  landkode: "220",
+  landNavn: "Komorene"
+}, {
+  alfa2kode: "KN",
+  landkode: "677",
+  landNavn: "St. Kitts og Nevis"
+}, {
+  alfa2kode: "KP",
+  landkode: "488",
+  landNavn: "Nord-Korea"
+}, {
+  alfa2kode: "KR",
+  landkode: "492",
+  landNavn: "Sør-Korea"
+}, {
+  alfa2kode: "KW",
+  landkode: "496",
+  landNavn: "Kuwait"
+}, {
+  alfa2kode: "KY",
+  landkode: "613",
+  landNavn: "Caymanøyene"
+}, {
+  alfa2kode: "KZ",
+  landkode: "480",
+  landNavn: "Kasakhstan"
+}, {
+  alfa2kode: "LA",
+  landkode: "504",
+  landNavn: "Laos"
+}, {
+  alfa2kode: "LB",
+  landkode: "508",
+  landNavn: "Libanon"
+}, {
+  alfa2kode: "LC",
+  landkode: "678",
+  landNavn: "St. Lucia"
+}, {
+  alfa2kode: "LI",
+  landkode: "128",
+  landNavn: "Liechtenstein"
+}, {
+  alfa2kode: "LK",
+  landkode: "424",
+  landNavn: "Sri Lanka"
+}, {
+  alfa2kode: "LR",
+  landkode: "283",
+  landNavn: "Liberia"
+}, {
+  alfa2kode: "LS",
+  landkode: "281",
+  landNavn: "Lesotho"
+}, {
+  alfa2kode: "LT",
+  landkode: "136",
+  landNavn: "Litauen"
+}, {
+  alfa2kode: "LU",
+  landkode: "129",
+  landNavn: "Luxembourg"
+}, {
+  alfa2kode: "LV",
+  landkode: "124",
+  landNavn: "Latvia"
+}, {
+  alfa2kode: "LY",
+  landkode: "286",
+  landNavn: "Libya"
+}, {
+  alfa2kode: "MA",
+  landkode: "303",
+  landNavn: "Marokko"
+}, {
+  alfa2kode: "MC",
+  landkode: "130",
+  landNavn: "Monaco"
+}, {
+  alfa2kode: "MD",
+  landkode: "138",
+  landNavn: "Moldova"
+}, {
+  alfa2kode: "ME",
+  landkode: "160",
+  landNavn: "Montenegro"
+}, {
+  alfa2kode: "MF",
+  landkode: "686",
+  landNavn: "Saint-Martin (FR)"
+}, {
+  alfa2kode: "MG",
+  landkode: "289",
+  landNavn: "Madagaskar"
+}, {
+  alfa2kode: "MH",
+  landkode: "835",
+  landNavn: "Marshalløyene"
+}, {
+  alfa2kode: "MK",
+  landkode: "156",
+  landNavn: "Nord-Makedonia"
+}, {
+  alfa2kode: "ML",
+  landkode: "299",
+  landNavn: "Mali"
+}, {
+  alfa2kode: "MM",
+  landkode: "420",
+  landNavn: "Myanmar"
+}, {
+  alfa2kode: "MN",
+  landkode: "516",
+  landNavn: "Mongolia"
+}, {
+  alfa2kode: "MO",
+  landkode: "510",
+  landNavn: "Macao"
+}, {
+  alfa2kode: "MP",
+  landkode: "840",
+  landNavn: "Nord-Marianene"
+}, {
+  alfa2kode: "MQ",
+  landkode: "650",
+  landNavn: "Martinique"
+}, {
+  alfa2kode: "MR",
+  landkode: "306",
+  landNavn: "Mauritania"
+}, {
+  alfa2kode: "MS",
+  landkode: "654",
+  landNavn: "Montserrat"
+}, {
+  alfa2kode: "MT",
+  landkode: "126",
+  landNavn: "Malta"
+}, {
+  alfa2kode: "MU",
+  landkode: "307",
+  landNavn: "Mauritius"
+}, {
+  alfa2kode: "MV",
+  landkode: "513",
+  landNavn: "Maldivene"
+}, {
+  alfa2kode: "MW",
+  landkode: "296",
+  landNavn: "Malawi"
+}, {
+  alfa2kode: "MX",
+  landkode: "652",
+  landNavn: "Mexico"
+}, {
+  alfa2kode: "MY",
+  landkode: "512",
+  landNavn: "Malaysia"
+}, {
+  alfa2kode: "MZ",
+  landkode: "319",
+  landNavn: "Mosambik"
+}, {
+  alfa2kode: "NA",
+  landkode: "308",
+  landNavn: "Namibia"
+}, {
+  alfa2kode: "NC",
+  landkode: "833",
+  landNavn: "Ny-Caledonia"
+}, {
+  alfa2kode: "NE",
+  landkode: "309",
+  landNavn: "Niger"
+}, {
+  alfa2kode: "NF",
+  landkode: "822",
+  landNavn: "Norfolkøya"
+}, {
+  alfa2kode: "NG",
+  landkode: "313",
+  landNavn: "Nigeria"
+}, {
+  alfa2kode: "NI",
+  landkode: "664",
+  landNavn: "Nicaragua"
+}, {
+  alfa2kode: "NL",
+  landkode: "127",
+  landNavn: "Nederland"
+}, {
+  alfa2kode: "NO",
+  landkode: "0",
+  landNavn: "Norge"
+}, {
+  alfa2kode: "NP",
+  landkode: "528",
+  landNavn: "Nepal"
+}, {
+  alfa2kode: "NR",
+  landkode: "818",
+  landNavn: "Nauru"
+}, {
+  alfa2kode: "NU",
+  landkode: "821",
+  landNavn: "Niue"
+}, {
+  alfa2kode: "NZ",
+  landkode: "820",
+  landNavn: "New Zealand"
+}, {
+  alfa2kode: "OM",
+  landkode: "520",
+  landNavn: "Oman"
+}, {
+  alfa2kode: "PA",
+  landkode: "668",
+  landNavn: "Panama"
+}, {
+  alfa2kode: "PE",
+  landkode: "760",
+  landNavn: "Peru"
+}, {
+  alfa2kode: "PF",
+  landkode: "814",
+  landNavn: "Fransk Polynesia"
+}, {
+  alfa2kode: "PG",
+  landkode: "827",
+  landNavn: "Papua Ny-Guinea"
+}, {
+  alfa2kode: "PH",
+  landkode: "428",
+  landNavn: "Filippinene"
+}, {
+  alfa2kode: "PK",
+  landkode: "534",
+  landNavn: "Pakistan"
+}, {
+  alfa2kode: "PL",
+  landkode: "131",
+  landNavn: "Polen"
+}, {
+  alfa2kode: "PM",
+  landkode: "676",
+  landNavn: "Saint-Pierre-et-Miquelon"
+}, {
+  alfa2kode: "PN",
+  landkode: "828",
+  landNavn: "Pitcairn"
+}, {
+  alfa2kode: "PR",
+  landkode: "685",
+  landNavn: "Puerto Rico"
+}, {
+  alfa2kode: "PS",
+  landkode: "524",
+  landNavn: "Palestina"
+}, {
+  alfa2kode: "PT",
+  landkode: "132",
+  landNavn: "Portugal"
+}, {
+  alfa2kode: "PW",
+  landkode: "839",
+  landNavn: "Palau"
+}, {
+  alfa2kode: "PY",
+  landkode: "755",
+  landNavn: "Paraguay"
+}, {
+  alfa2kode: "QA",
+  landkode: "540",
+  landNavn: "Qatar"
+}, {
+  alfa2kode: "RE",
+  landkode: "323",
+  landNavn: "Réunion"
+}, {
+  alfa2kode: "RO",
+  landkode: "133",
+  landNavn: "Romania"
+}, {
+  alfa2kode: "RS",
+  landkode: "159",
+  landNavn: "Serbia"
+}, {
+  alfa2kode: "RU",
+  landkode: "140",
+  landNavn: "Russland"
+}, {
+  alfa2kode: "RW",
+  landkode: "329",
+  landNavn: "Rwanda"
+}, {
+  alfa2kode: "SA",
+  landkode: "544",
+  landNavn: "Saudi-Arabia"
+}, {
+  alfa2kode: "SB",
+  landkode: "806",
+  landNavn: "Salomonøyene"
+}, {
+  alfa2kode: "SC",
+  landkode: "338",
+  landNavn: "Seychellene"
+}, {
+  alfa2kode: "SD",
+  landkode: "356",
+  landNavn: "Sudan"
+}, {
+  alfa2kode: "SE",
+  landkode: "106",
+  landNavn: "Sverige"
+}, {
+  alfa2kode: "SG",
+  landkode: "548",
+  landNavn: "Singapore"
+}, {
+  alfa2kode: "SH",
+  landkode: "209",
+  landNavn: "Sankt Helena, Ascension og Tristan da Cunha"
+}, {
+  alfa2kode: "SI",
+  landkode: "146",
+  landNavn: "Slovenia"
+}, {
+  alfa2kode: "SJ",
+  landkode: "0",
+  landNavn: "Norge"
+}, {
+  alfa2kode: "SK",
+  landkode: "157",
+  landNavn: "Slovakia"
+}, {
+  alfa2kode: "SL",
+  landkode: "339",
+  landNavn: "Sierra Leone"
+}, {
+  alfa2kode: "SM",
+  landkode: "134",
+  landNavn: "San Marino"
+}, {
+  alfa2kode: "SN",
+  landkode: "336",
+  landNavn: "Senegal"
+}, {
+  alfa2kode: "SO",
+  landkode: "346",
+  landNavn: "Somalia"
+}, {
+  alfa2kode: "SR",
+  landkode: "765",
+  landNavn: "Surinam"
+}, {
+  alfa2kode: "SS",
+  landkode: "355",
+  landNavn: "Sør-Sudan"
+}, {
+  alfa2kode: "ST",
+  landkode: "333",
+  landNavn: "São Tomé og Príncipe"
+}, {
+  alfa2kode: "SV",
+  landkode: "672",
+  landNavn: "El Salvador"
+}, {
+  alfa2kode: "SX",
+  landkode: "658",
+  landNavn: "Sint Maarten (NL)"
+}, {
+  alfa2kode: "SY",
+  landkode: "564",
+  landNavn: "Syria"
+}, {
+  alfa2kode: "SZ",
+  landkode: "357",
+  landNavn: "Eswatini"
+}, {
+  alfa2kode: "TC",
+  landkode: "681",
+  landNavn: "Turks- og Caicosøyene"
+}, {
+  alfa2kode: "TD",
+  landkode: "373",
+  landNavn: "Tsjad"
+}, {
+  alfa2kode: "TF",
+  landkode: "117",
+  landNavn: "Frankrike"
+}, {
+  alfa2kode: "TG",
+  landkode: "376",
+  landNavn: "Togo"
+}, {
+  alfa2kode: "TH",
+  landkode: "568",
+  landNavn: "Thailand"
+}, {
+  alfa2kode: "TJ",
+  landkode: "550",
+  landNavn: "Tadsjikistan"
+}, {
+  alfa2kode: "TK",
+  landkode: "829",
+  landNavn: "Tokelau"
+}, {
+  alfa2kode: "TL",
+  landkode: "537",
+  landNavn: "Øst-Timor"
+}, {
+  alfa2kode: "TM",
+  landkode: "552",
+  landNavn: "Turkmenistan"
+}, {
+  alfa2kode: "TN",
+  landkode: "379",
+  landNavn: "Tunisia"
+}, {
+  alfa2kode: "TO",
+  landkode: "813",
+  landNavn: "Tonga"
+}, {
+  alfa2kode: "TR",
+  landkode: "143",
+  landNavn: "Tyrkia"
+}, {
+  alfa2kode: "TT",
+  landkode: "680",
+  landNavn: "Trinidad og Tobago"
+}, {
+  alfa2kode: "TV",
+  landkode: "816",
+  landNavn: "Tuvalu"
+}, {
+  alfa2kode: "TW",
+  landkode: "432",
+  landNavn: "Taiwan"
+}, {
+  alfa2kode: "TZ",
+  landkode: "369",
+  landNavn: "Tanzania"
+}, {
+  alfa2kode: "UA",
+  landkode: "148",
+  landNavn: "Ukraina"
+}, {
+  alfa2kode: "UG",
+  landkode: "386",
+  landNavn: "Uganda"
+}, {
+  alfa2kode: "UM",
+  landkode: "819",
+  landNavn: "USAs ytre småøyer"
+}, {
+  alfa2kode: "US",
+  landkode: "684",
+  landNavn: "USA"
+}, {
+  alfa2kode: "UY",
+  landkode: "770",
+  landNavn: "Uruguay"
+}, {
+  alfa2kode: "UZ",
+  landkode: "554",
+  landNavn: "Usbekistan"
+}, {
+  alfa2kode: "VA",
+  landkode: "154",
+  landNavn: "Vatikanstaten"
+}, {
+  alfa2kode: "VC",
+  landkode: "679",
+  landNavn: "St. Vincent og Grenadinene"
+}, {
+  alfa2kode: "VE",
+  landkode: "775",
+  landNavn: "Venezuela"
+}, {
+  alfa2kode: "VG",
+  landkode: "608",
+  landNavn: "De britiske Jomfruøyer"
+}, {
+  alfa2kode: "VI",
+  landkode: "601",
+  landNavn: "De amerikanske Jomfruøyer"
+}, {
+  alfa2kode: "VN",
+  landkode: "575",
+  landNavn: "Vietnam"
+}, {
+  alfa2kode: "VU",
+  landkode: "812",
+  landNavn: "Vanuatu"
+}, {
+  alfa2kode: "WF",
+  landkode: "832",
+  landNavn: "Wallis- og Futunaøyene"
+}, {
+  alfa2kode: "WS",
+  landkode: "830",
+  landNavn: "Samoa"
+}, {
+  alfa2kode: "XB",
+  landkode: "137",
+  landNavn: "Spania"
+}, {
+  alfa2kode: "XC",
+  landkode: "137",
+  landNavn: "Spania"
+}, {
+  alfa2kode: "XK",
+  landkode: "161",
+  landNavn: "Kosovo"
+}, {
+  alfa2kode: "YE",
+  landkode: "578",
+  landNavn: "Jemen"
+}, {
+  alfa2kode: "YT",
+  landkode: "322",
+  landNavn: "Mayotte"
+}, {
+  alfa2kode: "ZA",
+  landkode: "359",
+  landNavn: "Sør-Afrika"
+}, {
+  alfa2kode: "ZM",
+  landkode: "389",
+  landNavn: "Zambia"
+}, {
+  alfa2kode: "ZW",
+  landkode: "326",
+  landNavn: "Zimbabwe"
+}]
+
+console.log(SSB)
