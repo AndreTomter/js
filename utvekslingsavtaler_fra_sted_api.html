@@ -4,63 +4,71 @@
 <head>
 <script>
 async function getData() {
-	var url184 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184/info.json')).json()
-  var avt184 = url184.utvekslingsavtaler
-  var data184 = Promise.all(url184)
+	var url184 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184/info.json')).json();
+  var avt184 			= url184.utvekslingsavtaler;
+	var newAvt184 	= avt184.map(v => ({...v, avtaleeier: "Universitetet i Bergen"}));
+  var data184 		= Promise.all(url184);
 
+	var url0 				= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.0/info.json')).json()
+  var avt0 				= url0.utvekslingsavtaler
+  var newAvt0 		= avt0.map(v => ({...v, avtaleeier: "Det samfunnsvitenskapelige fakultet"}))
+  var data0 			= Promise.all(url0)
 
-	var url0 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.0/info.json')).json()
-  var avt0 = url0.utvekslingsavtaler
-  var data0 = Promise.all(url0)
+  var url11 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
+  var avt11 			= url11.utvekslingsavtaler
+  var newAvt11 		= avt11.map(v => ({...v, avtaleeier: "Sosiologisk institutt"}))
+  var data11 			= Promise.all(url11)
 
-  var url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
-  var avt11 = url11.utvekslingsavtaler
-  var data11 = Promise.all(url11)
+	var url12 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.12/info.json')).json()
+  var avt12 			= url12.utvekslingsavtaler
+  var newAvt12 		= avt12.map(v => ({...v, avtaleeier: "Institutt for politikk og forvaltning"}))
+  var data12 			= Promise.all(url12)
+  
+	var url13 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.13/info.json')).json()
+  var avt13 			= url13.utvekslingsavtaler
+  var newAvt13 		= avt13.map(v => ({...v, avtaleeier: "Institutt for sammenliknende politikk"}))
+  var data13 			= Promise.all(url13)
+  
+  var url15 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.15/info.json')).json()
+  var avt15 			= url15.utvekslingsavtaler
+  var newAvt15 		= avt15.map(v => ({...v, avtaleeier: "Institutt for økonomi"}))
+  var data15 			= Promise.all(url15)
+  
+  var url17 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.17/info.json')).json()
+  var avt17				= url17.utvekslingsavtaler
+  var newAvt17		= avt17.map(v => ({...v, avtaleeier: "Institutt for informasjons- og medievitenskap"}))
+  var data17	 		= Promise.all(url17)
+  
+  var url34 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.34/info.json')).json()
+  var avt34 			= url34.utvekslingsavtaler
+  var newAvt34 		= avt34.map(v => ({...v, avtaleeier: "Institutt for sosialantropologi"}))
+	var data34 			= Promise.all(url34)
+  
+  var url41 			= await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.41/info.json')).json()
+  var avt41 			= url41.utvekslingsavtaler
+  var newAvt41 		= avt41.map(v => ({...v, avtaleeier: "Institutt for geografi"}))
+  var data41 			= Promise.all(url41)
 
-	var url12 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.12/info.json')).json()
-  var avt12 = url12.utvekslingsavtaler
-  var data12 = Promise.all(url12)
-  
-	var url13 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.13/info.json')).json()
-  var avt13 = url13.utvekslingsavtaler
-  var data13 = Promise.all(url13)
-  
-  var url15 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.15/info.json')).json()
-  var avt15 = url12.utvekslingsavtaler
-  var data15 = Promise.all(url15)
-  
-  var url17 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.17/info.json')).json()
-  var avt17 = url17.utvekslingsavtaler
-  var data17 = Promise.all(url17)
-  
-  var url34 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.34/info.json')).json()
-  var avt34 = url34.utvekslingsavtaler
-  var data34 = Promise.all(url34)
-  
-  var url41 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.41/info.json')).json()
-  var avt41 = url41.utvekslingsavtaler
-  var data41 = Promise.all(url41)
-
-	var concatEier = avt184.concat(avt0).concat(avt11).concat(avt12).concat(avt13).concat(avt15).concat(avt17).concat(avt34).concat(avt41)
+	var concatAvt 	= newAvt184.concat(newAvt0).concat(newAvt11).concat(newAvt12).concat(newAvt13).concat(newAvt15).concat(newAvt17).concat(newAvt34).concat(newAvt41)
  
- 	let kategori = ["STUDENT"]
-  var student = concatEier
+ 	let kategori 		= ["STUDENT"]
+  var katFilter 	= concatAvt
  												.filter ( i => kategori.includes( i.category_persons[0] ) )
- 
- 
- let type = ["ERASMUS+","ERASMUS+ICM", "BILATERAL"]                       
- var avtaletype = student
+  
+	let type 				= ["ERASMUS+","ERASMUS+ICM", "BILATERAL"]                       
+ 	var typeFilter	= katFilter
                         .filter ( i => type.includes( i.category ) )
- 
-   	//show(emnekoder)
-  return avtaletype 
+ 	
+  let utvAvtaler 	= typeFilter
+   	
+  return utvAvtaler 
   
    
 }
 
 getData()
-.then(avtaletype => {
- console.log(avtaletype)
+.then(utvAvtaler => {
+// console.log(utvAvtaler)
  
 		let tab =
 			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
@@ -68,20 +76,17 @@ getData()
         <th class="col1">Id</th>
 				<th class="col2">Land</th>
 				<th class="col3">Navn</th>
-        <th class="col3">Eier</th>
+        <th class="col3">Avtaleeier</th>
 			</tr></thead>`;
 	
 		// Loop to access all rows
-		for (let r of avtaletype) {
+		for (let r of utvAvtaler) {
         	tab += `<tr> 
 				<td >${r.category}</a></td>  
         <td ><a href="https://www.uib.no/utvekslingsavtale/${r.id}">${r.id}</a></td>  
 				<td >${r.ref_countries}</td>   
    			<td >${r.title_no.split(' og ').slice(0,1)}</td> 
-        <td >${r.title_no.slice((r.title_no.search(" og "))+3).replace(/ \([\s\S]*?\)/g, '')
-            
-         
-            }</td>  
+        <td >${r.avtaleeier}</td>  
 			</tr>`;
 					}
 	
