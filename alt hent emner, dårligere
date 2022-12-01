@@ -1,0 +1,19 @@
+const urls = ['INFO132','INFO135'];
+
+// using async await with for loop
+
+const der = async (x) => {
+    const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
+    const j = await f.json()
+    return j;
+};
+
+urls.forEach(async(url) => {console.log(await der(url))});
+
+// using promise all with then method
+
+Promise.all(urls.map(x =>
+   fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`).then(response => response.json())
+)).then(data => {
+   console.log(data)
+})
