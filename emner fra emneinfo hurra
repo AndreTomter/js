@@ -1,0 +1,36 @@
+
+async function getData() {
+  const url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
+  const emner11 = url11.emner_fag
+  var emnekode11 = Object.values(emner11)
+  var copy = [];
+        emnekode11.forEach(function (emnekode11) {
+            copy.push(emnekode11.id);
+        });
+  const emnekoder = copy
+
+
+ const data11 = Promise.all(url11);
+ return emnekoder 
+ } 
+
+getData()
+.then(emnekoder => {
+console.log(emnekoder)
+
+const der = async (x) => {
+    const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
+    const j = await f.json()
+    const e = (({ url, studierettkrav, emnenavn, emneid, sted }) => ({ url, studierettkrav, emnenavn, emneid, sted }))(j);
+    
+    return e;
+};
+
+emnekoder.forEach(async(emnekoder) => {console.log(await der(emnekoder))});
+
+// using promise all with then method
+
+
+
+
+})
