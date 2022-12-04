@@ -1,0 +1,77 @@
+
+
+<table  style="width:100%">
+        <thead id="headeris">
+
+        </thead>
+        <tbody id="duomenys">
+
+        </tbody>
+    </table>
+    
+    
+    
+
+const urls = ['INFO135','INFO100'];
+
+// using async await with for loop
+
+const der = async (x) => {
+    const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
+    const j = await f.json()
+		const sem = '2022h'
+    const emnekode = j.emneid.emnekode
+    const emnenavn = j.emnenavn
+    const instituttnr = j.sted[0].instituttnr
+    const instituttnavn = j.sted[0].navn
+    const studiepoeng = j.studiepoeng
+    const url = j.url
+    const studierettkrav = j.studierettkrav
+    const studieniva =j.studieniva
+    const enkeltemneopptak = j.enkeltemneopptak
+    const k = Object.assign({emnekode},{emnenavn}, {instituttnr},{instituttnavn}, {studiepoeng}, {studierettkrav},{enkeltemneopptak}, {url}, {studieniva});
+   
+    return k;
+};
+
+//urls.forEach(async(url) => {console.log(await der(url))} );
+
+let o = urls.forEach(async (item) => {
+    
+
+ var o =  (await der(item))
+ 
+//tableH = [];
+//tableR = [];
+let header = '';
+
+
+ // header += k.padEnd(10);
+  header += `
+                    <th> overskrift 1 </th> 
+                    <th> overskrift 2 </th> 
+                    <th> overskrift 3 </th> 
+        `
+
+document.getElementById('headeris').innerHTML = header;
+
+var tableR = '';
+ 
+ // tableR += `<tr>`
+  for (const r of Object.values(o)) { 
+    row = '';
+  // row = i[i];
+    row  += `<tr>
+                    <td style= "width:100 px">  ${o.emnekode} </td> 
+                   <td style= "width:100 px">  ${o.studieniva} </td> 
+
+                   
+            </tr>`
+  }
+//  tableR += `</tr>`
+
+document.getElementById('duomenys').innerHTML += row; 
+  });
+  
+  
+//console.log(o);
