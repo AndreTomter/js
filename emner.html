@@ -213,11 +213,11 @@ color: #666
 	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
 	var yyyy = semdato.getFullYear();
 
-		if (dd >= 01 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"V";}
-		if (			mm	< 	06) 	{ semester = yyyy	+	"V";}
-		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"V";}
-		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"H";}
-		if (			mm	> 	06 === 12) 	{ semester = yyyy	+	"H";}
+		if (dd >= 01 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"v";}
+		if (			mm	< 	06) 	{ semester = yyyy	+	"v";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"v";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"h";}
+		if (			mm	> 	06 === 12) 	{ semester = yyyy	+	"h";}
 		
 		if (dd >= 01 	&&	mm	== 	12) 	{ semestertekst = "våren " + (yyyy+1)	;}
 		if (			mm	< 	06) 	{ semestertekst = "våren " + yyyy	;}
