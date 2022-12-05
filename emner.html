@@ -255,13 +255,13 @@ color: #666
    
 	console.log(sortert)
    
-   	show(sortert)
+   	show(sortert, semester)
    
   					}
   	
 	getapi(api_url)
   
-  	function show(sortert) {
+  	function show(sortert, semester) {
 		let tab =
 			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
 				<th class="col1">Emnekode</th>
@@ -272,7 +272,7 @@ color: #666
 		// Loop to access all rows
 		for (let r of sortert) {
         	tab += `<tr class="emner" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
-				<td ><a href="https://www.uib.no/emne/${r.emnekode}"  target="_blank" rel="noopener noreferrer">${r.emnekode}</a></td>   
+				<td ><a href="https://www.uib.no/emne/${r.emnekode}?sem=${semester}"  target="_blank" rel="noopener noreferrer">${r.emnekode}</a></td>   
 				<td >${r.emnenavn_bokmal}</td>   
    				<td style="text-align: right;">${r.studiepoeng} sp</td>   
 			</tr>`;
