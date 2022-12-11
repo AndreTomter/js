@@ -43,10 +43,14 @@ async function getData() {
 
  	
   var emner 	=newEmne11.concat(newEmne12).concat(newEmne13).concat(newEmne15).concat(newEmne17).concat(newEmne34).concat(newEmne41)
- 
+ console.log(emner)
   let tab = "";    
     for (let e of emner) {
-    tab += `<div class="${e.id}">${e.id}</div>`
+    tab += `
+    <tr class="${e.id}">
+    	<td>${e.id}</td>
+      <td>${e.title_no}</td>
+    </tr>`
    document.getElementById("demo2").innerHTML = tab;
  
  	var semdato = new Date();
@@ -86,7 +90,10 @@ async function getData() {
 //document.getElementById("demo2").innerHTML = text;
         }
 getapi3(api_url);
+ 
 }
+
+  
  }  
 getData();
 
@@ -96,8 +103,31 @@ getData();
 
 <ul id="demo" style="float: left">
 </ul>
-<div id="demo2" style="float: right">
-</div>
 
+<table>
+	<caption>Emneliste</caption>
+	<thead>
+		<tr>
+      			<th>Emnenkode</th>
+      			<th>Emnenavn</th>
+    		</tr>
+	</thead>
+	<tbody id="demo2">
+		<tr>
+			<td>eksempel 1 celle 1</td>
+			<td>eksempel 1 celle 2</td>
+		</tr>
+		<tr>
+			<td>eksempel 2 celle 1</td>
+			<td>eksempel 2 celle 2</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>foot</td>
+			<td>foot</td>
+		</tr>
+	</tfoot>
+</table>
 </body>
 </html>
