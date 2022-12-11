@@ -41,33 +41,19 @@ async function getData() {
   var newEmne41 		= emne41.map(v => ({...v, institutt: "Institutt-for-geografi"}))
   var data41 			= Promise.all(url41)
 
-
- 	
   var emner 	=newEmne11.concat(newEmne12).concat(newEmne13).concat(newEmne15).concat(newEmne17).concat(newEmne34).concat(newEmne41)
  
   let tab = "";    
     for (let e of emner) {
     tab += `<div class="${e.id}">${e.id}</div>`
    document.getElementById("demo2").innerHTML = tab;
- 
 }
-
-  
   console.log(em)
  }  
 getData();
-
 </script>
-
-
 </head>
 <body>
-
-
-
-
-
-
 
 <ul id="demo" style="float: left">
 </ul>
@@ -120,8 +106,5 @@ getapi3(api_url);
 
 </script>
 
-
-
 </body>
-
 </html>
