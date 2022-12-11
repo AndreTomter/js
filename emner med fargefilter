@@ -1,0 +1,78 @@
+<script>
+const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
+	async function getapi(url)	{
+	const response = await fetch(url);
+	const data = await response.json();
+	const emne = data.emne;
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+    let text = "";https://jsfiddle.net/#
+    for (const x of sortert.values()) {
+  text += '<div class='+x.emnekode+'>' +x.emnekode + '</div><br>';
+}
+document.getElementById("demo").innerHTML = text;
+   // show(myArray)
+  					}
+getapi(api_url)
+
+</script>
+<script>
+const fakultet = ['15']
+const api_url2 = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
+	async function getapi2(url)	{
+	const response = await fetch(url);
+	const data = await response.json();
+ 	const emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+    let text = "";
+    for (const x of sortert.values()) {
+    text += '<div class='+x.emnekode+'>' +x.emnekode + '</div><br>';
+}
+document.getElementById("demo2").innerHTML = text;
+   // show(myArray)
+  					}
+getapi2(api_url2)
+
+</script>
+<script>
+const fakultet3 = ['15']
+const api_url3 = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/2022H";
+	async function getapi3(url)	{
+	const response = await fetch(url);
+	const data = await response.json();
+ 	const emne = data.emne.filter( i => fakultet3.includes( i.faknr_reglement ) );
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+	var emneKode = [];
+        sortert.forEach(function (emneObj) {
+            emneKode.push(emneObj.emnekode)});
+	var emnekoder = emneKode.map(i => '.' + i);
+   
+ 						const l = emnekoder
+            var x = document.querySelectorAll(l);
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = "red";
+            }
+//document.getElementById("demo2").innerHTML = text;
+        }
+getapi3(api_url3)
+
+</script>
+<div id="demo" style="float: left">
+</div>
+<div id="demo2" style="float: right">
+</div>
