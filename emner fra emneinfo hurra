@@ -23,7 +23,7 @@ const der = async (x) => {
     const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }))(j);
     
     var u = `<tr> 
-				<td >${e.emneid.emnekode}</a></td>   
+				<td >${e.emneid.emnekode}</td>   
 				<td >${e.emnenavn}</td>   
    			<td >${e.studierettkrav}</td>
         <td >${e.studiepoeng}</td> 
