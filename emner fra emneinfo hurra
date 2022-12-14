@@ -1,4 +1,3 @@
-
 async function getData() {
   const url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
   const emner11 = url11.emner_fag
@@ -21,8 +20,20 @@ console.log(emnekoder)
 const der = async (x) => {
     const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
     const j = await f.json()
-    const e = (({ url, studierettkrav, emnenavn, emneid, sted }) => ({ url, studierettkrav, emnenavn, emneid, sted }))(j);
+    const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }))(j);
     
+    var u = `<tr> 
+				<td >${e.emneid.emnekode}</a></td>   
+				<td >${e.emnenavn}</td>   
+   			<td >${e.studierettkrav}</td>
+        <td >${e.studiepoeng}</td> 
+        <td >${e.sted[1].instituttnr}</td> 
+        <td >${e.sted[1].navn}</td> 
+			</tr>`
+    
+    
+    
+document.getElementById('js-moduler').innerHTML += u //e.url + '</br>' + e.emnenavn + '</br>' 
     return e;
 };
 
