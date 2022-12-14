@@ -68,9 +68,9 @@ const der = async (emnekoder) => {
     const j = await f.json()
     const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }))(j);
     
-    var u = `<tr class="emner" data-port="${e.sted[1].instituttnr}"> 
-				<td >${e.emneid.emnekode}</td>   
-				<td >${e.emnenavn}</td>   
+    var u = `<tr class="${e.studierettkrav} emner" data-port="${e.sted[1].instituttnr} data-open="${e.studierettkrav}"> 
+				<td class="${e.studierettkrav}" >${e.emneid.emnekode}</td>   
+				<td class="${e.studierettkrav}">${e.emnenavn}</td>   
    			<td >${e.studierettkrav}</td>
         <td >${e.studiepoeng}</td> 
         <td >${e.sted[1].navn}</td> 
@@ -92,12 +92,38 @@ emnekoder.forEach(async(emnekoder) => {console.log(await der(emnekoder))});
 
 })
 </script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
   <p>
     Henter emner fra sted.
   </p>
 
+<div class="tags">
+    <label><input type="checkbox" rel="true" /> true </label>
+    <label><input type="checkbox" rel="false" /> false </label>
+</div>
+		<script>
+		var updateRows = function()
+{
+    // Get ones to show
+    var toShow = [];
+    $('div.tags input[type=checkbox]:checked').each(function(){
+        var box = $(this);
+        toShow.push('.' + box.attr('rel'));
+    });
+    toShow = toShow.join(', ');
+
+    // Filter rows
+    $('table > tbody > tr').each(function() {
+        var row = $(this);
+        row.toggle( row.is(toShow) );
+    });
+};
+$('div.tags input[type=checkbox]').click(updateRows);
+updateRows();
+    </script>
+    
 
 <p style="text-align: right;">
 		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
@@ -111,25 +137,7 @@ emnekoder.forEach(async(emnekoder) => {console.log(await der(emnekoder))});
 			<option class="emner" value="41">Institutt for geografi</option>
 		</select>
 		</p>
-		<script>
-		
-    $('#filter').change(function() {
-			var port = $(this).val()
-			console.log( port )
-	    		if ( port == '0' ) {
-				$("tr").css('display', 'table-row');
-			} 
-			else if ( port !== '' ) {
-				$("tr[data-port!=" + port+ "]").css('display', 'none');
-				$("tr[data-port=" + port+ "]").css('display', 'table-row');
-				$("tr[data-port=stay]").css('display', 'table-row');
-			} 
-	    		else {
-				$("tr").css('display', 'table-row');
-			}
-		});
-    </script>
-    
+
 <table >
 <thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
 				<td >Emnekode</td>   
