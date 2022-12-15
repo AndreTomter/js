@@ -68,7 +68,7 @@ const der = async (emnekoder) => {
     const j = await f.json()
     const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng }))(j);
     
-    var u = `<tr class="${e.studierettkrav} emner" data-port="${e.sted[1].instituttnr} data-open="${e.studierettkrav}"> 
+    var u = `<tr class="${e.studierettkrav} ${e.emneid.emnekode} emner" data-port="${e.sted[1].instituttnr} data-open="${e.studierettkrav}"> 
 				<td class="${e.studierettkrav}" >${e.emneid.emnekode}</td>   
 				<td class="${e.studierettkrav}">${e.emnenavn}</td>   
    			<td >${e.studierettkrav}</td>
