@@ -83,18 +83,31 @@ const url17 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/
  
  var emnekoder 	= copy11.concat(copy12).concat(copy13).concat(copy15).concat(copy17).concat(copy34).concat(copy41)
 
- return emnekoder 
+
+//sorterer alfabetisk
+	var sortert = emnekoder.sort( function( a, b )
+  	 			{
+                                  a = a;
+                                  b = b;
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+
+ return sortert 
  } 
 
 getData()
-.then(emnekoder => {
-console.log(emnekoder)
+.then(sortert => {
+console.log(sortert)
 
 const der = async (x) => {
     const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
-    const j = await f.json()
-    const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }))(j);
+    const e = await f.json()
+ 
+  //  const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }))(j);
+  
     
+
+
     var u = `<tr> 
 				<td >${e.emneid.emnekode}</td>   
 				<td >${e.emnenavn}</td>   
@@ -111,7 +124,7 @@ document.getElementById('js-moduler').innerHTML += u //e.url + '</br>' + e.emnen
     return e;
 };
 
-emnekoder.forEach(async(emnekoder) => {console.log(await der(emnekoder))});
+sortert.forEach(async(sortert) => {(await der(sortert))});
 
 // using promise all with then method
 
