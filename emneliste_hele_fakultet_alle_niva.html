@@ -1,0 +1,207 @@
+<html>
+<head>
+
+<script >
+async function getData() {
+  const url11 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.11/info.json')).json()
+  const emner11 = url11.emner_fag
+  var emnekode11 = Object.values(emner11)
+  var copy11 = [];
+        emnekode11.forEach(function (emnekode11) {
+            copy11.push(emnekode11.id);
+        });
+  const emnekoder11 = copy11
+
+
+ const data11 = Promise.all(url11);
+ 
+ const url12 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.12/info.json')).json()
+  const emner12 = url12.emner_fag
+  var emnekode12 = Object.values(emner12)
+  var copy12 = [];
+        emnekode12.forEach(function (emnekode12) {
+            copy12.push(emnekode12.id);
+        });
+  const emnekoder12 = copy12
+
+ var data12 = Promise.all(url12);
+
+ const url13 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.13/info.json')).json()
+  const emner13 = url13.emner_fag
+  var emnekode13 = Object.values(emner13)
+  var copy13 = [];
+        emnekode13.forEach(function (emnekode13) {
+            copy13.push(emnekode13.id);
+        });
+  const emnekoder13 = copy13
+
+ var data13 = Promise.all(url13);
+ 
+ const url15 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.15/info.json')).json()
+  const emner15 = url15.emner_fag
+  var emnekode15 = Object.values(emner15)
+  var copy15 = [];
+        emnekode15.forEach(function (emnekode15) {
+            copy15.push(emnekode15.id);
+        });
+  const emnekoder15 = copy15
+
+ var data15 = Promise.all(url15);
+
+const url17 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.17/info.json')).json()
+  const emner17 = url17.emner_fag
+  var emnekode17 = Object.values(emner17)
+  var copy17 = [];
+        emnekode17.forEach(function (emnekode17) {
+            copy17.push(emnekode17.id);
+        });
+  const emnekoder17 = copy17
+
+ var data17 = Promise.all(url17);
+ 
+ const url34 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.34/info.json')).json()
+  const emner34 = url34.emner_fag
+  var emnekode34 = Object.values(emner34)
+  var copy34 = [];
+        emnekode34.forEach(function (emnekode34) {
+            copy34.push(emnekode34.id);
+        });
+  const emnekoder34 = copy34
+
+ var data34 = Promise.all(url34);
+ 
+ const url41 = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/sted/184.15.41/info.json')).json()
+  const emner41 = url41.emner_fag
+  var emnekode41 = Object.values(emner41)
+  var copy41 = [];
+        emnekode41.forEach(function (emnekode41) {
+            copy41.push(emnekode41.id);
+        });
+  const emnekoder41 = copy41
+
+ var data41 = Promise.all(url41);
+ 
+ var emnekoder 	= copy11.concat(copy12).concat(copy13).concat(copy15).concat(copy17).concat(copy34).concat(copy41)
+
+ return emnekoder 
+ } 
+
+getData()
+.then(emnekoder => {
+console.log(emnekoder)
+
+const der = async (x) => {
+    const f = await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/${x}/info.json`)
+    const j = await f.json()
+    const e = (({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }) => ({ url, studierettkrav, emnenavn, emneid, sted, studiepoeng, studieniva }))(j);
+    
+    var u = `<tr> 
+				<td >${e.emneid.emnekode}</td>   
+				<td >${e.emnenavn}</td>   
+        <td >${e.studiepoeng} sp</td>
+   			<td style="display: none;">${e.studierettkrav}</td>
+        <td style="display: none;">${e.sted[1].instituttnr}</td> 
+        <td style="display: none;">${e.sted[1].navn}</td> 
+        <td style="display: none;">${e.studieniva}</td> 
+			</tr>`
+    
+    
+    
+document.getElementById('js-moduler').innerHTML += u //e.url + '</br>' + e.emnenavn + '</br>' 
+    return e;
+};
+
+emnekoder.forEach(async(emnekoder) => {console.log(await der(emnekoder))});
+
+// using promise all with then method
+
+
+
+
+})
+</script>
+</head>
+<body>
+<div class="container">
+        <div class="row">
+            <div class="col-4">
+                <select id="studierettDropdown">
+                    <option value="All">Alle emner</option>
+                    <option value="false">Åpne emner</option>
+                    
+                </select>
+            </div>
+            <div class="col-4">
+                <select id="instituttDropdown">
+                    <option value="All">All institutt</option>
+                    <option value="11">Sosiologisk institutt</option>
+                    <option value="12">Institutt for politikk og forvaltning</option>
+                    <option value="13">Institutt for Sammenlignende</option>
+                    <option value="15">Institutt økonomi</option>
+                    <option value="17">Institutt for informasjons- og medievitenskap</option>
+                    <option value="34">Institutt sosialantropologi</option>
+                     <option value="41">Institutt geografi</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select id="studienivaDropdown">
+                    <option value="All">Alle nivå </option>
+                    <option value="LN">Lavere nivå</option>
+                    <option value="HN">Høyere nivå</option>
+                    <option value="FU">Forskerutdanning</option>
+                 </select>
+            </div>
+        </div>
+<table>
+	<tbody id="js-moduler">
+  </tbody>
+</table>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var cols = {
+                studierettDropdown: 3,
+                instituttDropdown: 4,
+                studienivaDropdown: 6
+            },
+            filters = {
+                studierettDropdown: 'All',
+                instituttDropdown: 'All',
+                studienivaDropdown: 'All'
+            };
+
+        function filter(column, value) {
+            var table = document.getElementById("js-moduler"),
+                tr = table.getElementsByTagName("tr"),
+                i,
+                keys,
+                found;
+
+            filters[column] = value;
+            keys = Object.keys(filters);
+            for (i = 0; i < tr.length; i++) {
+                found = keys.every(function (k) {
+                    var td = tr[i].getElementsByTagName("td")[cols[k]];
+                    return filters[k] === "All" || td && td.innerHTML.indexOf(filters[k]) > -1;
+                });
+                tr[i].style.display = found ? "" : "none";
+            }
+        }
+
+        //Filtering region dropdown
+        $('body').on("change", '#studierettDropdown', function () {
+            filter('studierettDropdown', $(this).val());
+        });
+
+        //Filtering role dropdown
+        $('body').on("change", '#instituttDropdown', function () {
+            filter('instituttDropdown', $(this).val());
+        });
+
+        //Show active inactive users
+        $('body').on("change", '#studienivaDropdown', function () {
+            filter('studienivaDropdown', $(this).val());
+        });
+    </script>
+    </body>
+    </html>
