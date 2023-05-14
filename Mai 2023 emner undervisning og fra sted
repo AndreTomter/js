@@ -295,7 +295,7 @@ buttonToggle.addEventListener('click', toggleClass);
 
 
 function toggleClass(){
-  const element = [...document.querySelectorAll('.false')];
+  const element = [...document.querySelectorAll('.true')];
   for (const e of element) {
   e.classList.toggle('new-class');
 }
