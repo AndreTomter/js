@@ -1,7 +1,8 @@
 <head>
 <style>
 .visible {display: none}
-.visibleTO {display: none}
+.new-class {display: none}
+
 </style>
 <script>
 
@@ -97,18 +98,18 @@ getData()
 </head>
 <body>
 
-
-
-
- <div class="filterEn" >
-<select  onclick="myFunction()">
-      <option value="row">Alle retter</option>
-			<option value="true">sann</option>
-			<option value="false">usann</option>
-</select>
+<div>
+      <input type="checkbox" id="scales" name="scales" checked>
+      <label for="scales">Scales</label>
 </div>
-<div class="filterTo">
-<select onclick="myFunctionTO()" >
+
+<div class="demo">Hello</div>
+
+<button class="toggle">Toggle Class</button>
+
+
+<div class="filterSted">
+<select onclick="myStedfilterFunction()" >
       <option value='row'>Vis alle institutt</option>
 			<option value="11">Sosiologisk institutt</option>
 			<option value="12">Institutt for politikk og forvaltning</option>
@@ -122,10 +123,23 @@ getData()
 
 <div id="emner"></div>
 <script>
-function myFunction() {
+
+const buttonToggle = document.querySelector('.toggle');
+buttonToggle.addEventListener('click', toggleClass);
+
+
+function toggleClass(){
+  const element = [...document.querySelectorAll('.false')];
+  for (const e of element) {
+  e.classList.toggle('new-class');
+}
+}
+
+
+function myStedfilterFunction() {
 let selectedFilters = [];
 const images = [...document.querySelectorAll('.row')];
-const filters = [...document.querySelectorAll('.filterEn select')];
+const filters = [...document.querySelectorAll('.filterSted select')];
 
 for (const filter of filters) {
   filter.addEventListener('change', function(event) {
@@ -135,24 +149,6 @@ for (const filter of filters) {
       image.classList[selectedFilters.some(filter => image.classList.contains(filter)) 
         ? 'remove'
         : 'add']('visible');
-    }
-  })
-}
-}
-
-function myFunctionTO() {
-let selectedFilters = [];
-const images = [...document.querySelectorAll('.row')];
-const filters = [...document.querySelectorAll('.filterTo select')];
-
-for (const filter of filters) {
-  filter.addEventListener('change', function(event) {
-    selectedFilters = filters.map(filter => filter.value).filter(Boolean);
-    console.log(selectedFilters);
-    for (const image of images) {
-      image.classList[selectedFilters.some(filter => image.classList.contains(filter)) 
-        ? 'remove'
-        : 'add']('visibleTO');
     }
   })
 }
