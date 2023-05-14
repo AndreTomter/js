@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<script>
+	window.top.postMessage(
+		  {
+		    subject: 'lti.frameResize',
+		    height: 800
+		  },
+		  '*')
+</script>
+<style>
+	html, body 
+	    {
+	     overflow-y: hidden;
+	     overflow: clip;
+	     width: 800px;     
+	    }
+
+	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+		{
+		 background: #640000;  							/* fallback for old browsers */
+		 background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+		 background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+	
+	::-webkit-scrollbar-track 							/* scrollbar Track */
+		{
+    		 background: #C9D6FF;  							/* fallback for old browsers */
+    		 background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+    		 background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+	
+	
+	::-webkit-scrollbar 							/* scrollbar width */
+		{
+		 width: 8px;
+		}
+  h1	
+{  
+display: block;
+margin: 0;
+font-family: "Lato Extended", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+text-rendering: optimizelegibility;
+font-weight: 700;
+font-size: 1.8em;
+line-height: 1.5;
+color: #666
+}
+	a
+		{
+		 color:#0075af;
+     		 font-family: Arial, Helvetica, sans-serif;
+		}
+	
+  	p
+		{
+		 color: #333333;
+     		 font-family: Arial, Helvetica, sans-serif;
+		}
+  	
+	.tableFixHead 
+		{
+		 overflow-y     : scroll ;
+		 height         : 500px !important ;
+		 min-height     : 380px ;
+		 width          : 795px ;
+		 padding-right  : 1px ;
+		 scrollbar-width: thin;
+		 scrollbar-color: #6b8e9b;
+		}
+	
+	
+	.tableFixHead .emner thead th 
+		{
+    		 position: sticky !important;
+    		 top: 0 !important;
+    		}	
+	.emner	
+		{
+		 font-family: Arial, Helvetica, sans-serif;
+		 border-collapse: collapse;
+		}
+	
+	.emner table
+		{
+		 position: 0;
+		 border-collapse: collapse;
+     		 overflow: clip;
+     		 position: fixed !important;   
+		 display: table;
+		}
+
+	.emner td, .emner th, .emner tr
+		{
+	 	 border: 1px collapse #ddd;
+     		 padding-left: 20px !important;
+     		 padding-right: 20px !important;
+	   	 padding: 8px;
+     		 border-collapse: collapse;
+		 font-size: 12px;
+    		 border-bottom: 1px solid #d5d5d5;
+		}
+
+	.emner tr:hover 
+		{
+		 background-color: #ddd;
+		}
+  	
+	.emner tr
+		{
+		 display: table-row;
+		}
+	
+	.col1
+		{
+		 width: 80px !important;
+   		 display: table-col;
+		}
+	
+	.col2
+    		{
+		 width: 535px !important;
+    		 display: table-col;
+		}
+	
+	.col3
+   		{
+		 width: 80px !important;
+		 display: table-col;
+		}
+	
+  	.emner th 	
+		{
+		 padding-top: 9px;
+		 padding-bottom: 8px;
+		 text-align: left;
+		 background-color: #DB3F3D;	
+		 color: white !important;
+		 font-size: 14px !important;
+		}
+	
+	.emner table td + td + td 
+		{
+  		 text-align: left !important;
+		}
+	
+	.emner table th + th + th 
+		{
+  		 text-align: right !important;
+		}
+  
+  	#filter
+		{
+		 font-family: Arial, Helvetica, sans-serif;
+		 color: #333333;
+		 padding: 12px;
+		 maring-right: 25px;
+		 font-size: 14px;
+		 border: none;
+		 cursor: pointer;
+		}
+  
+  	select
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #DB3F3D;
+		color: #ffffff !important;
+		padding: 10px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+
+	option
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #fff;
+		color: #333333 ;
+		padding: 12px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+		}
+  
+	::-webkit-scrollbar-thumb 							/* scrollbar Handle */
+		{
+    		background: #640000;  							/* fallback for old browsers */
+    		background: -webkit-linear-gradient(to right, #aa0000, #640000);  	/* Chrome 10-25, Safari 5.1-6 */
+    		background: linear-gradient(to right, #aa0000, #640000); 		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		border-radius: 4px;
+    		}
+	
+	::-webkit-scrollbar-track 							/* scrollbar Track */
+		{
+	    	background: #C9D6FF;  							/* fallback for old browsers */
+	    	background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  	/* Chrome 10-25, Safari 5.1-6 */
+	    	background: linear-gradient(to right, #E2E2E2, #C9D6FF);		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    		border-radius: 4px;
+		}
+	
+	/* scrollbar width */
+	::-webkit-scrollbar 
+		{
+  		width: 4px;
+		}
+
+</style>
+
+		
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script>
+     	var semdato = new Date();
+	var dd = String(semdato.getDate()).padStart(2, '0');
+	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = semdato.getFullYear();
+
+		if (dd >= 01 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"v";}
+		if (			mm	< 	06) 	{ semester = yyyy	+	"v";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"v";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"h";}
+		if (			mm	> 	06 === 12) 	{ semester = yyyy	+	"h";}
+		
+		if (dd >= 01 	&&	mm	== 	12) 	{ semestertekst = "våren " + (yyyy+1)	;}
+		if (			mm	< 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semestertekst = "høsten " + yyyy	;}
+		if (			mm	> 	06 === 12) 	{ semestertekst = "høsten " + yyyy	;}
+	
+		
+		
+	//fakultet som skal vises
+	const fakultet = ['15']
+
+	// api url
+	const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
+
+	// Defining async function
+	async function getapi(url)	{
+
+	// Storing response
+	const response = await fetch(url);
+
+	// Storing data in form of JSON
+	const data = await response.json();
+  	
+	// filtrerer listen	
+	const emne = data.emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+  	
+	//sorterer alfabetisk
+	const sortert = emne.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+   
+	console.log(sortert)
+   
+   	show(sortert, semester)
+   
+  					}
+  	
+	getapi(api_url)
+  
+  	function show(sortert, semester) {
+		let tab =
+			`<thead stype="color: #FFFFFF"><tr data-port="stay" style="hight:20px">
+				<th class="col1">Emnekode</th>
+				<th class="col2">Emnenavn</th>
+				<th class="col3">Studiepoeng</th>
+			</tr></thead>`;
+	
+		// Loop to access all rows
+		for (let r of sortert) {
+        	tab += `<tr class="emner" data-port="${r.faknr_reglement}${r.instituttnr_reglement}"> 
+				<td ><a href="https://www.uib.no/emne/${r.emnekode}?sem=${semester}"  target="_blank" rel="noopener noreferrer">${r.emnekode}</a></td>   
+				<td >${r.emnenavn_bokmal}</td>   
+   				<td style="text-align: right;">${r.studiepoeng} sp</td>   
+			</tr>`;
+					}
+	
+	// Setting innerHTML as tab variable
+	document.getElementById("emner").innerHTML = tab;
+	document.getElementById("semestertekst").innerHTML = semestertekst;
+				}
+	document.addEventListener('DOMContentLoaded', function () {
+    		let table = new DataTable('#example');
+								});
+	
+  	table = document.getElementById("emner");	
+	
+	</script>
+		
+</head>
+<body>
+	<h1>Emner med undervisning <span id="semestertekst"></span></h1>
+	
+		<p style="text-align: right;">
+		<select id="filter" class="emner" stye="background-color: #DB3F3D">	  
+  			<option class="emner" value="0" style="font: bold";>Vis alle institutt</option>
+			<option class="emner" value="1511">Sosiologisk institutt</option>
+			<option class="emner" value="1512">Institutt for politikk og forvaltning</option>
+			<option class="emner" value="1513">Institutt for sammenliknende politikk</option>
+			<option class="emner" value="1515">Institutt for økonomi</option>
+			<option class="emner" value="1517">Institutt for informasjons- og medievitenskap</option>
+			<option class="emner" value="1534">Institutt for sosialantropologi</option>
+			<option class="emner" value="1541">Institutt for geografi</option>
+		</select>
+		</p>
+		<script>
+		
+    $('#filter').change(function() {
+			var port = $(this).val()
+			console.log( port )
+	    		if ( port == '0' ) {
+				$("tr").css('display', 'table-row');
+			} 
+			else if ( port !== '' ) {
+				$("tr[data-port!=" + port+ "]").css('display', 'none');
+				$("tr[data-port=" + port+ "]").css('display', 'table-row');
+				$("tr[data-port=stay]").css('display', 'table-row');
+			} 
+	    		else {
+				$("tr").css('display', 'table-row');
+			}
+		});
+    </script>
+
+	<div class="tableFixHead">
+		<table id="emner" class="emner"></table>
+ 	</div>
+	<p style="font-size: 10px;">Oversikten viser emner som undervises inneværende semester. Bacheloroppgave, masteroppgave og PhD emner vises ikke. <br>Visningen endrer semester 01 desember og 15 juni. </p>
+</body>
+</html>
