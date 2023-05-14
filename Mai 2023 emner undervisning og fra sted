@@ -8,6 +8,12 @@
 		  '*')
 </script>
 <style>
+html, body 
+	    {
+	     overflow-y: hidden;
+	     overflow: clip;
+	     width: 800px;     
+	    }
  h1	
 {  
 display: block;
@@ -51,7 +57,7 @@ select
 		border: none;
 		cursor: pointer;
 		}
-table  {border-collapse: collapse;}
+table  {border-collapse: collapse; width: 800px; }
  table th {
      position : sticky !important ;
      
@@ -91,33 +97,37 @@ table  {border-collapse: collapse;}
 
 .col1
 {
-width: 80px !important;
-display: table-col;
+max-width: 120px !important;
+min-width: 120px !important;
+display: table-col-block;
+ overflow: hidden !important;
 }
-.col2
+thead .col2
 {
-width: 535px !important;
-display: table-col;
+max-width: 510px !important;
+min-width: 510px !important;
+display: table-col-block;
+overflow: hidden !important;
 }
-.col3
+tbody .col2
 {
-width: 80px !important;
-display: table-col;
-text-align : left !important ;
+max-width: 570px !important;
+min-width: 570px !important;
+display: table-col-block;
+overflow: hidden !important;
 }
- thead .col3 
+tbody .col3
 {
-width: 99px !important ;;
+max-width: 70px !important;
+min-width: 70px !important;
 display: table-col-block;
 text-align : left !important ;
-padding-left: 10px;
-padding-right: : 10px  ;
 }
- tbody .col3 
+thead .col3
 {
-width: 80px !important ;;
-display: table-col;
-padding-left: 35px !important ;
+max-width: 90px !important;
+min-width: 90px !important;
+display: table-col-block;
 text-align : left !important ;
 }
 .visible {display: none}
@@ -215,7 +225,7 @@ getData()
       for (let e of emneData) {
             tab += ` 
             				<tr class = "row ${e.studierettkrav} ${e.sted[1].instituttnr}"> 
-                        <td lass="col1">${e.emneid.emnekode}</td>   
+                        <td class="col1">${e.emneid.emnekode}</td>   
                         <td class="col2">${e.emnenavn}</td>   
                         <td class="col3">${e.studiepoeng} sp</td> 
                         
