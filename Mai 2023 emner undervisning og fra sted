@@ -2,7 +2,23 @@
 <style>
 .visible {display: none}
 .new-class {display: none}
-
+.toggle {
+  color:white;
+  font-size:20px;
+  width:30px;
+  height:30px;
+  background-color: #fff;
+  display: block;
+  text-align:center;
+  position: relative;
+  border: 1px solid transparent;
+  background: #9E9E9E;
+}
+.filterSted {
+  display: block;
+  margin-left: 1em;
+  font-size:20px;
+}
 </style>
 <script>
 
@@ -97,17 +113,8 @@ getData()
 
 </head>
 <body>
-
-<div>
-      <input type="checkbox" id="scales" name="scales" checked>
-      <label for="scales">Scales</label>
-</div>
-
-<div class="demo">Hello</div>
-
-<button class="toggle">Toggle Class</button>
-
-
+<div style="display: flex; align-items: center;">
+<div class="toggle" >✓</div>
 <div class="filterSted">
 <select onclick="myStedfilterFunction()" >
       <option value='row'>Vis alle institutt</option>
@@ -120,9 +127,21 @@ getData()
 			<option value="41">Institutt for geografi</option>
 </select>
 </div>
-
+</div>
 <div id="emner"></div>
 <script>
+var elements=document.getElementsByClassName('toggle')
+function handler(el){
+el[i].addEventListener('click',
+function(e){
+
+e.target.innerHTML==''?e.target.innerHTML='✓':e.target.innerHTML='';
+},false)
+}
+for(var i=0;i<elements.length;++i){
+handler(elements)
+}
+
 
 const buttonToggle = document.querySelector('.toggle');
 buttonToggle.addEventListener('click', toggleClass);
