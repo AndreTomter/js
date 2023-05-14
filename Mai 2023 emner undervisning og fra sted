@@ -181,12 +181,17 @@ async function getData() {
   const semUrl = await (await fetch(api_url)).json()
 	const emne = semUrl.emne
  	const emneFilter = emne.filter( i => fakultet.includes( i.faknr_reglement ) );
-  var emnekoder = [];
-        emneFilter.forEach(function (emneFilter) {
-            emnekoder.push(emneFilter.emnekode);
-        })
   
-
+  const emneSort = emneFilter.sort( function( a, b )
+  	 			{
+                                  a = a.instituttnr_reglement.concat(a.emnekode.toLowerCase());
+                                  b = b.instituttnr_reglement.concat(b.emnekode.toLowerCase());
+                                  return a < b ? -1 : a > b ? 1 : 0;
+	                        });
+var emnekoder = [];
+        emneSort.forEach(function (emneSort) {
+            emnekoder.push(emneSort.emnekode);
+        })
   return emnekoder
   }
   
