@@ -1,0 +1,143 @@
+<body>
+<button onclick="aapneEmnerFunction()">Åpne emner</button>
+<button onclick="alleEmnerFunction()">Alle emner</button>
+<div id="emner"></div>
+
+</body>
+
+<script>
+
+var semdato = new Date();
+	var dd = String(semdato.getDate()).padStart(2, '0');
+	var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = semdato.getFullYear();
+
+		if (dd >= 01 	&&	mm	== 	12) 	{ semester = yyyy+1	+	"v";}
+		if (			mm	< 	06) 	{ semester = yyyy	+	"v";}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semester = yyyy	+	"v";}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semester = yyyy	+	"h";}
+		if (			mm	> 	06 === 12) 	{ semester = yyyy	+	"h";}
+		
+		if (dd >= 01 	&&	mm	== 	12) 	{ semestertekst = "våren " + (yyyy+1)	;}
+		if (			mm	< 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd <  15 	&& 	mm 	== 	06) 	{ semestertekst = "våren " + yyyy	;}
+		if (dd >= 15 	&&	mm 	== 	06) 	{ semestertekst = "høsten " + yyyy	;}
+		if (			mm	> 	06 === 12) 	{ semestertekst = "høsten " + yyyy	;}
+
+	const fakultet = ['15']
+	const api_url = "https://fs.data.uib.no/KEYuxumaqu6u/json/littl_emne/"	+	semester;
+  
+async function getData() {
+	
+  const semUrl = await (await fetch(api_url)).json()
+	const emne = semUrl.emne
+ 	const emneFilter = emne.filter( i => fakultet.includes( i.faknr_reglement ) );
+  var emnekoder = [];
+        emneFilter.forEach(function (emneFilter) {
+            emnekoder.push(emneFilter.emnekode);
+        })
+  
+
+  return emnekoder
+  }
+function alleEmnerFunction() {
+getData()
+
+  .then(emnner => {
+  console.log(emnner)
+
+      Promise.all(
+        emnner.map(p=>fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/'+p+'/info.json').then(r=>r.json())) 
+      )
+
+  .then(alleEmner=> {
+     /*     console.log(results); */
+
+	
+	const emneData = alleEmner
+      let tab = ``;
+      for (let e of emneData) {
+            tab += `<tr> 
+                        <td >${e.emneid.emnekode}</td>   
+                        <td >${e.emnenavn}</td>   
+                        <td >${e.studierettkrav}</td>
+                        <td >${e.studiepoeng}</td> 
+                        <td >${e.sted[1].navn}</td> 
+                        <td >${e.sted[1].instituttnr}</td> 		
+                    </tr>`
+                              }
+        const resultat = `<table> 
+                            <thead stype="color: #FFFFFF">
+                               <tr data-port="stay" style="hight:20px">
+                                    <th class="col1">Emnekode</th>
+                                    <th class="col2">Emnenavn</th>
+                                    <th class="col3">studierettkrav</th>
+                                    <th class="col1">studiepoeng</th>
+                                    <th class="col2">institutt</th>
+                                    <th class="col3">instituttnr</th>
+                               </tr>
+                              </thead>`
+                         + tab 
+                         + `</table>`
+        /* document.getElementById("emner").innerHTML = resultat;	*/
+
+    document.getElementById("emner").innerHTML = resultat;
+
+
+        }	
+      );
+
+  })
+}
+
+function aapneEmnerFunction() {
+  getData()
+
+  .then(emnner => {
+  console.log(emnner)
+
+      Promise.all(
+        emnner.map(p=>fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/'+p+'/info.json').then(r=>r.json())) 
+      )
+
+  .then(alleEmner=> {
+     /*     console.log(results); */
+
+	const status = 'false'
+	const emnerStudierettkrav = alleEmner.filter( i => status.includes( i.studierettkrav ) );
+	const emneData = emnerStudierettkrav
+      let tab = ``;
+      for (let e of emneData) {
+            tab += `<tr> 
+                        <td >${e.emneid.emnekode}</td>   
+                        <td >${e.emnenavn}</td>   
+                        <td >${e.studierettkrav}</td>
+                        <td >${e.studiepoeng}</td> 
+                        <td >${e.sted[1].navn}</td> 
+                        <td >${e.sted[1].instituttnr}</td> 		
+                    </tr>`
+                              }
+        const resultat = `<table> 
+                            <thead stype="color: #FFFFFF">
+                               <tr data-port="stay" style="hight:20px">
+                                    <th class="col1">Emnekode</th>
+                                    <th class="col2">Emnenavn</th>
+                                    <th class="col3">studierettkrav</th>
+                                    <th class="col1">studiepoeng</th>
+                                    <th class="col2">institutt</th>
+                                    <th class="col3">instituttnr</th>
+                               </tr>
+                              </thead>`
+                         + tab 
+                         + `</table>`
+        /* document.getElementById("emner").innerHTML = resultat;	*/
+
+    document.getElementById("emner").innerHTML = resultat;
+
+
+        }	
+      );
+
+  })
+}
+</script>
