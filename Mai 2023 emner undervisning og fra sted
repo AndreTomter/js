@@ -1,51 +1,8 @@
 <head>
- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-</head>
-<body>
-
-
-
-
-<button onclick="aapneEmnerFunction()">Åpne emner</button>
-<button onclick="alleEmnerFunction()">Alle emner</button>
-
-
-
- <p>
- <select id="filter" class="emner" stye="background-color: #DB3F3D">	  
-  			<option class="emner" value="0" style="font: bold";>Vis alle institutt</option>
-			<option class="emner" value="11">Sosiologisk institutt</option>
-			<option class="emner" value="12">Institutt for politikk og forvaltning</option>
-			<option class="emner" value="13">Institutt for sammenliknende politikk</option>
-			<option class="emner" value="15">Institutt for økonomi</option>
-			<option class="emner" value="17">Institutt for informasjons- og medievitenskap</option>
-			<option class="emner" value="34">Institutt for sosialantropologi</option>
-			<option class="emner" value="41">Institutt for geografi</option>
-		</select>
-		</p>
-		<script>
-		
-    $('#filter').change(function() {
-			var port = $(this).val()
-			console.log( port )
-	    		if ( port == '0' ) {
-				$("tr").css('display', 'table-row');
-			} 
-			else if ( port !== '' ) {
-				$("tr[data-instituttnr!=" + port+ "]").css('display', 'none');
-				$("tr[data-instituttnr=" + port+ "]").css('display', 'table-row');
-				$("tr[data-port=stay]").css('display', 'table-row');
-			} 
-	    		else {
-				$("tr").css('display', 'table-row');
-			}
-		});
-    </script>
-
-<div id="emner"></div>
-
-</body>
-
+<style>
+.visible {display: none}
+.visibleTO {display: none}
+</style>
 <script>
 
 var semdato = new Date();
@@ -83,7 +40,7 @@ async function getData() {
   }
   
   
-function alleEmnerFunction() {
+
 getData()
 
   .then(emnner => {
@@ -101,7 +58,7 @@ getData()
       let tab = ``;
       for (let e of emneData) {
             tab += ` 
-            				<tr data-instituttnr="${e.sted[1].instituttnr}"> 
+            				<tr class = "row ${e.studierettkrav} ${e.sted[1].instituttnr}"> 
                         <td >${e.emneid.emnekode}</td>   
                         <td >${e.emnenavn}</td>   
                         <td >${e.studierettkrav}</td>
@@ -110,7 +67,7 @@ getData()
                         <td >${e.sted[1].instituttnr}</td> 		
                     </tr>`
                               }
-        const resultat = `<table> 
+        const resultat = `<table id="myTable"> 
                             <thead stype="color: #FFFFFF">
                                <tr data-port="stay" style="hight:20px">
                                     <th class="col1">Emnekode</th>
@@ -129,62 +86,77 @@ getData()
 
 
         }	
+        
       );
 
   })
-}
-
-function aapneEmnerFunction() {
-  getData()
-
-  .then(emnner => {
-  console.log(emnner)
-
-      Promise.all(
-        emnner.map(p=>fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/'+p+'/info.json').then(r=>r.json())) 
-      )
-
-  .then(alleEmner=> {
-     /*     console.log(results); */
-
-	const status = 'false'
-	const emnerStudierettkrav = alleEmner.filter( i => status.includes( i.studierettkrav ) );
-	const emneData = emnerStudierettkrav
-      let tab = ``;
-      for (let e of emneData) {
-            tab += `<tr data-year="${e.sted[1].instituttnr}> 
-                        <td >${e.emneid.emnekode}</td>   
-                        <td >${e.emnenavn}</td>   
-                        <td >${e.studierettkrav}</td>
-                        <td >${e.studiepoeng}</td> 
-                        <td >${e.sted[1].navn}</td> 
-                        <td >${e.sted[1].instituttnr}</td> 		
-                    </tr>`
-                              }
-        const resultat = `<table> 
-                            <thead stype="color: #FFFFFF">
-                               <tr data-port="stay" style="hight:20px">
-                                    <th class="col1">Emnekode</th>
-                                    <th class="col2">Emnenavn</th>
-                                    <th class="col3">studierettkrav</th>
-                                    <th class="col1">studiepoeng</th>
-                                    <th class="col2">institutt</th>
-                                    <th class="col3">instituttnr</th>
-                               </tr>
-                              </thead>`
-                         + tab 
-                         + `</table>`
-        /* document.getElementById("emner").innerHTML = resultat;	*/
-
-    document.getElementById("emner").innerHTML = resultat;
 
 
-        }	
-      );
-
-  })
-}
 </script>
+
+</head>
+<body>
+
+
+
+
+ <div class="filterEn" >
+<select  onclick="myFunction()">
+      <option value="row">Alle retter</option>
+			<option value="true">sann</option>
+			<option value="false">usann</option>
+</select>
+</div>
+<div class="filterTo">
+<select onclick="myFunctionTO()" >
+      <option value='row'>Vis alle institutt</option>
+			<option value="11">Sosiologisk institutt</option>
+			<option value="12">Institutt for politikk og forvaltning</option>
+			<option value="13">Institutt for sammenliknende politikk</option>
+			<option value="15">Institutt for økonomi</option>
+			<option value="17">Institutt for informasjons- og medievitenskap</option>
+			<option value="34">Institutt for sosialantropologi</option>
+			<option value="41">Institutt for geografi</option>
+</select>
+</div>
+
+<div id="emner"></div>
 <script>
+function myFunction() {
+let selectedFilters = [];
+const images = [...document.querySelectorAll('.row')];
+const filters = [...document.querySelectorAll('.filterEn select')];
 
+for (const filter of filters) {
+  filter.addEventListener('change', function(event) {
+    selectedFilters = filters.map(filter => filter.value).filter(Boolean);
+    console.log(selectedFilters);
+    for (const image of images) {
+      image.classList[selectedFilters.some(filter => image.classList.contains(filter)) 
+        ? 'remove'
+        : 'add']('visible');
+    }
+  })
+}
+}
+
+function myFunctionTO() {
+let selectedFilters = [];
+const images = [...document.querySelectorAll('.row')];
+const filters = [...document.querySelectorAll('.filterTo select')];
+
+for (const filter of filters) {
+  filter.addEventListener('change', function(event) {
+    selectedFilters = filters.map(filter => filter.value).filter(Boolean);
+    console.log(selectedFilters);
+    for (const image of images) {
+      image.classList[selectedFilters.some(filter => image.classList.contains(filter)) 
+        ? 'remove'
+        : 'add']('visibleTO');
+    }
+  })
+}
+}
 </script>
+</body>
+
