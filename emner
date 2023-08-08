@@ -262,11 +262,11 @@ async function getData() {
                         <td class="col3">` + e.studiepoeng + ` sp</td> 
                         
                     </tr>`
-           
+            document.getElementById("emneBody").innerHTML += tab;
         }  catch (error) {
           console.error(error);
           }
-         document.getElementById("emneBody").innerHTML += tab;
+        
     }
 
 }
