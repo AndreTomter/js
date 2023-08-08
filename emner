@@ -183,6 +183,7 @@ var dd = String(semdato.getDate()).padStart(2, '0');
 var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = semdato.getFullYear();
 
+var semester = ""
 if (dd >= 01 && mm == 12) {
     semester = yyyy + 1 + "v";
 }
@@ -250,23 +251,22 @@ async function getData() {
                               </thead>`;
 
 
-    var l = emnekoder.length
-
+    var l = emnekoder.length;
 
     for (let i = 0; i < emnekoder.length; i++) {
         try {
             var e = await (await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/` + emnekoder[i] + `/info.json`)).json();
-            var tab = `<tr class = "row ` + e.studierettkrav + ` ` + e.sted[1].instituttnr + `"> 
+            var tab = ` <tr class = 'row ` + e.studierettkrav + ` ` + e.sted[1].instituttnr + `'> 
                         <td class="col1"><a href="https://www.uib.no/emne/` + e.emneid.emnekode + `?sem="  target="_blank" rel="noopener noreferrer">` + e.emneid.emnekode + `</a></td>   
                         <td class="col2">` + e.emnenavn + `</td>   
                         <td class="col3">` + e.studiepoeng + ` sp</td> 
                         
                     </tr>`
-            document.getElementById("emneBody").innerHTML += tab;
-        }  catch (error) {
-          console.error(error);
-          }
-        
+           
+        } catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+         document.getElementById("emneBody").innerHTML += tab;
     }
 
 }
