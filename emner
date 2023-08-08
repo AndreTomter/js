@@ -176,6 +176,7 @@ thead .col3 {
 	}
 </style>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
 
 var semdato = new Date();
 var dd = String(semdato.getDate()).padStart(2, '0');
@@ -274,7 +275,7 @@ async function getData() {
 
 getData()
 
-
+});
 
 </script>
 
