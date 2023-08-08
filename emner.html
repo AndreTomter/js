@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-
+   "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <script>
@@ -176,14 +176,12 @@ thead .col3 {
 	}
 </style>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
 
 var semdato = new Date();
 var dd = String(semdato.getDate()).padStart(2, '0');
 var mm = String(semdato.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = semdato.getFullYear();
 
-var semester = ""
 if (dd >= 01 && mm == 12) {
     semester = yyyy + 1 + "v";
 }
@@ -251,22 +249,23 @@ async function getData() {
                               </thead>`;
 
 
-    var l = emnekoder.length;
+    var l = emnekoder.length
+
 
     for (let i = 0; i < emnekoder.length; i++) {
         try {
-            var e = await (await fetch(`https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/` + emnekoder[i] + `/info.json`)).json();
-            var tab = ` <tr class = 'row ` + e.studierettkrav + ` ` + e.sted[1].instituttnr + `'> 
+            var e = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/' + emnekoder[i] + '/info.json')).json();
+            var tab = ` 
+            				<tr class = "row ` + e.studierettkrav + ` ` + e.sted[1].instituttnr + `"> 
                         <td class="col1"><a href="https://www.uib.no/emne/` + e.emneid.emnekode + `?sem="  target="_blank" rel="noopener noreferrer">` + e.emneid.emnekode + `</a></td>   
                         <td class="col2">` + e.emnenavn + `</td>   
                         <td class="col3">` + e.studiepoeng + ` sp</td> 
                         
                     </tr>`
-           
-        } catch(err) {
-    message.innerHTML = "Input is " + err;
-  }
-         document.getElementById("emneBody").innerHTML += tab;
+            document.getElementById("emneBody").innerHTML += tab;
+        } catch (error) {
+            console.error('Error fetching data for', emnekoder[i], error);
+        }
     }
 
 }
@@ -275,7 +274,7 @@ async function getData() {
 
 getData()
 
-});
+
 
 </script>
 
