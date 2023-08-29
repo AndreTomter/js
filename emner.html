@@ -257,7 +257,7 @@ async function getData() {
             var e = await (await fetch('https://fs-pres.data.uib.no/KEYuxumaqu6u/emne/' + emnekoder[i] + '/info.json')).json();
             var tab = ` 
             				<tr class = "row ` + e.studierettkrav + ` ` + e.sted[1].instituttnr + `"> 
-                        <td class="col1"><a href="https://www.uib.no/emne/` + e.emneid.emnekode + `?sem="  target="_blank" rel="noopener noreferrer">` + e.emneid.emnekode + `</a></td>   
+                        <td class="col1"><a href="https://www.uib.no/emne/` + e.emneid.emnekode + `?sem=` + semester + `"  target="_blank" rel="noopener noreferrer">` + e.emneid.emnekode + `</a></td>   
                         <td class="col2">` + e.emnenavn + `</td>   
                         <td class="col3">` + e.studiepoeng + ` sp</td> 
                         
